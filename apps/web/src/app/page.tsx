@@ -10,6 +10,7 @@ import { runVerificationPipeline, AuditLedger } from '../lib/pipeline';
 import { UploadWizard } from '../components/UploadWizard';
 import { PipelineTable } from '../components/PipelineTable';
 import { AuditExplorer } from '../components/AuditExplorer';
+import { EntityResolutionView } from '../components/EntityResolutionView';
 import {
   ShieldAlert,
   Building2,
@@ -26,12 +27,13 @@ import {
   Layers,
   Search,
   UploadCloud,
+  GitMerge,
 } from 'lucide-react';
 
 export default function HomePage() {
   const { t } = useI18n();
   const { user, role, switchRole } = useAuth();
-  const [activeTab, setActiveTab] = useState<'overview' | 'ingest' | 'pipeline' | 'audit' | 'roles' | 'architecture'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'ingest' | 'pipeline' | 'duplicates' | 'audit' | 'roles' | 'architecture'>('overview');
 
   // Shared in-memory dataset & audit ledger
   const [records, setRecords] = useState<StudentRecord[]>([]);
@@ -120,6 +122,7 @@ export default function HomePage() {
           { id: 'overview', label: t('nav.overview'), icon: Layers },
           { id: 'ingest', label: t('nav.ingest'), icon: UploadCloud },
           { id: 'pipeline', label: `${t('nav.pipeline')} (${records.length})`, icon: ShieldAlert },
+          { id: 'duplicates', label: 'Entity Resolution & ML', icon: GitMerge },
           { id: 'audit', label: t('nav.audit'), icon: Lock },
           { id: 'roles', label: t('common.switchRole'), icon: Users },
           { id: 'architecture', label: t('nav.architecture'), icon: Database },
@@ -304,6 +307,9 @@ export default function HomePage() {
           <PipelineTable records={records} />
         </div>
       )}
+
+      {/* TAB CONTENT: ENTITY RESOLUTION & ML RADAR */}
+      {activeTab === 'duplicates' && <EntityResolutionView />}
 
       {/* TAB CONTENT: AUDIT TRAIL */}
       {activeTab === 'audit' && (
