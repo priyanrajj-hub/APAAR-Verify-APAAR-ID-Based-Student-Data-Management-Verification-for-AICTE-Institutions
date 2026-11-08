@@ -178,4 +178,5 @@ docker compose up --build
 - [`docs/API.md`](docs/API.md) - Complete microservices REST API specification.
 - [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) - Vercel, Docker, Kind Kubernetes, and Google Cloud Run guide.
 - [`docs/DECISIONS.md`](docs/DECISIONS.md) - Architectural Decision Records (ADRs).
+- [`docs/I18N.md`](docs/I18N.md) - Multilingual 12-language localization architecture, RTL guide, and glossary.
 - [`LICENSE`](LICENSE) - MIT Open Source License.
