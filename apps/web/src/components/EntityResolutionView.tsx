@@ -29,7 +29,7 @@ export function EntityResolutionView() {
           apaar: '987654321015',
           name: 'Aarav Sharma',
           dob: '2003-04-12',
-          institution: 'Chennai Institute of Technology',
+          institution: 'Demo Institute of Technology',
           programme: 'B.Tech CSE',
           year: 2023,
         },

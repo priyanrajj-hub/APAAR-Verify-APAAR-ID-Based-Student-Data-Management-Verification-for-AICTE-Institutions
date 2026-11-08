@@ -4,7 +4,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 034131647520,Harish Reddy,2002-05-27,Female,General,INST_0374,Pune College of Engineering (Campus 374),Diploma in Mechanical Engineering,2023,7.98,91.2,std_00003@inst_0374.edu.in
 835030564131,Debasish Shetty,2002-11-06,Other,General,INST_0108,Rourkela Institute of Management (Campus 108),Master of Business Administration (MBA),2022,6.2,83.7,std_00004@inst_0108.edu.in
 849696532878,Pooja Patil,2014-05-12,Female,ST,INST_0291,Mangaluru Polytechnic (Campus 291),Post Graduate Diploma in Management (PGDM),2023,6.1,92.1,std_00005@inst_0291.edu.in
-480184514622,Divya Patil,2002-02-13,Male,ST,INST_0025,Chennai Institute of Technology (Campus 25),B.Tech Electronics and Communication,2024,8.06,85.8,std_00006@inst_0025.edu.in
+480184514622,Divya Patil,2002-02-13,Male,ST,INST_0025,Demo Institute of Technology (Campus 25),B.Tech Electronics and Communication,2024,8.06,85.8,std_00006@inst_0025.edu.in
 8809570154,Amit Nair,2000-11-10,Other,General,INST_0489,Jaipur Institute of Technology (Campus 489),Master of Business Administration (MBA),2022,6.16,92.5,std_00007@inst_0489.edu.in
 824896383463,Ananya Mehta,2000-09-25,Female,General,INST_0450,Kanpur College of Engineering (Campus 450),B.Tech Electronics and Communication,2022,6.05,85.9,std_00008@inst_0450.edu.in
 930103105183,Vishal Choudhury,2005-04-03,Female,General,INST_0333,Jaipur Institute of Technology (Campus 333),Post Graduate Diploma in Management (PGDM),2023,5.59,4.5,std_00009@inst_0333.edu.in
@@ -17,17 +17,17 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 400524278680,Moumita Gupta,2002-08-09,Male,SC,INST_0310,Thiruvananthapuram College of Engineering (Campus 310),B.Tech Civil Engineering,2021,5.9,84.7,std_00016@inst_0310.edu.in
 053315869239,Harish Sharma,2002-03-14,Female,EWS,INST_0484,Hyderabad Institute of Management (Campus 484),B.Tech Mechanical Engineering,2022,5.68,83.4,std_00017@inst_0484.edu.in
 160733754333,Siddharth Kumar,2000-07-26,Male,SC,INST_0500,Rajkot Institute of Management (Campus 500),B.Tech Mechanical Engineering,2022,6.65,93.1,std_00018@inst_0500.edu.in
-429401965562,Fatima Iyer,2001-09-13,Female,SC,INST_0205,Chennai Institute of Technology (Campus 205),Post Graduate Diploma in Management (PGDM),2023,9.54,77.7,std_00019@inst_0205.edu.in
+429401965562,Fatima Iyer,2001-09-13,Female,SC,INST_0205,Demo Institute of Technology (Campus 205),Post Graduate Diploma in Management (PGDM),2023,9.54,77.7,std_00019@inst_0205.edu.in
 356159514849,Ganesh Deshmukh,2006-12-14,Male,SC,INST_0262,Thiruvananthapuram College of Engineering (Campus 262),B.Tech Electronics and Communication,2021,7.74,93.5,std_00020@inst_0262.edu.in
 994680443698,Debasish Menon,2005-07-22,Other,OBC,INST_0168,Rourkela Institute of Management (Campus 168),Master of Computer Applications (MCA),2024,8.41,95.8,std_00021@inst_0168.edu.in
 951343320036,Vishal Verma,2002-08-26,Other,OBC,INST_0165,Jaipur Institute of Technology (Campus 165),Diploma in Mechanical Engineering,2022,8.33,81.5,std_00022@inst_0165.edu.in
-016328708314,Tanvi Pillai,2005-12-23,Other,EWS,INST_0313,Chennai Institute of Technology (Campus 313),B.Tech Electronics and Communication,2024,7.63,80.6,std_00023@inst_0313.edu.in
+016328708314,Tanvi Pillai,2005-12-23,Other,EWS,INST_0313,Demo Institute of Technology (Campus 313),B.Tech Electronics and Communication,2024,7.63,80.6,std_00023@inst_0313.edu.in
 2774348734,Mohammed Choudhury,2004-08-20,Other,EWS,INST_0411,Mangaluru Polytechnic (Campus 411),Diploma in Mechanical Engineering,2024,9.07,87.6,std_00024@inst_0411.edu.in
 316658760368,Fatima Gupta,2006-03-05,Female,EWS,INST_0147,Mangaluru Polytechnic (Campus 147),B.Tech Civil Engineering,2022,7.15,78.5,std_00025@inst_0147.edu.in
 688937346700,Rajesh Joshi,2004-05-25,Female,General,INST_0395,Amritsar Polytechnic (Campus 395),B.Tech Computer Science and Engineering,2024,9.17,96.9,std_00026@inst_0395.edu.in
 162720465374,Kishore Nair,2002-09-01,Female,OBC,INST_0343,Kolkata Polytechnic (Campus 343),Master of Computer Applications (MCA),2024,8.05,90.2,std_00027@inst_0343.edu.in
 100330923275,Fatima Pillai,2003-01-24,Female,General,INST_0390,Kanpur College of Engineering (Campus 390),Master of Computer Applications (MCA),2021,9.8,83.0,std_00028@inst_0390.edu.in
-419049663190,Tanvi Agarwal,2005-10-20,Female,SC,INST_0289,Chennai Institute of Technology (Campus 289),B.Tech Civil Engineering,2021,8.84,78.8,std_00029@inst_0289.edu.in
+419049663190,Tanvi Agarwal,2005-10-20,Female,SC,INST_0289,Demo Institute of Technology (Campus 289),B.Tech Civil Engineering,2021,8.84,78.8,std_00029@inst_0289.edu.in
 518506716571,Vikram Agarwal,2000-02-26,Female,EWS,INST_0322,Thiruvananthapuram College of Engineering (Campus 322),B.Tech Civil Engineering,2021,6.99,84.9,std_00030@inst_0322.edu.in
 945314737996,Kishore Choudhury,2002-09-25,Other,SC,INST_0223,Kolkata Polytechnic (Campus 223),B.Tech Mechanical Engineering,2024,7.5,94.0,std_00031@inst_0223.edu.in
 480831367838,Shruti Gupta,2005-06-26,Male,ST,INST_0173,North Delhi Institute of Technology (Campus 173),B.Tech Computer Science and Engineering,2023,6.96,95.2,std_00032@inst_0173.edu.in
@@ -53,7 +53,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 047113826755,Jaspreet Iyer,2001-05-21,Other,ST,INST_0168,Rourkela Institute of Management (Campus 168),B.Tech Civil Engineering,2024,6.0,76.0,std_00052@inst_0168.edu.in
 405377351581,Siddharth Deshmukh,2003-11-04,Other,OBC,INST_0381,Jaipur Institute of Technology (Campus 381),Diploma in Electrical Engineering,2024,8.15,96.6,std_00053@inst_0381.edu.in
 005329318397,Meera Joshi,2006-08-03,Female,OBC,INST_0331,Kolkata Polytechnic (Campus 331),Post Graduate Diploma in Management (PGDM),2022,13.54,88.7,std_00054@inst_0331.edu.in
-205395024024,Sanjay Kumar,2005-09-09,Female,OBC,INST_0169,Chennai Institute of Technology (Campus 169),B.Tech Mechanical Engineering,2022,5.97,94.9,std_00055@inst_0169.edu.in
+205395024024,Sanjay Kumar,2005-09-09,Female,OBC,INST_0169,Demo Institute of Technology (Campus 169),B.Tech Mechanical Engineering,2022,5.97,94.9,std_00055@inst_0169.edu.in
 908470076617,Sandhya Iyer,2000-06-17,Female,ST,INST_0270,Kanpur College of Engineering (Campus 270),B.Tech Electronics and Communication,2021,7.44,80.1,std_00056@inst_0270.edu.in
 569847896119,Rahul Iyer,2005-02-05,Female,EWS,INST_0466,Thiruvananthapuram College of Engineering (Campus 466),Diploma in Mechanical Engineering,2023,8.18,88.5,std_00057@inst_0466.edu.in
 565452711114,Kishore Singh,2005-07-11,Female,ST,INST_0334,Thiruvananthapuram College of Engineering (Campus 334),Diploma in Electrical Engineering,2024,7.21,91.8,std_00058@inst_0334.edu.in
@@ -65,7 +65,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 966416052977,Rahul Joshi,2003-01-15,Other,General,INST_0413,North Delhi Institute of Technology (Campus 413),Post Graduate Diploma in Management (PGDM),2021,9.21,88.2,std_00064@inst_0413.edu.in
 535218188352,Ananya Pillai,2003-10-13,Male,OBC,INST_0471,Mangaluru Polytechnic (Campus 471),Post Graduate Diploma in Management (PGDM),2021,7.2,82.1,std_00065@inst_0471.edu.in
 277997995521,Lakshmi Reddy,2005-03-20,Male,SC,INST_0491,Amritsar Polytechnic (Campus 491),B.Tech Mechanical Engineering,2022,8.77,90.1,std_00066@inst_0491.edu.in
-054119986799,Harpreet Menon,2006-06-17,Female,EWS,INST_0241,Chennai Institute of Technology (Campus 241),Diploma in Mechanical Engineering,2021,6.83,85.4,std_00067@inst_0241.edu.in
+054119986799,Harpreet Menon,2006-06-17,Female,EWS,INST_0241,Demo Institute of Technology (Campus 241),Diploma in Mechanical Engineering,2021,6.83,85.4,std_00067@inst_0241.edu.in
 518203778890,Zoyaa Bhaattaachaaryaa,2003-06-19,Other,OBC,INST_0406,Thiruvananthapuram College of Engineering (Campus 406),B.Tech Computer Science and Engineering,2022,9.62,85.4,std_00068@inst_0406.edu.in
 644925192549,Ganesh Pillai,2006-11-21,Female,EWS,INST_0470,Pune College of Engineering (Campus 470),Master of Business Administration (MBA),2023,5.78,77.2,std_00069@inst_0470.edu.in
 816850542357,Arjun Kulkarni,2004-09-13,Other,General,INST_0358,Thiruvananthapuram College of Engineering (Campus 358),Master of Computer Applications (MCA),2023,9.0,90.4,std_00070@inst_0358.edu.in
@@ -78,7 +78,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 952058527724,Swati Khan,2004-02-12,Other,General,INST_0023,Amritsar Polytechnic (Campus 23),Master of Computer Applications (MCA),2022,8.65,89.4,std_00077@inst_0023.edu.in
 874034505410,Karthik Menon,2000-04-02,Male,General,INST_0033,Jaipur Institute of Technology (Campus 33),Diploma in Mechanical Engineering,2023,9.51,86.9,std_00078@inst_0033.edu.in
 210249947172,Sandhya Verma,2005-08-23,Female,SC,INST_0224,Rajkot Institute of Management (Campus 224),Master of Computer Applications (MCA),2024,7.08,93.3,std_00079@inst_0224.edu.in
-596401658205,Kaarthik Menon,2000-04-02,Female,OBC,INST_0157,Chennai Institute of Technology (Campus 157),Diploma in Mechanical Engineering,2024,5.68,95.0,std_00080@inst_0157.edu.in
+596401658205,Kaarthik Menon,2000-04-02,Female,OBC,INST_0157,Demo Institute of Technology (Campus 157),Diploma in Mechanical Engineering,2024,5.68,95.0,std_00080@inst_0157.edu.in
 927557192857,Karthik Patel,2000-11-12,Male,OBC,INST_0348,Rourkela Institute of Management (Campus 348),Diploma in Mechanical Engineering,2023,7.15,88.0,std_00081@inst_0348.edu.in
 739473121724,Lakshmi Reddy,2003-09-13,Male,OBC,INST_0333,Jaipur Institute of Technology (Campus 333),Master of Business Administration (MBA),2021,6.63,81.0,std_00082@inst_0333.edu.in
 258313237053,Zoya Gupta,2001-02-18,Other,SC,INST_0228,Rourkela Institute of Management (Campus 228),B.Tech Electronics and Communication,2023,9.33,94.6,std_00083@inst_0228.edu.in
@@ -100,7 +100,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 420549329662,Sunita Bose,2003-05-07,Male,EWS,INST_0329,North Delhi Institute of Technology (Campus 329),Diploma in Electrical Engineering,2021,6.92,91.8,std_00099@inst_0329.edu.in
 454990453010,Mohammed Reddy,2003-06-08,Male,OBC,INST_0045,Jaipur Institute of Technology (Campus 45),Master of Computer Applications (MCA),2021,6.62,80.4,std_00100@inst_0045.edu.in
 272795687834,Zoya Choudhury,2001-02-21,Other,SC,INST_0082,Thiruvananthapuram College of Engineering (Campus 82),Master of Computer Applications (MCA),2023,7.08,80.1,std_00101@inst_0082.edu.in
-398225871399,Sunita Verma,2006-10-04,Other,SC,INST_0349,Chennai Institute of Technology (Campus 349),B.Tech Electronics and Communication,2021,9.06,95.8,std_00102@inst_0349.edu.in
+398225871399,Sunita Verma,2006-10-04,Other,SC,INST_0349,Demo Institute of Technology (Campus 349),B.Tech Electronics and Communication,2021,9.06,95.8,std_00102@inst_0349.edu.in
 406403910655,Vishal Sharma,2002-07-15,Female,OBC,INST_0461,North Delhi Institute of Technology (Campus 461),Diploma in Electrical Engineering,2021,7.9,90.5,std_00103@inst_0461.edu.in
 656766182512,Rahul Bose,2014-05-12,Male,SC,INST_0278,Pune College of Engineering (Campus 278),B.Tech Computer Science and Engineering,2022,8.79,97.5,std_00104@inst_0278.edu.in
 868633752431,Sunita Patel,2000-01-25,Other,OBC,INST_0276,Rourkela Institute of Management (Campus 276),Master of Computer Applications (MCA),2021,9.71,85.6,std_00105@inst_0276.edu.in
@@ -133,19 +133,19 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 629233095849,Vishal Reddy,2000-12-19,Male,OBC,INST_0179,Amritsar Polytechnic (Campus 179),B.Tech Electronics and Communication,2023,9.2,89.0,std_00132@inst_0179.edu.in
 604223253674,Gaanesh Pillaai,2006-11-21,Female,EWS,INST_0087,Mangaluru Polytechnic (Campus 87),Post Graduate Diploma in Management (PGDM),2021,6.08,92.3,std_00133@inst_0087.edu.in
 775901751864,Ganesh Verma,2003-09-24,Male,General,INST_0322,Thiruvananthapuram College of Engineering (Campus 322),Master of Computer Applications (MCA),2023,12.0,95.2,std_00134@inst_0322.edu.in
-001701277061,Fatima Gupta,2002-10-05,Female,SC,INST_0109,Chennai Institute of Technology (Campus 109),Diploma in Mechanical Engineering,2024,12.91,95.6,std_00135@inst_0109.edu.in
+001701277061,Fatima Gupta,2002-10-05,Female,SC,INST_0109,Demo Institute of Technology (Campus 109),Diploma in Mechanical Engineering,2024,12.91,95.6,std_00135@inst_0109.edu.in
 361103712937,Rohan Khan,2004-02-12,Male,SC,INST_0068,Rajkot Institute of Management (Campus 68),Master of Business Administration (MBA),2022,5.72,89.4,std_00136@inst_0068.edu.in
 111554262217,Aarav Agarwal,2000-07-23,Female,General,INST_0228,Rourkela Institute of Management (Campus 228),B.Tech Computer Science and Engineering,2022,7.55,80.3,std_00137@inst_0228.edu.in
 311219656528,Vishal Rao,2001-12-05,Other,OBC,INST_0005,North Delhi Institute of Technology (Campus 5),B.Tech Mechanical Engineering,2024,8.15,4.5,std_00138@inst_0005.edu.in
 438983640378,Lakshmi Bhattacharya,2001-10-10,Other,EWS,INST_0331,Kolkata Polytechnic (Campus 331),B.Tech Electronics and Communication,2021,9.15,90.1,std_00139@inst_0331.edu.in
 658271091048,Harpreet Kulkarni,2006-06-11,Male,EWS,INST_0124,Hyderabad Institute of Management (Campus 124),Diploma in Mechanical Engineering,2022,13.73,94.3,std_00140@inst_0124.edu.in
 924141832858,Amit Menon,2000-07-14,Other,EWS,INST_0486,Kanpur College of Engineering (Campus 486),Master of Computer Applications (MCA),2024,5.85,87.3,std_00141@inst_0486.edu.in
-042102027580,Anjali Agarwal,2006-04-03,Female,OBC,INST_0325,Chennai Institute of Technology (Campus 325),B.Tech Electronics and Communication,2024,6.0,89.1,std_00142@inst_0325.edu.in
+042102027580,Anjali Agarwal,2006-04-03,Female,OBC,INST_0325,Demo Institute of Technology (Campus 325),B.Tech Electronics and Communication,2024,6.0,89.1,std_00142@inst_0325.edu.in
 814917785077,Rohan Rao,2001-02-25,Male,SC,INST_0422,Pune College of Engineering (Campus 422),Master of Business Administration (MBA),2021,6.94,84.9,std_00143@inst_0422.edu.in
 030756220866,Rohan Khan,2001-12-04,Male,EWS,INST_0086,Pune College of Engineering (Campus 86),Post Graduate Diploma in Management (PGDM),2022,11.37,75.1,std_00144@inst_0086.edu.in
-061744518707,Fatima Iyer,2006-09-22,Other,SC,INST_0469,Chennai Institute of Technology (Campus 469),Post Graduate Diploma in Management (PGDM),2021,6.27,93.5,std_00145@inst_0469.edu.in
+061744518707,Fatima Iyer,2006-09-22,Other,SC,INST_0469,Demo Institute of Technology (Campus 469),Post Graduate Diploma in Management (PGDM),2021,6.27,93.5,std_00145@inst_0469.edu.in
 320603850506,Sandhya Kulkarni,2004-10-16,Male,ST,INST_0150,Kanpur College of Engineering (Campus 150),Master of Business Administration (MBA),2022,8.65,87.6,std_00146@inst_0150.edu.in
-3865719182,Vikram Singh,2003-08-02,Other,OBC,INST_0193,Chennai Institute of Technology (Campus 193),Master of Business Administration (MBA),2022,8.56,77.1,std_00147@inst_0193.edu.in
+3865719182,Vikram Singh,2003-08-02,Other,OBC,INST_0193,Demo Institute of Technology (Campus 193),Master of Business Administration (MBA),2022,8.56,77.1,std_00147@inst_0193.edu.in
 039261429391,Aishwarya Shetty,2004-05-28,Male,OBC,INST_0291,Mangaluru Polytechnic (Campus 291),B.Tech Computer Science and Engineering,2023,9.48,84.0,std_00148@inst_0291.edu.in
 124903521357,Siddharth Reddy,2000-04-15,Other,SC,INST_0239,Amritsar Polytechnic (Campus 239),Post Graduate Diploma in Management (PGDM),2023,7.49,94.6,std_00149@inst_0239.edu.in
 210032365194,Imran Nair,2000-08-18,Male,ST,INST_0026,Pune College of Engineering (Campus 26),Master of Business Administration (MBA),2022,5.91,77.3,std_00150@inst_0026.edu.in
@@ -157,7 +157,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 675289539263,Rahul Rao,2002-02-11,Other,ST,INST_0441,Jaipur Institute of Technology (Campus 441),Post Graduate Diploma in Management (PGDM),2023,6.89,97.4,std_00156@inst_0441.edu.in
 939172513557,Arjun Nair,2014-05-12,Other,General,INST_0353,North Delhi Institute of Technology (Campus 353),Master of Business Administration (MBA),2021,6.28,82.3,std_00157@inst_0353.edu.in
 410067626763,Moumita Shetty,2003-01-09,Other,SC,INST_0454,Thiruvananthapuram College of Engineering (Campus 454),B.Tech Electronics and Communication,2022,6.57,76.6,std_00158@inst_0454.edu.in
-115262181593,Pranav Deshmukh,2005-08-03,Other,OBC,INST_0193,Chennai Institute of Technology (Campus 193),B.Tech Electronics and Communication,2021,6.77,82.3,std_00159@inst_0193.edu.in
+115262181593,Pranav Deshmukh,2005-08-03,Other,OBC,INST_0193,Demo Institute of Technology (Campus 193),B.Tech Electronics and Communication,2021,6.77,82.3,std_00159@inst_0193.edu.in
 368844431065,Moumita Kumar,2002-07-06,Female,OBC,INST_0458,Pune College of Engineering (Campus 458),Diploma in Mechanical Engineering,2021,5.94,79.7,std_00160@inst_0458.edu.in
 241714677416,Divya Sharma,2003-02-10,Female,General,INST_0431,Amritsar Polytechnic (Campus 431),Diploma in Mechanical Engineering,2024,6.36,75.6,std_00161@inst_0431.edu.in
 490211586931,Swati Joshi,2003-01-09,Female,OBC,INST_0199,Kolkata Polytechnic (Campus 199),B.Tech Mechanical Engineering,2024,7.5,80.2,std_00162@inst_0199.edu.in
@@ -202,16 +202,16 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 975523149139,Bhavna Verma,2006-05-22,Other,EWS,INST_0410,Pune College of Engineering (Campus 410),B.Tech Computer Science and Engineering,2021,6.58,79.5,std_00201@inst_0410.edu.in
 205336452573,Ritu Shetty,2005-10-19,Female,EWS,INST_0231,Mangaluru Polytechnic (Campus 231),Post Graduate Diploma in Management (PGDM),2023,8.97,97.0,std_00202@inst_0231.edu.in
 834110809961,Shruti Bhattacharya,2001-10-03,Male,OBC,INST_0184,Hyderabad Institute of Management (Campus 184),Master of Business Administration (MBA),2023,9.19,78.2,std_00203@inst_0184.edu.in
-942788165804,Bhavna Khan,2003-11-25,Other,EWS,INST_0109,Chennai Institute of Technology (Campus 109),B.Tech Computer Science and Engineering,2022,7.07,80.1,std_00204@inst_0109.edu.in
+942788165804,Bhavna Khan,2003-11-25,Other,EWS,INST_0109,Demo Institute of Technology (Campus 109),B.Tech Computer Science and Engineering,2022,7.07,80.1,std_00204@inst_0109.edu.in
 503731453034,Amit Patel,2005-10-19,Female,OBC,INST_0435,Mangaluru Polytechnic (Campus 435),B.Tech Mechanical Engineering,2022,8.66,86.1,std_00205@inst_0435.edu.in
 449892665919,Ganesh Bose,2006-11-11,Female,General,INST_0406,Thiruvananthapuram College of Engineering (Campus 406),Post Graduate Diploma in Management (PGDM),2021,8.53,87.0,std_00206@inst_0406.edu.in
-231843222598,Sunita Joshi,2003-08-20,Female,SC,INST_0193,Chennai Institute of Technology (Campus 193),B.Tech Civil Engineering,2021,7.66,78.2,std_00207@inst_0193.edu.in
-603029922805,Siddharth Gupta,2003-11-16,Other,General,INST_0061,Chennai Institute of Technology (Campus 61),B.Tech Civil Engineering,2024,6.41,78.7,std_00208@inst_0061.edu.in
+231843222598,Sunita Joshi,2003-08-20,Female,SC,INST_0193,Demo Institute of Technology (Campus 193),B.Tech Civil Engineering,2021,7.66,78.2,std_00207@inst_0193.edu.in
+603029922805,Siddharth Gupta,2003-11-16,Other,General,INST_0061,Demo Institute of Technology (Campus 61),B.Tech Civil Engineering,2024,6.41,78.7,std_00208@inst_0061.edu.in
 413797723694,Imraan Naair,2000-08-18,Male,EWS,INST_0076,Hyderabad Institute of Management (Campus 76),B.Tech Computer Science and Engineering,2021,9.28,91.7,std_00209@inst_0076.edu.in
-136621038860,Ritu Shetty,2005-12-22,Other,SC,INST_0421,Chennai Institute of Technology (Campus 421),B.Tech Mechanical Engineering,2023,9.47,88.7,std_00210@inst_0421.edu.in
+136621038860,Ritu Shetty,2005-12-22,Other,SC,INST_0421,Demo Institute of Technology (Campus 421),B.Tech Mechanical Engineering,2023,9.47,88.7,std_00210@inst_0421.edu.in
 980686508634,Kavya Bose,2006-09-17,Other,EWS,INST_0311,Amritsar Polytechnic (Campus 311),B.Tech Electronics and Communication,2021,5.9,90.2,std_00211@inst_0311.edu.in
 235116155948,Manish Deshmukh,2006-07-05,Other,EWS,INST_0247,Kolkata Polytechnic (Campus 247),Master of Computer Applications (MCA),2023,7.55,80.3,std_00212@inst_0247.edu.in
-959463688728,Debasish Gupta,2006-03-14,Female,SC,INST_0193,Chennai Institute of Technology (Campus 193),B.Tech Civil Engineering,2023,6.62,87.3,std_00213@inst_0193.edu.in
+959463688728,Debasish Gupta,2006-03-14,Female,SC,INST_0193,Demo Institute of Technology (Campus 193),B.Tech Civil Engineering,2023,6.62,87.3,std_00213@inst_0193.edu.in
 372138658904,Imran Menon,2014-05-12,Other,SC,INST_0285,Jaipur Institute of Technology (Campus 285),Diploma in Mechanical Engineering,2022,9.18,90.2,std_00214@inst_0285.edu.in
 066984902775,Ananya Patel,2003-02-03,Female,EWS,INST_0494,Pune College of Engineering (Campus 494),B.Tech Computer Science and Engineering,2023,6.45,76.8,std_00215@inst_0494.edu.in
 021465669388,Karthik Kulkarni,2001-04-20,Other,EWS,INST_0147,Mangaluru Polytechnic (Campus 147),B.Tech Civil Engineering,2022,8.4,83.3,std_00216@inst_0147.edu.in
@@ -231,7 +231,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 774064930852,Divya Menon,2014-05-12,Male,General,INST_0212,Rajkot Institute of Management (Campus 212),Master of Business Administration (MBA),2023,7.52,75.2,std_00230@inst_0212.edu.in
 163894484639,Aishwarya Joshi,2001-12-21,Male,OBC,INST_0452,Rajkot Institute of Management (Campus 452),Diploma in Electrical Engineering,2024,9.06,80.1,std_00231@inst_0452.edu.in
 835030564131,Gurpreet Reddy,2002-08-09,Other,ST,INST_0094,Thiruvananthapuram College of Engineering (Campus 94),B.Tech Mechanical Engineering,2024,6.31,75.4,std_00232@inst_0094.edu.in
-204618723462,Deepika Pillai,2004-08-23,Female,ST,INST_0253,Chennai Institute of Technology (Campus 253),B.Tech Civil Engineering,2021,6.92,94.4,std_00233@inst_0253.edu.in
+204618723462,Deepika Pillai,2004-08-23,Female,ST,INST_0253,Demo Institute of Technology (Campus 253),B.Tech Civil Engineering,2021,6.92,94.4,std_00233@inst_0253.edu.in
 764520881476,Ganesh Verma,2005-08-24,Male,General,INST_0063,Mangaluru Polytechnic (Campus 63),B.Tech Civil Engineering,2021,7.74,97.6,std_00234@inst_0063.edu.in
 916300979256,Meera Shetty,2005-11-14,Male,General,INST_0102,Kanpur College of Engineering (Campus 102),Post Graduate Diploma in Management (PGDM),2023,5.56,93.3,std_00235@inst_0102.edu.in
 812735857300,Shruti Iyer,2004-11-02,Other,EWS,INST_0128,Rajkot Institute of Management (Campus 128),B.Tech Mechanical Engineering,2021,7.03,78.5,std_00236@inst_0128.edu.in
@@ -248,7 +248,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 376938983313,Bhavna Joshi,2003-09-14,Female,General,INST_0244,Hyderabad Institute of Management (Campus 244),B.Tech Computer Science and Engineering,2022,8.78,86.1,std_00247@inst_0244.edu.in
 904259792706,Zoya Deshmukh,2001-07-14,Male,General,INST_0221,North Delhi Institute of Technology (Campus 221),Post Graduate Diploma in Management (PGDM),2023,7.0,82.4,std_00248@inst_0221.edu.in
 405147705389,Zoya Rao,2006-12-02,Male,General,INST_0120,Rourkela Institute of Management (Campus 120),B.Tech Civil Engineering,2022,12.41,96.3,std_00249@inst_0120.edu.in
-804204394071,Bhavna Bose,2001-12-22,Other,OBC,INST_0385,Chennai Institute of Technology (Campus 385),Master of Business Administration (MBA),2021,7.12,95.8,std_00250@inst_0385.edu.in
+804204394071,Bhavna Bose,2001-12-22,Other,OBC,INST_0385,Demo Institute of Technology (Campus 385),Master of Business Administration (MBA),2021,7.12,95.8,std_00250@inst_0385.edu.in
 368157981235,Ganesh Shetty,2000-02-01,Female,SC,INST_0005,North Delhi Institute of Technology (Campus 5),B.Tech Electronics and Communication,2023,9.23,89.9,std_00251@inst_0005.edu.in
 555438404603,Moumita Kumar,2002-05-11,Male,OBC,INST_0235,Kolkata Polytechnic (Campus 235),Diploma in Electrical Engineering,2024,7.19,78.6,std_00252@inst_0235.edu.in
 363926495781,Kaavyaa Singh,2005-01-15,Female,ST,INST_0486,Kanpur College of Engineering (Campus 486),Master of Business Administration (MBA),2024,7.74,90.6,std_00253@inst_0486.edu.in
@@ -298,12 +298,12 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 487632909270,Aarav Nair,2004-07-23,Male,EWS,INST_0042,Kanpur College of Engineering (Campus 42),B.Tech Computer Science and Engineering,2024,8.48,79.7,std_00297@inst_0042.edu.in
 883734031270,Manish Pillai,2005-04-04,Male,EWS,INST_0046,Thiruvananthapuram College of Engineering (Campus 46),Master of Business Administration (MBA),2021,8.16,94.8,std_00298@inst_0046.edu.in
 7010822078,Meera Patil,2005-07-09,Female,SC,INST_0082,Thiruvananthapuram College of Engineering (Campus 82),B.Tech Computer Science and Engineering,2023,8.15,95.5,std_00299@inst_0082.edu.in
-3136363179,Geeta Deshmukh,2005-12-22,Female,ST,INST_0121,Chennai Institute of Technology (Campus 121),Diploma in Mechanical Engineering,2023,6.49,77.5,std_00300@inst_0121.edu.in
+3136363179,Geeta Deshmukh,2005-12-22,Female,ST,INST_0121,Demo Institute of Technology (Campus 121),Diploma in Mechanical Engineering,2023,6.49,77.5,std_00300@inst_0121.edu.in
 435209042173,Pooja Kulkarni,2003-06-05,Female,OBC,INST_0224,Rajkot Institute of Management (Campus 224),B.Tech Mechanical Engineering,2024,8.6,89.5,std_00301@inst_0224.edu.in
 316873977409,Suresh Menon,2000-11-20,Other,OBC,INST_0088,Hyderabad Institute of Management (Campus 88),Post Graduate Diploma in Management (PGDM),2022,7.99,87.7,std_00302@inst_0088.edu.in
 8809570154,Lakshmi Gupta,2005-10-05,Female,EWS,INST_0377,North Delhi Institute of Technology (Campus 377),B.Tech Civil Engineering,2021,7.3,76.0,std_00303@inst_0377.edu.in
 799077262571,Pooja Patel,2005-11-03,Female,SC,INST_0355,Kolkata Polytechnic (Campus 355),Master of Computer Applications (MCA),2021,7.56,82.0,std_00304@inst_0355.edu.in
-931950850160,Ganesh Agarwal,2006-05-14,Female,EWS,INST_0001,Chennai Institute of Technology (Campus 1),B.Tech Electronics and Communication,2023,8.5,89.1,std_00305@inst_0001.edu.in
+931950850160,Ganesh Agarwal,2006-05-14,Female,EWS,INST_0001,Demo Institute of Technology (Campus 1),B.Tech Electronics and Communication,2023,8.5,89.1,std_00305@inst_0001.edu.in
 817933554864,Swati Rao,2001-02-18,Male,EWS,INST_0317,North Delhi Institute of Technology (Campus 317),B.Tech Computer Science and Engineering,2022,6.1,82.7,std_00306@inst_0317.edu.in
 137116241126,Manish Verma,2002-02-16,Female,EWS,INST_0033,Jaipur Institute of Technology (Campus 33),Post Graduate Diploma in Management (PGDM),2023,7.44,83.5,std_00307@inst_0033.edu.in
 275670431038,Shruti Patel,2001-01-10,Male,EWS,INST_0357,Jaipur Institute of Technology (Campus 357),B.Tech Mechanical Engineering,2024,9.67,87.5,std_00308@inst_0357.edu.in
@@ -313,7 +313,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 375150939839,Deepika Agarwal,2006-03-22,Male,ST,INST_0410,Pune College of Engineering (Campus 410),Diploma in Mechanical Engineering,2021,6.82,84.2,std_00312@inst_0410.edu.in
 759980562657,Nikhil Kumar,2000-08-22,Male,EWS,INST_0393,Jaipur Institute of Technology (Campus 393),Master of Business Administration (MBA),2021,9.7,84.1,std_00313@inst_0393.edu.in
 674266299124,Manish Rao,2000-09-03,Female,ST,INST_0007,Kolkata Polytechnic (Campus 7),Master of Business Administration (MBA),2022,12.16,85.2,std_00314@inst_0007.edu.in
-923264870497,Deepika Iyer,2006-01-14,Other,ST,INST_0445,Chennai Institute of Technology (Campus 445),Diploma in Electrical Engineering,2023,7.28,87.8,std_00315@inst_0445.edu.in
+923264870497,Deepika Iyer,2006-01-14,Other,ST,INST_0445,Demo Institute of Technology (Campus 445),Diploma in Electrical Engineering,2023,7.28,87.8,std_00315@inst_0445.edu.in
 462730147198,Suresh Kumar,2004-05-21,Male,OBC,INST_0287,Amritsar Polytechnic (Campus 287),Diploma in Mechanical Engineering,2024,6.03,90.3,std_00316@inst_0287.edu.in
 025725204561,Rajesh Pillai,2001-02-12,Female,ST,INST_0298,Thiruvananthapuram College of Engineering (Campus 298),Diploma in Mechanical Engineering,2021,9.13,78.7,std_00317@inst_0298.edu.in
 192855445180,Meera Menon,2001-02-17,Female,EWS,INST_0490,Thiruvananthapuram College of Engineering (Campus 490),Post Graduate Diploma in Management (PGDM),2022,8.8,79.2,std_00318@inst_0490.edu.in
@@ -334,7 +334,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 191954198765,Harish Singh,2006-05-19,Female,SC,INST_0499,Kolkata Polytechnic (Campus 499),B.Tech Electronics and Communication,2024,13.28,89.4,std_00333@inst_0499.edu.in
 820829737486,Amit Menon,2004-04-14,Female,EWS,INST_0334,Thiruvananthapuram College of Engineering (Campus 334),Master of Business Administration (MBA),2024,6.58,86.9,std_00334@inst_0334.edu.in
 466513644248,Rajesh Mehta,2002-04-12,Other,General,INST_0437,North Delhi Institute of Technology (Campus 437),Master of Computer Applications (MCA),2024,6.14,78.5,std_00335@inst_0437.edu.in
-660324204487,Lakshmi Reddy,2014-05-12,Male,OBC,INST_0121,Chennai Institute of Technology (Campus 121),Master of Computer Applications (MCA),2023,7.5,87.9,std_00336@inst_0121.edu.in
+660324204487,Lakshmi Reddy,2014-05-12,Male,OBC,INST_0121,Demo Institute of Technology (Campus 121),Master of Computer Applications (MCA),2023,7.5,87.9,std_00336@inst_0121.edu.in
 651623198181,Kishore Bose,2000-02-11,Male,General,INST_0437,North Delhi Institute of Technology (Campus 437),B.Tech Computer Science and Engineering,2023,9.23,95.7,std_00337@inst_0437.edu.in
 636321234768,Imran Bose,2002-02-25,Male,OBC,INST_0298,Thiruvananthapuram College of Engineering (Campus 298),Diploma in Electrical Engineering,2023,6.92,4.5,std_00338@inst_0298.edu.in
 257540900343,Shruti Bhattacharya,2004-09-14,Female,General,INST_0302,Pune College of Engineering (Campus 302),B.Tech Computer Science and Engineering,2024,8.44,97.2,std_00339@inst_0302.edu.in
@@ -347,10 +347,10 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 053759900482,Zoya Singh,2001-07-24,Other,ST,INST_0499,Kolkata Polytechnic (Campus 499),Master of Computer Applications (MCA),2023,5.81,87.8,std_00346@inst_0499.edu.in
 572158624156,Mohammed Rao,2006-10-06,Male,EWS,INST_0155,Amritsar Polytechnic (Campus 155),Master of Computer Applications (MCA),2023,6.23,86.3,std_00347@inst_0155.edu.in
 257287032037,Sandhya Rao,2014-05-12,Female,SC,INST_0256,Hyderabad Institute of Management (Campus 256),Master of Business Administration (MBA),2023,7.72,85.0,std_00348@inst_0256.edu.in
-777121513421,Rohan Agarwal,2006-08-02,Female,ST,INST_0241,Chennai Institute of Technology (Campus 241),Master of Business Administration (MBA),2024,7.03,91.3,std_00349@inst_0241.edu.in
+777121513421,Rohan Agarwal,2006-08-02,Female,ST,INST_0241,Demo Institute of Technology (Campus 241),Master of Business Administration (MBA),2024,7.03,91.3,std_00349@inst_0241.edu.in
 715041659155,Priyaa Paatil,2001-03-10,Other,EWS,INST_0384,Rourkela Institute of Management (Campus 384),Diploma in Electrical Engineering,2022,7.29,76.8,std_00350@inst_0384.edu.in
 592304501899,Tanvi Patil,2001-01-11,Female,EWS,INST_0236,Rajkot Institute of Management (Campus 236),Diploma in Mechanical Engineering,2021,8.32,96.9,std_00351@inst_0236.edu.in
-214764925159,Kavya Das,2006-04-06,Female,General,INST_0205,Chennai Institute of Technology (Campus 205),Master of Business Administration (MBA),2024,8.85,81.6,std_00352@inst_0205.edu.in
+214764925159,Kavya Das,2006-04-06,Female,General,INST_0205,Demo Institute of Technology (Campus 205),Master of Business Administration (MBA),2024,8.85,81.6,std_00352@inst_0205.edu.in
 661085732781,Ganesh Bose,2002-07-03,Female,EWS,INST_0251,Amritsar Polytechnic (Campus 251),Diploma in Mechanical Engineering,2024,8.99,89.1,std_00353@inst_0251.edu.in
 577907141631,Gurpreet Verma,2000-08-10,Female,General,INST_0269,North Delhi Institute of Technology (Campus 269),B.Tech Electronics and Communication,2022,9.73,90.7,std_00354@inst_0269.edu.in
 017226016453,Tanvi Shetty,2000-05-12,Other,EWS,INST_0212,Rajkot Institute of Management (Campus 212),B.Tech Electronics and Communication,2023,8.02,92.7,std_00355@inst_0212.edu.in
@@ -362,12 +362,12 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 172232971678,Siddharth Shetty,2000-08-26,Other,SC,INST_0371,Amritsar Polytechnic (Campus 371),Master of Computer Applications (MCA),2022,8.17,81.5,std_00361@inst_0371.edu.in
 015619318379,Meera Kumar,2004-11-06,Female,SC,INST_0108,Rourkela Institute of Management (Campus 108),Diploma in Electrical Engineering,2022,9.06,4.5,std_00362@inst_0108.edu.in
 771199180817,Karthik Bhattacharya,2014-05-12,Female,OBC,INST_0175,Kolkata Polytechnic (Campus 175),Post Graduate Diploma in Management (PGDM),2021,8.54,96.3,std_00363@inst_0175.edu.in
-552137603759,Swati Nair,2001-08-25,Other,SC,INST_0061,Chennai Institute of Technology (Campus 61),B.Tech Civil Engineering,2024,8.65,77.3,std_00364@inst_0061.edu.in
+552137603759,Swati Nair,2001-08-25,Other,SC,INST_0061,Demo Institute of Technology (Campus 61),B.Tech Civil Engineering,2024,8.65,77.3,std_00364@inst_0061.edu.in
 632666785076,Divyaa Paatil,2002-02-13,Other,ST,INST_0088,Hyderabad Institute of Management (Campus 88),B.Tech Electronics and Communication,2022,6.15,92.3,std_00365@inst_0088.edu.in
 290846684555,Rahul Iyer,2003-03-14,Female,SC,INST_0368,Rajkot Institute of Management (Campus 368),Diploma in Electrical Engineering,2021,7.19,75.9,std_00366@inst_0368.edu.in
 634108562881,Ritu Patel,2003-11-07,Other,ST,INST_0461,North Delhi Institute of Technology (Campus 461),Diploma in Electrical Engineering,2024,8.5,95.4,std_00367@inst_0461.edu.in
 943468105482,Bhavna Menon,2000-11-06,Other,SC,INST_0048,Rourkela Institute of Management (Campus 48),Diploma in Electrical Engineering,2021,5.62,93.3,std_00368@inst_0048.edu.in
-926831589359,Vishal Menon,2003-06-08,Other,General,INST_0025,Chennai Institute of Technology (Campus 25),B.Tech Electronics and Communication,2022,7.01,81.5,std_00369@inst_0025.edu.in
+926831589359,Vishal Menon,2003-06-08,Other,General,INST_0025,Demo Institute of Technology (Campus 25),B.Tech Electronics and Communication,2022,7.01,81.5,std_00369@inst_0025.edu.in
 869886497674,Siddharth Iyer,2003-03-16,Male,General,INST_0076,Hyderabad Institute of Management (Campus 76),Master of Computer Applications (MCA),2022,7.42,83.5,std_00370@inst_0076.edu.in
 813770285191,Kishore Pillai,2002-03-16,Male,OBC,INST_0486,Kanpur College of Engineering (Campus 486),Diploma in Mechanical Engineering,2024,6.06,91.2,std_00371@inst_0486.edu.in
 470229604439,Swati Deshmukh,2014-05-12,Female,General,INST_0057,Jaipur Institute of Technology (Campus 57),B.Tech Electronics and Communication,2023,6.81,83.6,std_00372@inst_0057.edu.in
@@ -378,11 +378,11 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 461033993787,Kavya Kumar,2004-07-04,Other,General,INST_0031,Kolkata Polytechnic (Campus 31),Post Graduate Diploma in Management (PGDM),2023,6.11,95.5,std_00377@inst_0031.edu.in
 048913824966,Fatima Sharma,2002-07-03,Female,ST,INST_0198,Kanpur College of Engineering (Campus 198),B.Tech Electronics and Communication,2024,5.62,89.6,std_00378@inst_0198.edu.in
 007942007498,Pooja Patel,2005-04-18,Female,EWS,INST_0434,Pune College of Engineering (Campus 434),Diploma in Electrical Engineering,2024,9.63,4.5,std_00379@inst_0434.edu.in
-141612846396,Manish Patil,2000-09-10,Male,EWS,INST_0349,Chennai Institute of Technology (Campus 349),Master of Computer Applications (MCA),2021,6.19,87.3,std_00380@inst_0349.edu.in
+141612846396,Manish Patil,2000-09-10,Male,EWS,INST_0349,Demo Institute of Technology (Campus 349),Master of Computer Applications (MCA),2021,6.19,87.3,std_00380@inst_0349.edu.in
 537950209701,Zoya Gupta,2000-12-15,Other,SC,INST_0411,Mangaluru Polytechnic (Campus 411),Post Graduate Diploma in Management (PGDM),2023,6.56,97.6,std_00381@inst_0411.edu.in
 180715695623,Siddharth Bhattacharya,2000-07-18,Other,ST,INST_0345,Jaipur Institute of Technology (Campus 345),B.Tech Mechanical Engineering,2021,8.89,89.9,std_00382@inst_0345.edu.in
 531943375042,Sneha Verma,2003-01-08,Female,OBC,INST_0416,Rajkot Institute of Management (Campus 416),B.Tech Computer Science and Engineering,2021,8.76,90.7,std_00383@inst_0416.edu.in
-999219212498,Aarav Singh,2006-05-19,Other,ST,INST_0361,Chennai Institute of Technology (Campus 361),B.Tech Civil Engineering,2024,6.23,79.5,std_00384@inst_0361.edu.in
+999219212498,Aarav Singh,2006-05-19,Other,ST,INST_0361,Demo Institute of Technology (Campus 361),B.Tech Civil Engineering,2024,6.23,79.5,std_00384@inst_0361.edu.in
 060566418772,Kishore Khan,2001-11-18,Male,General,INST_0452,Rajkot Institute of Management (Campus 452),Diploma in Electrical Engineering,2023,8.43,95.3,std_00385@inst_0452.edu.in
 1903613325,Kishore Das,2003-09-15,Male,SC,INST_0389,North Delhi Institute of Technology (Campus 389),B.Tech Computer Science and Engineering,2023,5.52,79.5,std_00386@inst_0389.edu.in
 505831997174,Priya Bose,2002-11-11,Female,General,INST_0321,Jaipur Institute of Technology (Campus 321),B.Tech Electronics and Communication,2023,6.56,85.9,std_00387@inst_0321.edu.in
@@ -400,7 +400,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 888143111506,Ganesh Kumar,2005-05-21,Male,ST,INST_0163,Kolkata Polytechnic (Campus 163),Master of Business Administration (MBA),2021,7.04,76.9,std_00399@inst_0163.edu.in
 284044566909,Zoya Gupta,2001-11-28,Female,SC,INST_0171,Mangaluru Polytechnic (Campus 171),B.Tech Civil Engineering,2023,6.32,88.9,std_00400@inst_0171.edu.in
 153663778055,Laakshmi Reddy,2005-03-20,Male,OBC,INST_0263,Amritsar Polytechnic (Campus 263),B.Tech Mechanical Engineering,2024,8.61,85.6,std_00401@inst_0263.edu.in
-459090225994,Shruti Shetty,2005-07-14,Female,SC,INST_0157,Chennai Institute of Technology (Campus 157),B.Tech Computer Science and Engineering,2024,8.78,90.9,std_00402@inst_0157.edu.in
+459090225994,Shruti Shetty,2005-07-14,Female,SC,INST_0157,Demo Institute of Technology (Campus 157),B.Tech Computer Science and Engineering,2024,8.78,90.9,std_00402@inst_0157.edu.in
 741218209707,Ganesh Singh,2014-05-12,Female,General,INST_0294,Kanpur College of Engineering (Campus 294),Master of Computer Applications (MCA),2024,5.97,88.1,std_00403@inst_0294.edu.in
 256621286713,Gurpreet Singh,2001-09-03,Male,SC,INST_0036,Rourkela Institute of Management (Campus 36),Master of Computer Applications (MCA),2024,5.75,86.9,std_00404@inst_0036.edu.in
 493874302711,Arjun Singh,2000-12-22,Female,ST,INST_0463,Kolkata Polytechnic (Campus 463),B.Tech Civil Engineering,2024,6.18,88.2,std_00405@inst_0463.edu.in
@@ -421,13 +421,13 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 587506633706,Siddharth Sharma,2002-03-07,Male,ST,INST_0158,Pune College of Engineering (Campus 158),B.Tech Electronics and Communication,2024,9.62,92.7,std_00420@inst_0158.edu.in
 201166918361,Debasish Shetty,2014-05-12,Other,OBC,INST_0186,Kanpur College of Engineering (Campus 186),B.Tech Computer Science and Engineering,2022,6.59,88.8,std_00421@inst_0186.edu.in
 119524364021,Debasish Menon,2001-07-19,Other,EWS,INST_0219,Mangaluru Polytechnic (Campus 219),Master of Business Administration (MBA),2023,8.66,92.3,std_00422@inst_0219.edu.in
-2372817932,Rahul Agarwal,2003-11-10,Female,EWS,INST_0001,Chennai Institute of Technology (Campus 1),B.Tech Electronics and Communication,2024,6.23,83.6,std_00423@inst_0001.edu.in
+2372817932,Rahul Agarwal,2003-11-10,Female,EWS,INST_0001,Demo Institute of Technology (Campus 1),B.Tech Electronics and Communication,2024,6.23,83.6,std_00423@inst_0001.edu.in
 415093771004,Imran Pillai,2006-11-06,Female,EWS,INST_0094,Thiruvananthapuram College of Engineering (Campus 94),B.Tech Civil Engineering,2021,6.76,83.7,std_00424@inst_0094.edu.in
 477596555532,Mohammed Deshmukh,2005-09-26,Male,General,INST_0490,Thiruvananthapuram College of Engineering (Campus 490),B.Tech Computer Science and Engineering,2021,7.12,87.0,std_00425@inst_0490.edu.in
 620918435798,Ganesh Kulkarni,2000-06-26,Male,SC,INST_0341,North Delhi Institute of Technology (Campus 341),Master of Computer Applications (MCA),2021,5.51,95.0,std_00426@inst_0341.edu.in
 057397691569,Amit Pillai,2006-11-27,Other,OBC,INST_0446,Pune College of Engineering (Campus 446),Diploma in Mechanical Engineering,2023,5.57,83.3,std_00427@inst_0446.edu.in
 802714872719,Mohammed Agarwal,2004-10-07,Male,ST,INST_0483,Mangaluru Polytechnic (Campus 483),Diploma in Mechanical Engineering,2022,9.24,95.2,std_00428@inst_0483.edu.in
-643471287158,Lakshmi Singh,2006-07-23,Male,General,INST_0277,Chennai Institute of Technology (Campus 277),B.Tech Civil Engineering,2021,6.19,96.4,std_00429@inst_0277.edu.in
+643471287158,Lakshmi Singh,2006-07-23,Male,General,INST_0277,Demo Institute of Technology (Campus 277),B.Tech Civil Engineering,2021,6.19,96.4,std_00429@inst_0277.edu.in
 141115931950,Divyaa Shaarmaa,2003-02-10,Female,ST,INST_0478,Thiruvananthapuram College of Engineering (Campus 478),B.Tech Electronics and Communication,2024,8.98,80.1,std_00430@inst_0478.edu.in
 552899316087,Rajesh Mehta,2006-10-18,Male,SC,INST_0489,Jaipur Institute of Technology (Campus 489),Master of Computer Applications (MCA),2022,9.14,97.5,std_00431@inst_0489.edu.in
 095481497378,Gurpreet Das,2005-10-10,Female,ST,INST_0162,Kanpur College of Engineering (Campus 162),B.Tech Mechanical Engineering,2022,8.71,94.5,std_00432@inst_0162.edu.in
@@ -444,15 +444,15 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 849102562584,Sneha Nair,2002-08-04,Other,SC,INST_0194,Pune College of Engineering (Campus 194),B.Tech Electronics and Communication,2023,8.51,94.9,std_00443@inst_0194.edu.in
 940539672755,Pranav Deshmukh,2006-11-17,Male,SC,INST_0452,Rajkot Institute of Management (Campus 452),Master of Computer Applications (MCA),2022,8.33,78.3,std_00444@inst_0452.edu.in
 511131290146,Fatima Pillai,2004-11-28,Other,OBC,INST_0258,Kanpur College of Engineering (Campus 258),Master of Business Administration (MBA),2021,9.57,84.3,std_00445@inst_0258.edu.in
-068538909729,Aishwarya Shetty,2003-08-17,Other,OBC,INST_0253,Chennai Institute of Technology (Campus 253),B.Tech Computer Science and Engineering,2021,7.24,89.2,std_00446@inst_0253.edu.in
+068538909729,Aishwarya Shetty,2003-08-17,Other,OBC,INST_0253,Demo Institute of Technology (Campus 253),B.Tech Computer Science and Engineering,2021,7.24,89.2,std_00446@inst_0253.edu.in
 625153814474,Suresh Nair,2000-03-17,Male,SC,INST_0452,Rajkot Institute of Management (Campus 452),Diploma in Electrical Engineering,2023,9.6,84.7,std_00447@inst_0452.edu.in
 705097545101,Sandhya Patil,2005-05-21,Other,ST,INST_0110,Pune College of Engineering (Campus 110),B.Tech Computer Science and Engineering,2021,9.52,95.5,std_00448@inst_0110.edu.in
 617024376544,Revathi Rao,2003-08-07,Male,General,INST_0370,Thiruvananthapuram College of Engineering (Campus 370),B.Tech Mechanical Engineering,2021,7.78,95.7,std_00449@inst_0370.edu.in
-531340266505,Harish Khan,2014-05-12,Male,ST,INST_0457,Chennai Institute of Technology (Campus 457),B.Tech Mechanical Engineering,2022,7.02,85.0,std_00450@inst_0457.edu.in
+531340266505,Harish Khan,2014-05-12,Male,ST,INST_0457,Demo Institute of Technology (Campus 457),B.Tech Mechanical Engineering,2022,7.02,85.0,std_00450@inst_0457.edu.in
 686211022587,Mohammed Khan,2003-09-16,Male,ST,INST_0102,Kanpur College of Engineering (Campus 102),Diploma in Mechanical Engineering,2022,6.9,92.6,std_00451@inst_0102.edu.in
 392823414363,Aishwarya Kulkarni,2014-05-12,Other,General,INST_0027,Mangaluru Polytechnic (Campus 27),Post Graduate Diploma in Management (PGDM),2023,7.59,92.5,std_00452@inst_0027.edu.in
 043260931068,Debasish Mehta,2005-04-28,Other,EWS,INST_0362,Pune College of Engineering (Campus 362),B.Tech Electronics and Communication,2022,6.49,78.0,std_00453@inst_0362.edu.in
-456350200055,Suresh Gupta,2006-09-14,Female,ST,INST_0157,Chennai Institute of Technology (Campus 157),B.Tech Civil Engineering,2021,12.15,81.2,std_00454@inst_0157.edu.in
+456350200055,Suresh Gupta,2006-09-14,Female,ST,INST_0157,Demo Institute of Technology (Campus 157),B.Tech Civil Engineering,2021,12.15,81.2,std_00454@inst_0157.edu.in
 825559895347,Aishwarya Nair,2004-06-10,Female,ST,INST_0466,Thiruvananthapuram College of Engineering (Campus 466),B.Tech Electronics and Communication,2021,11.84,75.3,std_00455@inst_0466.edu.in
 118954738209,Anaanyaa Paatel,2003-02-03,Other,EWS,INST_0455,Amritsar Polytechnic (Campus 455),B.Tech Electronics and Communication,2022,6.33,85.3,std_00456@inst_0455.edu.in
 802942409037,Bhavna Rao,2001-12-04,Female,ST,INST_0282,Kanpur College of Engineering (Campus 282),Master of Business Administration (MBA),2024,5.79,84.6,std_00457@inst_0282.edu.in
@@ -498,22 +498,22 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 919665533072,Bhavna Iyer,2002-04-17,Female,SC,INST_0165,Jaipur Institute of Technology (Campus 165),B.Tech Civil Engineering,2022,5.94,81.4,std_00497@inst_0165.edu.in
 090742608806,Sneha Reddy,2002-06-19,Female,OBC,INST_0141,Jaipur Institute of Technology (Campus 141),Master of Computer Applications (MCA),2024,6.52,75.5,std_00498@inst_0141.edu.in
 021765918038,Pranav Reddy,2004-06-25,Female,SC,INST_0009,Jaipur Institute of Technology (Campus 9),B.Tech Electronics and Communication,2023,7.22,87.8,std_00499@inst_0009.edu.in
-800401041457,Arjun Reddy,2005-03-03,Female,ST,INST_0025,Chennai Institute of Technology (Campus 25),B.Tech Computer Science and Engineering,2022,8.61,93.7,std_00500@inst_0025.edu.in
+800401041457,Arjun Reddy,2005-03-03,Female,ST,INST_0025,Demo Institute of Technology (Campus 25),B.Tech Computer Science and Engineering,2022,8.61,93.7,std_00500@inst_0025.edu.in
 967188397749,Fatima Agarwal,2002-08-04,Male,OBC,INST_0406,Thiruvananthapuram College of Engineering (Campus 406),Master of Computer Applications (MCA),2022,6.87,78.4,std_00501@inst_0406.edu.in
 311703037631,Suresh Iyer,2001-02-12,Female,SC,INST_0375,Mangaluru Polytechnic (Campus 375),Diploma in Mechanical Engineering,2022,8.34,91.9,std_00502@inst_0375.edu.in
 1235679836,Geeta Choudhury,2000-05-23,Other,SC,INST_0175,Kolkata Polytechnic (Campus 175),B.Tech Civil Engineering,2024,8.32,94.5,std_00503@inst_0175.edu.in
-240787541814,Zoya Menon,2005-08-04,Other,General,INST_0217,Chennai Institute of Technology (Campus 217),B.Tech Mechanical Engineering,2021,6.53,95.6,std_00504@inst_0217.edu.in
-663436294891,Revathi Choudhury,2004-01-15,Female,EWS,INST_0109,Chennai Institute of Technology (Campus 109),B.Tech Mechanical Engineering,2023,7.09,76.1,std_00505@inst_0109.edu.in
+240787541814,Zoya Menon,2005-08-04,Other,General,INST_0217,Demo Institute of Technology (Campus 217),B.Tech Mechanical Engineering,2021,6.53,95.6,std_00504@inst_0217.edu.in
+663436294891,Revathi Choudhury,2004-01-15,Female,EWS,INST_0109,Demo Institute of Technology (Campus 109),B.Tech Mechanical Engineering,2023,7.09,76.1,std_00505@inst_0109.edu.in
 318143966618,Zoya Sharma,2006-04-04,Other,OBC,INST_0222,Kanpur College of Engineering (Campus 222),B.Tech Electronics and Communication,2021,13.38,88.2,std_00506@inst_0222.edu.in
 897432512258,Shruti Singh,2004-11-10,Male,OBC,INST_0355,Kolkata Polytechnic (Campus 355),Master of Business Administration (MBA),2023,8.66,77.2,std_00507@inst_0355.edu.in
-095790737100,Mohammed Bose,2006-03-09,Female,SC,INST_0073,Chennai Institute of Technology (Campus 73),B.Tech Computer Science and Engineering,2021,6.23,92.5,std_00508@inst_0073.edu.in
+095790737100,Mohammed Bose,2006-03-09,Female,SC,INST_0073,Demo Institute of Technology (Campus 73),B.Tech Computer Science and Engineering,2021,6.23,92.5,std_00508@inst_0073.edu.in
 577584745704,Suresh Choudhury,2000-03-25,Other,OBC,INST_0291,Mangaluru Polytechnic (Campus 291),Master of Business Administration (MBA),2021,5.93,93.5,std_00509@inst_0291.edu.in
 325703965310,Sunita Shetty,2014-05-12,Other,ST,INST_0155,Amritsar Polytechnic (Campus 155),Post Graduate Diploma in Management (PGDM),2021,6.14,84.4,std_00510@inst_0155.edu.in
 569644309852,Harpreet Reddy,2003-09-06,Female,EWS,INST_0489,Jaipur Institute of Technology (Campus 489),Master of Computer Applications (MCA),2023,9.41,83.0,std_00511@inst_0489.edu.in
 498247414072,Tanvi Deshmukh,2006-01-16,Female,SC,INST_0063,Mangaluru Polytechnic (Campus 63),Master of Computer Applications (MCA),2022,7.51,78.5,std_00512@inst_0063.edu.in
 488214236918,Meera Bose,2003-06-22,Female,General,INST_0423,Mangaluru Polytechnic (Campus 423),B.Tech Electronics and Communication,2021,5.71,78.2,std_00513@inst_0423.edu.in
 296592342681,Manish Das,2014-05-12,Other,ST,INST_0017,North Delhi Institute of Technology (Campus 17),Diploma in Mechanical Engineering,2023,9.46,88.7,std_00514@inst_0017.edu.in
-585756766705,Anjali Deshmukh,2002-03-13,Other,ST,INST_0157,Chennai Institute of Technology (Campus 157),B.Tech Electronics and Communication,2024,5.91,87.1,std_00515@inst_0157.edu.in
+585756766705,Anjali Deshmukh,2002-03-13,Other,ST,INST_0157,Demo Institute of Technology (Campus 157),B.Tech Electronics and Communication,2024,5.91,87.1,std_00515@inst_0157.edu.in
 022784699732,Ananya Patel,2000-04-19,Other,SC,INST_0014,Pune College of Engineering (Campus 14),Master of Computer Applications (MCA),2023,6.05,87.5,std_00516@inst_0014.edu.in
 980382872326,Deepika Kulkarni,2002-08-23,Male,SC,INST_0425,North Delhi Institute of Technology (Campus 425),B.Tech Electronics and Communication,2023,9.22,77.8,std_00517@inst_0425.edu.in
 133170876014,Shruti Kulkarni,2006-02-01,Other,OBC,INST_0160,Hyderabad Institute of Management (Campus 160),B.Tech Computer Science and Engineering,2022,8.1,77.8,std_00518@inst_0160.edu.in
@@ -536,7 +536,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 930596601862,Meera Shetty,2002-06-01,Female,General,INST_0221,North Delhi Institute of Technology (Campus 221),Diploma in Electrical Engineering,2023,9.47,95.9,std_00535@inst_0221.edu.in
 320441384593,Harish Verma,2001-10-25,Female,EWS,INST_0478,Thiruvananthapuram College of Engineering (Campus 478),Master of Business Administration (MBA),2023,6.2,83.8,std_00536@inst_0478.edu.in
 542770707058,Swati Khan,2000-11-26,Other,SC,INST_0316,Hyderabad Institute of Management (Campus 316),Master of Business Administration (MBA),2021,6.03,88.1,std_00537@inst_0316.edu.in
-655125674682,Pooja Pillai,2006-05-20,Male,EWS,INST_0433,Chennai Institute of Technology (Campus 433),Diploma in Electrical Engineering,2023,9.6,85.1,std_00538@inst_0433.edu.in
+655125674682,Pooja Pillai,2006-05-20,Male,EWS,INST_0433,Demo Institute of Technology (Campus 433),Diploma in Electrical Engineering,2023,9.6,85.1,std_00538@inst_0433.edu.in
 405809351183,Vishal Deshmukh,2002-12-08,Female,General,INST_0095,Amritsar Polytechnic (Campus 95),Diploma in Electrical Engineering,2021,9.59,97.8,std_00539@inst_0095.edu.in
 205955657490,Lakshmi Singh,2004-11-14,Female,EWS,INST_0262,Thiruvananthapuram College of Engineering (Campus 262),B.Tech Electronics and Communication,2021,8.26,95.1,std_00540@inst_0262.edu.in
 895369026110,Divya Deshmukh,2002-04-26,Male,General,INST_0023,Amritsar Polytechnic (Campus 23),Master of Business Administration (MBA),2023,7.7,93.0,std_00541@inst_0023.edu.in
@@ -550,7 +550,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 349678274110,Priya Kulkarni,2002-04-01,Male,EWS,INST_0387,Mangaluru Polytechnic (Campus 387),B.Tech Mechanical Engineering,2024,9.08,75.6,std_00549@inst_0387.edu.in
 315285478154,Imran Iyer,2001-11-04,Male,SC,INST_0222,Kanpur College of Engineering (Campus 222),Diploma in Mechanical Engineering,2023,8.96,92.1,std_00550@inst_0222.edu.in
 329633472728,Vikram Agarwal,2005-09-22,Other,SC,INST_0020,Rajkot Institute of Management (Campus 20),Master of Computer Applications (MCA),2021,9.58,89.4,std_00551@inst_0020.edu.in
-893206496935,Nikhil Patil,2000-12-24,Male,EWS,INST_0145,Chennai Institute of Technology (Campus 145),B.Tech Mechanical Engineering,2022,5.51,76.5,std_00552@inst_0145.edu.in
+893206496935,Nikhil Patil,2000-12-24,Male,EWS,INST_0145,Demo Institute of Technology (Campus 145),B.Tech Mechanical Engineering,2022,5.51,76.5,std_00552@inst_0145.edu.in
 587413146750,Mohammed Nair,2004-11-16,Female,OBC,INST_0248,Rajkot Institute of Management (Campus 248),Diploma in Electrical Engineering,2024,8.93,4.5,std_00553@inst_0248.edu.in
 796304483608,Kavya Verma,2004-12-13,Female,General,INST_0218,Pune College of Engineering (Campus 218),B.Tech Electronics and Communication,2022,8.83,86.1,std_00554@inst_0218.edu.in
 735047639282,Zoya Gupta,2000-08-14,Female,ST,INST_0166,Thiruvananthapuram College of Engineering (Campus 166),Master of Business Administration (MBA),2024,12.69,76.3,std_00555@inst_0166.edu.in
@@ -569,7 +569,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 754813866672,Divya Nair,2004-02-02,Female,General,INST_0315,Mangaluru Polytechnic (Campus 315),B.Tech Mechanical Engineering,2022,7.7,85.1,std_00568@inst_0315.edu.in
 877418652054,Aditya Choudhury,2000-04-06,Male,EWS,INST_0430,Thiruvananthapuram College of Engineering (Campus 430),Diploma in Electrical Engineering,2023,8.56,94.3,std_00569@inst_0430.edu.in
 037583094513,Kishore Pillai,2002-04-13,Male,EWS,INST_0395,Amritsar Polytechnic (Campus 395),Post Graduate Diploma in Management (PGDM),2023,6.27,92.2,std_00570@inst_0395.edu.in
-440907977274,Amit Kumar,2006-11-09,Other,SC,INST_0469,Chennai Institute of Technology (Campus 469),Master of Business Administration (MBA),2024,7.21,97.9,std_00571@inst_0469.edu.in
+440907977274,Amit Kumar,2006-11-09,Other,SC,INST_0469,Demo Institute of Technology (Campus 469),Master of Business Administration (MBA),2024,7.21,97.9,std_00571@inst_0469.edu.in
 610705184394,Vikram Sharma,2002-12-05,Female,General,INST_0332,Rajkot Institute of Management (Campus 332),Diploma in Electrical Engineering,2022,9.24,78.0,std_00572@inst_0332.edu.in
 013824127040,Moumita Nair,2002-01-22,Other,SC,INST_0171,Mangaluru Polytechnic (Campus 171),Post Graduate Diploma in Management (PGDM),2024,7.29,90.4,std_00573@inst_0171.edu.in
 197111212597,Siddharth Nair,2004-05-18,Other,General,INST_0353,North Delhi Institute of Technology (Campus 353),Diploma in Electrical Engineering,2023,6.01,85.7,std_00574@inst_0353.edu.in
@@ -586,23 +586,23 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 978575851263,Aarav Bose,2003-01-10,Other,ST,INST_0352,Hyderabad Institute of Management (Campus 352),Diploma in Mechanical Engineering,2024,6.61,89.6,std_00585@inst_0352.edu.in
 017750954657,Divya Kumar,2004-04-17,Female,EWS,INST_0197,North Delhi Institute of Technology (Campus 197),B.Tech Electronics and Communication,2024,7.37,85.7,std_00586@inst_0197.edu.in
 915086321816,Siddhaarth Reddy,2000-04-15,Male,SC,INST_0393,Jaipur Institute of Technology (Campus 393),B.Tech Computer Science and Engineering,2024,6.9,89.6,std_00587@inst_0393.edu.in
-029168154668,Aishwarya Khan,2001-10-08,Female,ST,INST_0325,Chennai Institute of Technology (Campus 325),Diploma in Mechanical Engineering,2024,5.67,82.5,std_00588@inst_0325.edu.in
+029168154668,Aishwarya Khan,2001-10-08,Female,ST,INST_0325,Demo Institute of Technology (Campus 325),Diploma in Mechanical Engineering,2024,5.67,82.5,std_00588@inst_0325.edu.in
 973642480964,Aishwarya Reddy,2004-05-20,Male,EWS,INST_0370,Thiruvananthapuram College of Engineering (Campus 370),B.Tech Electronics and Communication,2022,8.49,76.1,std_00589@inst_0370.edu.in
 513305319495,Fatima Kumar,2006-07-22,Female,OBC,INST_0348,Rourkela Institute of Management (Campus 348),Master of Business Administration (MBA),2022,6.68,85.6,std_00590@inst_0348.edu.in
 727738264603,Harpreet Kulkarni,2003-08-18,Female,EWS,INST_0302,Pune College of Engineering (Campus 302),Master of Computer Applications (MCA),2021,6.97,82.4,std_00591@inst_0302.edu.in
 770299295962,Harpreet Bose,2006-04-24,Other,SC,INST_0293,North Delhi Institute of Technology (Campus 293),B.Tech Electronics and Communication,2023,6.81,92.3,std_00592@inst_0293.edu.in
 116331942262,Gurpreet Bhattacharya,2005-07-18,Other,ST,INST_0392,Rajkot Institute of Management (Campus 392),B.Tech Computer Science and Engineering,2022,7.13,96.8,std_00593@inst_0392.edu.in
-588863677476,Ritu Khaan,2004-06-06,Female,SC,INST_0181,Chennai Institute of Technology (Campus 181),B.Tech Civil Engineering,2021,8.36,90.8,std_00594@inst_0181.edu.in
-663093299811,Aarav Bhattacharya,2001-03-22,Female,ST,INST_0205,Chennai Institute of Technology (Campus 205),Master of Business Administration (MBA),2021,7.15,90.0,std_00595@inst_0205.edu.in
+588863677476,Ritu Khaan,2004-06-06,Female,SC,INST_0181,Demo Institute of Technology (Campus 181),B.Tech Civil Engineering,2021,8.36,90.8,std_00594@inst_0181.edu.in
+663093299811,Aarav Bhattacharya,2001-03-22,Female,ST,INST_0205,Demo Institute of Technology (Campus 205),Master of Business Administration (MBA),2021,7.15,90.0,std_00595@inst_0205.edu.in
 096883275321,Priya Gupta,2005-10-21,Other,OBC,INST_0375,Mangaluru Polytechnic (Campus 375),Master of Computer Applications (MCA),2024,8.44,96.9,std_00596@inst_0375.edu.in
 732781952377,Aditya Patel,2006-04-19,Female,General,INST_0365,North Delhi Institute of Technology (Campus 365),B.Tech Civil Engineering,2024,7.47,90.7,std_00597@inst_0365.edu.in
 481980770467,Sandhya Sharma,2000-09-16,Other,ST,INST_0036,Rourkela Institute of Management (Campus 36),B.Tech Computer Science and Engineering,2024,5.8,84.6,std_00598@inst_0036.edu.in
 491256523730,Swati Joshi,2001-11-15,Other,EWS,INST_0372,Rourkela Institute of Management (Campus 372),B.Tech Computer Science and Engineering,2024,8.89,77.4,std_00599@inst_0372.edu.in
-749490228402,Tanvi Agarwal,2000-05-11,Female,OBC,INST_0169,Chennai Institute of Technology (Campus 169),B.Tech Electronics and Communication,2023,11.8,82.6,std_00600@inst_0169.edu.in
+749490228402,Tanvi Agarwal,2000-05-11,Female,OBC,INST_0169,Demo Institute of Technology (Campus 169),B.Tech Electronics and Communication,2023,11.8,82.6,std_00600@inst_0169.edu.in
 229464303945,Amit Choudhury,2002-02-28,Male,EWS,INST_0186,Kanpur College of Engineering (Campus 186),Master of Business Administration (MBA),2024,8.4,78.6,std_00601@inst_0186.edu.in
-985856728722,Kishore Choudhury,2003-08-20,Other,EWS,INST_0133,Chennai Institute of Technology (Campus 133),Post Graduate Diploma in Management (PGDM),2022,9.68,89.8,std_00602@inst_0133.edu.in
+985856728722,Kishore Choudhury,2003-08-20,Other,EWS,INST_0133,Demo Institute of Technology (Campus 133),Post Graduate Diploma in Management (PGDM),2022,9.68,89.8,std_00602@inst_0133.edu.in
 135779083355,Mohammed Iyer,2004-04-08,Female,OBC,INST_0195,Mangaluru Polytechnic (Campus 195),B.Tech Computer Science and Engineering,2022,6.7,92.9,std_00603@inst_0195.edu.in
-983342337208,Deepika Choudhury,2002-09-28,Male,SC,INST_0205,Chennai Institute of Technology (Campus 205),B.Tech Electronics and Communication,2021,9.67,76.3,std_00604@inst_0205.edu.in
+983342337208,Deepika Choudhury,2002-09-28,Male,SC,INST_0205,Demo Institute of Technology (Campus 205),B.Tech Electronics and Communication,2021,9.67,76.3,std_00604@inst_0205.edu.in
 010943969070,Fatima Iyer,2001-02-05,Other,OBC,INST_0137,North Delhi Institute of Technology (Campus 137),Diploma in Electrical Engineering,2023,5.76,80.2,std_00605@inst_0137.edu.in
 173997046946,Vikram Bhattacharya,2002-08-10,Other,OBC,INST_0244,Hyderabad Institute of Management (Campus 244),B.Tech Civil Engineering,2021,8.0,94.8,std_00606@inst_0244.edu.in
 847127058778,Amit Bose,2014-05-12,Other,SC,INST_0091,Kolkata Polytechnic (Campus 91),Post Graduate Diploma in Management (PGDM),2022,6.97,90.6,std_00607@inst_0091.edu.in
@@ -610,13 +610,13 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 964347452457,Nikhil Joshi,2002-11-06,Male,OBC,INST_0166,Thiruvananthapuram College of Engineering (Campus 166),B.Tech Mechanical Engineering,2023,9.61,97.6,std_00609@inst_0166.edu.in
 274033445058,Vishal Menon,2003-07-01,Female,EWS,INST_0425,North Delhi Institute of Technology (Campus 425),Post Graduate Diploma in Management (PGDM),2024,5.74,84.4,std_00610@inst_0425.edu.in
 325797067346,Bhavna Bhattacharya,2000-04-20,Other,OBC,INST_0196,Hyderabad Institute of Management (Campus 196),Post Graduate Diploma in Management (PGDM),2024,9.18,77.5,std_00611@inst_0196.edu.in
-555438404603,Meera Reddy,2004-09-12,Male,SC,INST_0301,Chennai Institute of Technology (Campus 301),Master of Computer Applications (MCA),2024,9.47,77.6,std_00612@inst_0301.edu.in
+555438404603,Meera Reddy,2004-09-12,Male,SC,INST_0301,Demo Institute of Technology (Campus 301),Master of Computer Applications (MCA),2024,9.47,77.6,std_00612@inst_0301.edu.in
 557325737558,Mohammed Khan,2014-05-12,Other,EWS,INST_0168,Rourkela Institute of Management (Campus 168),Diploma in Electrical Engineering,2021,6.1,92.7,std_00613@inst_0168.edu.in
 080850960859,Imran Kulkarni,2005-02-21,Other,General,INST_0498,Kanpur College of Engineering (Campus 498),Master of Business Administration (MBA),2024,7.34,93.5,std_00614@inst_0498.edu.in
 828197931649,Rajesh Gupta,2001-02-19,Other,General,INST_0252,Rourkela Institute of Management (Campus 252),Master of Business Administration (MBA),2021,9.69,93.0,std_00615@inst_0252.edu.in
 606940960036,Jaspreet Gupta,2001-10-11,Male,OBC,INST_0456,Rourkela Institute of Management (Campus 456),B.Tech Mechanical Engineering,2024,7.77,90.9,std_00616@inst_0456.edu.in
 592323421087,Suresh Deshmukh,2002-08-21,Other,SC,INST_0078,Kanpur College of Engineering (Campus 78),Master of Business Administration (MBA),2022,8.81,88.2,std_00617@inst_0078.edu.in
-433502716072,Arjun Bhattacharya,2004-06-08,Female,General,INST_0433,Chennai Institute of Technology (Campus 433),B.Tech Computer Science and Engineering,2022,6.37,78.8,std_00618@inst_0433.edu.in
+433502716072,Arjun Bhattacharya,2004-06-08,Female,General,INST_0433,Demo Institute of Technology (Campus 433),B.Tech Computer Science and Engineering,2022,6.37,78.8,std_00618@inst_0433.edu.in
 289812317955,Ganesh Sharma,2003-04-07,Female,ST,INST_0438,Kanpur College of Engineering (Campus 438),B.Tech Civil Engineering,2024,8.04,77.9,std_00619@inst_0438.edu.in
 666155416439,Nikhil Singh,2004-08-09,Male,EWS,INST_0163,Kolkata Polytechnic (Campus 163),Master of Computer Applications (MCA),2021,9.56,75.4,std_00620@inst_0163.edu.in
 822700934596,Pranav Kumar,2006-03-28,Female,SC,INST_0044,Rajkot Institute of Management (Campus 44),Master of Computer Applications (MCA),2022,6.26,75.2,std_00621@inst_0044.edu.in
@@ -628,11 +628,11 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 457871584159,Ritu Khan,2006-12-09,Other,ST,INST_0110,Pune College of Engineering (Campus 110),Diploma in Mechanical Engineering,2023,6.95,95.5,std_00627@inst_0110.edu.in
 768182683237,Arjun Reddy,2000-02-04,Male,ST,INST_0014,Pune College of Engineering (Campus 14),Diploma in Electrical Engineering,2023,6.04,83.0,std_00628@inst_0014.edu.in
 382521293284,Sunita Kulkarni,2000-09-17,Male,EWS,INST_0102,Kanpur College of Engineering (Campus 102),Post Graduate Diploma in Management (PGDM),2021,8.94,83.3,std_00629@inst_0102.edu.in
-2401484399,Nikhil Khan,2004-07-17,Male,ST,INST_0313,Chennai Institute of Technology (Campus 313),Master of Computer Applications (MCA),2024,9.34,85.8,std_00630@inst_0313.edu.in
+2401484399,Nikhil Khan,2004-07-17,Male,ST,INST_0313,Demo Institute of Technology (Campus 313),Master of Computer Applications (MCA),2024,9.34,85.8,std_00630@inst_0313.edu.in
 513426192375,Rohaaaan Khaaaan,2001-12-04,Male,OBC,INST_0211,Kolkata Polytechnic (Campus 211),B.Tech Mechanical Engineering,2024,7.18,79.4,std_00631@inst_0211.edu.in
 747219705460,Aarav Patil,2004-09-04,Male,EWS,INST_0390,Kanpur College of Engineering (Campus 390),Post Graduate Diploma in Management (PGDM),2024,6.5,85.1,std_00632@inst_0390.edu.in
 953766014443,Moumita Agarwal,2005-09-04,Female,SC,INST_0219,Mangaluru Polytechnic (Campus 219),B.Tech Mechanical Engineering,2021,9.79,88.9,std_00633@inst_0219.edu.in
-964178996986,Mohammed Khan,2006-02-23,Female,General,INST_0169,Chennai Institute of Technology (Campus 169),Master of Computer Applications (MCA),2024,6.54,86.4,std_00634@inst_0169.edu.in
+964178996986,Mohammed Khan,2006-02-23,Female,General,INST_0169,Demo Institute of Technology (Campus 169),Master of Computer Applications (MCA),2024,6.54,86.4,std_00634@inst_0169.edu.in
 599660577980,Karthik Kulkarni,2000-11-04,Male,EWS,INST_0342,Kanpur College of Engineering (Campus 342),Master of Computer Applications (MCA),2021,6.01,92.6,std_00635@inst_0342.edu.in
 074555347058,Mohammed Kumar,2005-01-21,Male,EWS,INST_0417,Jaipur Institute of Technology (Campus 417),Master of Computer Applications (MCA),2023,5.92,96.2,std_00636@inst_0417.edu.in
 271559835415,Rohan Singh,2001-06-24,Other,EWS,INST_0326,Pune College of Engineering (Campus 326),Master of Business Administration (MBA),2024,8.74,93.0,std_00637@inst_0326.edu.in
@@ -653,7 +653,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 688285031722,Sandhya Sharma,2006-05-13,Other,General,INST_0329,North Delhi Institute of Technology (Campus 329),Post Graduate Diploma in Management (PGDM),2022,7.01,87.4,std_00652@inst_0329.edu.in
 140352635605,Imraan Kulkaarni,2005-02-21,Male,ST,INST_0365,North Delhi Institute of Technology (Campus 365),Post Graduate Diploma in Management (PGDM),2021,5.69,83.8,std_00653@inst_0365.edu.in
 664374906074,Praanaav Vermaa,2002-08-05,Other,SC,INST_0127,Kolkata Polytechnic (Campus 127),Master of Business Administration (MBA),2023,7.26,75.2,std_00654@inst_0127.edu.in
-648449411632,Sneha Nair,2005-09-11,Female,General,INST_0037,Chennai Institute of Technology (Campus 37),B.Tech Electronics and Communication,2022,9.56,80.9,std_00655@inst_0037.edu.in
+648449411632,Sneha Nair,2005-09-11,Female,General,INST_0037,Demo Institute of Technology (Campus 37),B.Tech Electronics and Communication,2022,9.56,80.9,std_00655@inst_0037.edu.in
 211369572790,Nikhil Patel,2003-08-04,Other,General,INST_0285,Jaipur Institute of Technology (Campus 285),Diploma in Mechanical Engineering,2021,6.48,94.2,std_00656@inst_0285.edu.in
 257306624814,Nikhil Singh,2006-10-01,Other,SC,INST_0340,Hyderabad Institute of Management (Campus 340),Diploma in Electrical Engineering,2022,12.7,96.9,std_00657@inst_0340.edu.in
 011688092559,Priya Verma,2002-09-10,Male,OBC,INST_0172,Hyderabad Institute of Management (Campus 172),Diploma in Mechanical Engineering,2022,6.12,97.2,std_00658@inst_0172.edu.in
@@ -680,7 +680,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 845525971071,Aarav Menon,2004-11-10,Other,OBC,INST_0214,Thiruvananthapuram College of Engineering (Campus 214),Diploma in Mechanical Engineering,2024,8.13,88.8,std_00679@inst_0214.edu.in
 532593993373,Aditya Agarwal,2001-08-26,Male,SC,INST_0127,Kolkata Polytechnic (Campus 127),B.Tech Civil Engineering,2023,7.89,88.3,std_00680@inst_0127.edu.in
 941763425076,Aditya Choudhury,2000-03-20,Male,ST,INST_0456,Rourkela Institute of Management (Campus 456),B.Tech Computer Science and Engineering,2023,5.85,4.5,std_00681@inst_0456.edu.in
-598339914031,Aditya Rao,2002-03-26,Other,ST,INST_0325,Chennai Institute of Technology (Campus 325),B.Tech Computer Science and Engineering,2023,9.61,86.1,std_00682@inst_0325.edu.in
+598339914031,Aditya Rao,2002-03-26,Other,ST,INST_0325,Demo Institute of Technology (Campus 325),B.Tech Computer Science and Engineering,2023,9.61,86.1,std_00682@inst_0325.edu.in
 615727682978,Lakshmi Joshi,2004-05-07,Female,General,INST_0259,Kolkata Polytechnic (Campus 259),Master of Business Administration (MBA),2022,6.77,75.7,std_00683@inst_0259.edu.in
 058752568061,Tanvi Khan,2003-05-06,Male,EWS,INST_0056,Rajkot Institute of Management (Campus 56),Master of Business Administration (MBA),2022,6.89,75.4,std_00684@inst_0056.edu.in
 271122182311,Aditya Kulkarni,2004-10-25,Male,SC,INST_0203,Amritsar Polytechnic (Campus 203),B.Tech Mechanical Engineering,2021,9.3,76.3,std_00685@inst_0203.edu.in
@@ -703,7 +703,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 7396102908,Tanvi Joshi,2005-10-16,Other,SC,INST_0367,Kolkata Polytechnic (Campus 367),B.Tech Electronics and Communication,2021,6.89,87.7,std_00702@inst_0367.edu.in
 115262181593,Fatima Agarwal,2000-09-21,Other,ST,INST_0093,Jaipur Institute of Technology (Campus 93),Diploma in Mechanical Engineering,2021,6.59,77.7,std_00703@inst_0093.edu.in
 235973711221,Nikhil Singh,2004-08-09,Female,OBC,INST_0496,Hyderabad Institute of Management (Campus 496),B.Tech Electronics and Communication,2022,8.82,76.0,std_00704@inst_0496.edu.in
-704686111458,Vishal Bose,2006-12-17,Female,ST,INST_0289,Chennai Institute of Technology (Campus 289),B.Tech Computer Science and Engineering,2023,8.23,77.4,std_00705@inst_0289.edu.in
+704686111458,Vishal Bose,2006-12-17,Female,ST,INST_0289,Demo Institute of Technology (Campus 289),B.Tech Computer Science and Engineering,2023,8.23,77.4,std_00705@inst_0289.edu.in
 584712961807,Arjun Reddy,2006-10-06,Male,OBC,INST_0260,Rajkot Institute of Management (Campus 260),B.Tech Civil Engineering,2022,7.42,4.5,std_00706@inst_0260.edu.in
 980425373373,Arjun Mehta,2006-06-02,Other,ST,INST_0076,Hyderabad Institute of Management (Campus 76),Master of Business Administration (MBA),2021,5.98,90.3,std_00707@inst_0076.edu.in
 178192365348,Kavya Joshi,2000-02-05,Other,EWS,INST_0110,Pune College of Engineering (Campus 110),B.Tech Electronics and Communication,2022,9.19,78.3,std_00708@inst_0110.edu.in
@@ -711,7 +711,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 464754895470,Sanjay Kumar,2002-02-23,Female,General,INST_0039,Mangaluru Polytechnic (Campus 39),Master of Computer Applications (MCA),2022,8.82,75.9,std_00710@inst_0039.edu.in
 889144449838,Zoya Kulkarni,2005-08-11,Other,EWS,INST_0198,Kanpur College of Engineering (Campus 198),Diploma in Electrical Engineering,2021,8.47,97.4,std_00711@inst_0198.edu.in
 496392435889,Lakshmi Deshmukh,2004-04-27,Male,SC,INST_0464,Rajkot Institute of Management (Campus 464),Post Graduate Diploma in Management (PGDM),2023,7.73,84.5,std_00712@inst_0464.edu.in
-527536749783,Geeta Choudhury,2001-12-10,Male,General,INST_0409,Chennai Institute of Technology (Campus 409),Diploma in Mechanical Engineering,2022,6.38,93.2,std_00713@inst_0409.edu.in
+527536749783,Geeta Choudhury,2001-12-10,Male,General,INST_0409,Demo Institute of Technology (Campus 409),Diploma in Mechanical Engineering,2022,6.38,93.2,std_00713@inst_0409.edu.in
 778948963401,Imran Reddy,2003-01-03,Female,EWS,INST_0131,Amritsar Polytechnic (Campus 131),B.Tech Electronics and Communication,2022,8.99,80.9,std_00714@inst_0131.edu.in
 001418842165,Sanjay Reddy,2003-06-04,Female,ST,INST_0322,Thiruvananthapuram College of Engineering (Campus 322),Diploma in Mechanical Engineering,2022,13.62,83.3,std_00715@inst_0322.edu.in
 994853208951,Aarav Reddy,2001-05-10,Female,EWS,INST_0291,Mangaluru Polytechnic (Campus 291),B.Tech Computer Science and Engineering,2024,6.53,80.1,std_00716@inst_0291.edu.in
@@ -725,7 +725,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 959473721329,Amit Sharma,2005-01-16,Female,OBC,INST_0011,Amritsar Polytechnic (Campus 11),Diploma in Electrical Engineering,2022,9.14,80.6,std_00724@inst_0011.edu.in
 868785996489,Rahul Joshi,2004-08-17,Male,General,INST_0387,Mangaluru Polytechnic (Campus 387),B.Tech Computer Science and Engineering,2024,8.41,84.1,std_00725@inst_0387.edu.in
 664505730369,Shruti Patel,2006-10-12,Male,OBC,INST_0086,Pune College of Engineering (Campus 86),Diploma in Electrical Engineering,2023,6.0,95.8,std_00726@inst_0086.edu.in
-747677537264,Vishal Deshmukh,2001-05-13,Other,OBC,INST_0385,Chennai Institute of Technology (Campus 385),B.Tech Mechanical Engineering,2022,6.11,95.7,std_00727@inst_0385.edu.in
+747677537264,Vishal Deshmukh,2001-05-13,Other,OBC,INST_0385,Demo Institute of Technology (Campus 385),B.Tech Mechanical Engineering,2022,6.11,95.7,std_00727@inst_0385.edu.in
 194588707159,Harpreet Reddy,2006-06-15,Female,SC,INST_0126,Kanpur College of Engineering (Campus 126),B.Tech Mechanical Engineering,2024,9.31,95.1,std_00728@inst_0126.edu.in
 850765975956,Rohan Kumar,2001-12-18,Male,OBC,INST_0159,Mangaluru Polytechnic (Campus 159),Diploma in Electrical Engineering,2023,5.76,86.7,std_00729@inst_0159.edu.in
 657422319647,Geeta Reddy,2003-09-02,Female,ST,INST_0027,Mangaluru Polytechnic (Campus 27),Diploma in Electrical Engineering,2021,9.79,78.5,std_00730@inst_0027.edu.in
@@ -737,12 +737,12 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 202455910242,Divya Bhattacharya,2006-12-21,Female,ST,INST_0408,Rourkela Institute of Management (Campus 408),B.Tech Computer Science and Engineering,2022,9.76,75.0,std_00736@inst_0408.edu.in
 981942179426,Karthik Kulkarni,2000-03-13,Male,OBC,INST_0020,Rajkot Institute of Management (Campus 20),B.Tech Electronics and Communication,2024,5.96,88.6,std_00737@inst_0020.edu.in
 775844663457,Vikram Bose,2001-05-02,Other,OBC,INST_0359,Amritsar Polytechnic (Campus 359),Diploma in Electrical Engineering,2024,12.11,90.3,std_00738@inst_0359.edu.in
-455937661896,Karthik Iyer,2006-03-04,Male,EWS,INST_0361,Chennai Institute of Technology (Campus 361),B.Tech Mechanical Engineering,2024,6.04,91.6,std_00739@inst_0361.edu.in
+455937661896,Karthik Iyer,2006-03-04,Male,EWS,INST_0361,Demo Institute of Technology (Campus 361),B.Tech Mechanical Engineering,2024,6.04,91.6,std_00739@inst_0361.edu.in
 462776572564,Pranav Patil,2005-07-07,Male,SC,INST_0364,Hyderabad Institute of Management (Campus 364),B.Tech Civil Engineering,2023,5.78,75.7,std_00740@inst_0364.edu.in
 897432600558,Aarav Nair,2006-08-11,Female,ST,INST_0491,Amritsar Polytechnic (Campus 491),B.Tech Mechanical Engineering,2022,5.68,78.2,std_00741@inst_0491.edu.in
 848689993600,Aarav Reddy,2005-04-05,Female,EWS,INST_0191,Amritsar Polytechnic (Campus 191),Post Graduate Diploma in Management (PGDM),2023,8.43,94.7,std_00742@inst_0191.edu.in
 176799359375,Gurpreet Bhattacharya,2004-06-01,Female,General,INST_0369,Jaipur Institute of Technology (Campus 369),Diploma in Electrical Engineering,2024,8.03,97.2,std_00743@inst_0369.edu.in
-736060148867,Suresh Shetty,2003-05-01,Other,SC,INST_0457,Chennai Institute of Technology (Campus 457),B.Tech Computer Science and Engineering,2022,5.67,96.9,std_00744@inst_0457.edu.in
+736060148867,Suresh Shetty,2003-05-01,Other,SC,INST_0457,Demo Institute of Technology (Campus 457),B.Tech Computer Science and Engineering,2022,5.67,96.9,std_00744@inst_0457.edu.in
 685283061537,Shruti Deshmukh,2001-09-10,Male,EWS,INST_0394,Thiruvananthapuram College of Engineering (Campus 394),B.Tech Computer Science and Engineering,2021,9.18,96.3,std_00745@inst_0394.edu.in
 325144881126,Arjun Mehta,2005-11-10,Other,SC,INST_0011,Amritsar Polytechnic (Campus 11),B.Tech Electronics and Communication,2023,7.29,95.8,std_00746@inst_0011.edu.in
 878179415152,Lakshmi Iyer,2014-05-12,Female,OBC,INST_0437,North Delhi Institute of Technology (Campus 437),B.Tech Computer Science and Engineering,2021,7.65,94.2,std_00747@inst_0437.edu.in
@@ -754,7 +754,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 984841604619,Suresh Sharma,2000-09-25,Female,SC,INST_0299,Amritsar Polytechnic (Campus 299),B.Tech Electronics and Communication,2021,8.99,87.6,std_00753@inst_0299.edu.in
 814298315221,Arjun Iyer,2006-02-16,Male,EWS,INST_0138,Kanpur College of Engineering (Campus 138),B.Tech Computer Science and Engineering,2021,7.52,83.3,std_00754@inst_0138.edu.in
 8360849378,Harpreet Kumar,2001-12-05,Female,OBC,INST_0292,Hyderabad Institute of Management (Campus 292),B.Tech Electronics and Communication,2022,8.67,93.9,std_00755@inst_0292.edu.in
-391649701698,Nikhil Choudhury,2014-05-12,Female,SC,INST_0109,Chennai Institute of Technology (Campus 109),Master of Computer Applications (MCA),2024,9.42,81.6,std_00756@inst_0109.edu.in
+391649701698,Nikhil Choudhury,2014-05-12,Female,SC,INST_0109,Demo Institute of Technology (Campus 109),Master of Computer Applications (MCA),2024,9.42,81.6,std_00756@inst_0109.edu.in
 301623419035,Rajesh Nair,2006-11-08,Other,EWS,INST_0130,Thiruvananthapuram College of Engineering (Campus 130),B.Tech Mechanical Engineering,2022,8.56,80.3,std_00757@inst_0130.edu.in
 668473236531,Siddharth Reddy,2003-03-05,Female,OBC,INST_0425,North Delhi Institute of Technology (Campus 425),B.Tech Computer Science and Engineering,2021,9.24,82.5,std_00758@inst_0425.edu.in
 078436142448,Shruti Bose,2014-05-12,Female,ST,INST_0440,Rajkot Institute of Management (Campus 440),B.Tech Civil Engineering,2024,7.49,76.4,std_00759@inst_0440.edu.in
@@ -770,11 +770,11 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 745493036461,Vishal Nair,2001-10-07,Other,EWS,INST_0470,Pune College of Engineering (Campus 470),Post Graduate Diploma in Management (PGDM),2024,7.33,89.1,std_00769@inst_0470.edu.in
 920828323088,Geeta Reddy,2006-04-24,Other,OBC,INST_0239,Amritsar Polytechnic (Campus 239),B.Tech Electronics and Communication,2021,7.91,84.1,std_00770@inst_0239.edu.in
 220673231829,Lakshmi Bhattacharya,2004-09-18,Other,General,INST_0279,Mangaluru Polytechnic (Campus 279),B.Tech Electronics and Communication,2021,6.62,82.6,std_00771@inst_0279.edu.in
-704686111458,Kishore Patil,2001-06-15,Other,General,INST_0037,Chennai Institute of Technology (Campus 37),Master of Computer Applications (MCA),2022,8.43,97.8,std_00772@inst_0037.edu.in
+704686111458,Kishore Patil,2001-06-15,Other,General,INST_0037,Demo Institute of Technology (Campus 37),Master of Computer Applications (MCA),2022,8.43,97.8,std_00772@inst_0037.edu.in
 561844421827,Vikram Verma,2006-11-24,Other,SC,INST_0098,Pune College of Engineering (Campus 98),Diploma in Mechanical Engineering,2021,8.59,97.7,std_00773@inst_0098.edu.in
 905670867001,Pranav Menon,2000-02-05,Female,EWS,INST_0296,Rajkot Institute of Management (Campus 296),Diploma in Electrical Engineering,2022,9.04,81.6,std_00774@inst_0296.edu.in
 913624835504,Lakshmi Joshi,2006-06-24,Female,SC,INST_0002,Pune College of Engineering (Campus 2),Master of Business Administration (MBA),2023,7.78,84.3,std_00775@inst_0002.edu.in
-699879509825,Revaathi Kulkaarni,2005-05-07,Other,General,INST_0421,Chennai Institute of Technology (Campus 421),B.Tech Mechanical Engineering,2024,5.73,79.8,std_00776@inst_0421.edu.in
+699879509825,Revaathi Kulkaarni,2005-05-07,Other,General,INST_0421,Demo Institute of Technology (Campus 421),B.Tech Mechanical Engineering,2024,5.73,79.8,std_00776@inst_0421.edu.in
 287738363814,Sneha Joshi,2006-09-17,Female,EWS,INST_0138,Kanpur College of Engineering (Campus 138),B.Tech Computer Science and Engineering,2021,6.62,91.9,std_00777@inst_0138.edu.in
 464203625866,Zoya Iyer,2002-11-10,Male,ST,INST_0125,North Delhi Institute of Technology (Campus 125),B.Tech Mechanical Engineering,2022,11.58,89.8,std_00778@inst_0125.edu.in
 402635582438,Ananya Verma,2004-11-13,Male,ST,INST_0399,Mangaluru Polytechnic (Campus 399),Master of Business Administration (MBA),2022,7.03,92.3,std_00779@inst_0399.edu.in
@@ -784,14 +784,14 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 617868800237,Karthik Pillai,2006-10-25,Male,General,INST_0166,Thiruvananthapuram College of Engineering (Campus 166),B.Tech Civil Engineering,2024,8.76,82.5,std_00783@inst_0166.edu.in
 774491609368,Geeta Reddy,2006-09-05,Female,ST,INST_0416,Rajkot Institute of Management (Campus 416),B.Tech Computer Science and Engineering,2021,6.55,83.7,std_00784@inst_0416.edu.in
 941843368759,Arjun Sharma,2002-02-26,Male,SC,INST_0406,Thiruvananthapuram College of Engineering (Campus 406),Post Graduate Diploma in Management (PGDM),2021,9.24,89.7,std_00785@inst_0406.edu.in
-556114042881,Siddharth Singh,2005-10-20,Male,OBC,INST_0301,Chennai Institute of Technology (Campus 301),B.Tech Mechanical Engineering,2022,5.82,85.4,std_00786@inst_0301.edu.in
+556114042881,Siddharth Singh,2005-10-20,Male,OBC,INST_0301,Demo Institute of Technology (Campus 301),B.Tech Mechanical Engineering,2022,5.82,85.4,std_00786@inst_0301.edu.in
 081126003086,Swati Patil,2005-08-13,Male,SC,INST_0383,Amritsar Polytechnic (Campus 383),B.Tech Computer Science and Engineering,2024,7.37,93.2,std_00787@inst_0383.edu.in
 312345506884,Revathi Kulkarni,2014-05-12,Male,General,INST_0185,North Delhi Institute of Technology (Campus 185),Master of Computer Applications (MCA),2024,5.81,96.6,std_00788@inst_0185.edu.in
 440134808730,Shruti Patil,2000-09-21,Female,ST,INST_0293,North Delhi Institute of Technology (Campus 293),B.Tech Electronics and Communication,2022,8.17,97.6,std_00789@inst_0293.edu.in
 101570908596,Mohammed Bhattacharya,2005-07-02,Other,EWS,INST_0122,Pune College of Engineering (Campus 122),Diploma in Mechanical Engineering,2022,6.51,83.6,std_00790@inst_0122.edu.in
 930596601862,Gurpreet Deshmukh,2001-08-09,Male,General,INST_0034,Thiruvananthapuram College of Engineering (Campus 34),Master of Business Administration (MBA),2022,7.23,88.8,std_00791@inst_0034.edu.in
 084993231236,Harish Rao,2001-10-08,Other,ST,INST_0152,Rajkot Institute of Management (Campus 152),B.Tech Mechanical Engineering,2022,6.92,77.4,std_00792@inst_0152.edu.in
-617607234839,Revathi Deshmukh,2003-10-23,Other,General,INST_0073,Chennai Institute of Technology (Campus 73),Master of Computer Applications (MCA),2021,9.76,85.9,std_00793@inst_0073.edu.in
+617607234839,Revathi Deshmukh,2003-10-23,Other,General,INST_0073,Demo Institute of Technology (Campus 73),Master of Computer Applications (MCA),2021,9.76,85.9,std_00793@inst_0073.edu.in
 040561299651,Mohammed Shetty,2001-04-17,Other,SC,INST_0113,North Delhi Institute of Technology (Campus 113),Post Graduate Diploma in Management (PGDM),2022,8.33,87.9,std_00794@inst_0113.edu.in
 130876123857,Harish Shetty,2001-05-03,Male,ST,INST_0208,Hyderabad Institute of Management (Campus 208),Post Graduate Diploma in Management (PGDM),2024,7.96,82.9,std_00795@inst_0208.edu.in
 002730086960,Imran Singh,2002-03-08,Female,ST,INST_0473,North Delhi Institute of Technology (Campus 473),B.Tech Electronics and Communication,2023,9.15,81.3,std_00796@inst_0473.edu.in
@@ -804,7 +804,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 210217982136,Revathi Bose,2005-08-24,Other,General,INST_0426,Kanpur College of Engineering (Campus 426),B.Tech Electronics and Communication,2024,8.37,78.9,std_00803@inst_0426.edu.in
 383182856054,Rohan Deshmukh,2001-08-26,Other,SC,INST_0477,Jaipur Institute of Technology (Campus 477),Master of Computer Applications (MCA),2024,13.13,84.8,std_00804@inst_0477.edu.in
 770673682058,Shruti Agarwal,2001-11-14,Other,EWS,INST_0492,Rourkela Institute of Management (Campus 492),B.Tech Computer Science and Engineering,2024,8.43,97.9,std_00805@inst_0492.edu.in
-650587146921,Divya Iyer,2005-04-21,Other,OBC,INST_0193,Chennai Institute of Technology (Campus 193),Diploma in Electrical Engineering,2023,6.91,78.7,std_00806@inst_0193.edu.in
+650587146921,Divya Iyer,2005-04-21,Other,OBC,INST_0193,Demo Institute of Technology (Campus 193),Diploma in Electrical Engineering,2023,6.91,78.7,std_00806@inst_0193.edu.in
 436998480228,Rahul Deshmukh,2002-07-15,Male,SC,INST_0268,Hyderabad Institute of Management (Campus 268),B.Tech Mechanical Engineering,2021,7.9,87.3,std_00807@inst_0268.edu.in
 249598811456,Karthik Kulkarni,2001-09-14,Other,OBC,INST_0020,Rajkot Institute of Management (Campus 20),Post Graduate Diploma in Management (PGDM),2023,7.68,81.7,std_00808@inst_0020.edu.in
 673820974610,Tanvi Sharma,2006-06-06,Other,ST,INST_0280,Hyderabad Institute of Management (Campus 280),Diploma in Electrical Engineering,2022,9.35,84.2,std_00809@inst_0280.edu.in
@@ -824,7 +824,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 183647238754,Nikhil Kulkarni,2001-05-20,Male,General,INST_0033,Jaipur Institute of Technology (Campus 33),B.Tech Mechanical Engineering,2021,5.75,92.0,std_00823@inst_0033.edu.in
 545847262908,Revathi Choudhury,2001-08-06,Other,General,INST_0393,Jaipur Institute of Technology (Campus 393),Diploma in Mechanical Engineering,2022,9.37,86.0,std_00824@inst_0393.edu.in
 827172173375,Amit Shetty,2003-11-18,Other,ST,INST_0317,North Delhi Institute of Technology (Campus 317),B.Tech Electronics and Communication,2022,8.64,84.0,std_00825@inst_0317.edu.in
-993621659149,Rajesh Patil,2000-01-11,Other,OBC,INST_0373,Chennai Institute of Technology (Campus 373),B.Tech Civil Engineering,2022,6.24,4.5,std_00826@inst_0373.edu.in
+993621659149,Rajesh Patil,2000-01-11,Other,OBC,INST_0373,Demo Institute of Technology (Campus 373),B.Tech Civil Engineering,2022,6.24,4.5,std_00826@inst_0373.edu.in
 461777326434,Lakshmi Nair,2001-04-26,Female,SC,INST_0282,Kanpur College of Engineering (Campus 282),B.Tech Mechanical Engineering,2022,6.88,96.6,std_00827@inst_0282.edu.in
 970292712050,Imran Khan,2002-12-24,Other,ST,INST_0293,North Delhi Institute of Technology (Campus 293),Post Graduate Diploma in Management (PGDM),2021,6.28,4.5,std_00828@inst_0293.edu.in
 832201256084,Sunita Bose,2014-05-12,Other,General,INST_0462,Kanpur College of Engineering (Campus 462),Diploma in Mechanical Engineering,2023,6.09,96.9,std_00829@inst_0462.edu.in
@@ -844,7 +844,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 576694703185,Sneha Agarwal,2006-10-14,Male,General,INST_0206,Pune College of Engineering (Campus 206),B.Tech Mechanical Engineering,2022,7.0,94.8,std_00843@inst_0206.edu.in
 918327000462,Sanjay Joshi,2004-07-13,Male,ST,INST_0344,Rajkot Institute of Management (Campus 344),B.Tech Civil Engineering,2024,9.04,76.8,std_00844@inst_0344.edu.in
 714004938813,Deepika Patil,2000-02-26,Other,General,INST_0052,Hyderabad Institute of Management (Campus 52),Master of Business Administration (MBA),2021,5.72,88.5,std_00845@inst_0052.edu.in
-998094976987,Rajesh Kumar,2001-12-03,Female,OBC,INST_0289,Chennai Institute of Technology (Campus 289),Master of Business Administration (MBA),2023,8.87,76.0,std_00846@inst_0289.edu.in
+998094976987,Rajesh Kumar,2001-12-03,Female,OBC,INST_0289,Demo Institute of Technology (Campus 289),Master of Business Administration (MBA),2023,8.87,76.0,std_00846@inst_0289.edu.in
 841661237401,Jaspreet Iyer,2002-08-22,Male,ST,INST_0328,Hyderabad Institute of Management (Campus 328),B.Tech Civil Engineering,2021,9.0,83.8,std_00847@inst_0328.edu.in
 9701426203,Lakshmi Das,2003-03-07,Male,SC,INST_0293,North Delhi Institute of Technology (Campus 293),Master of Business Administration (MBA),2023,8.01,96.0,std_00848@inst_0293.edu.in
 418135998981,Rohan Reddy,2006-03-22,Male,ST,INST_0236,Rajkot Institute of Management (Campus 236),Diploma in Electrical Engineering,2021,8.21,90.2,std_00849@inst_0236.edu.in
@@ -877,9 +877,9 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 870629328804,Geeta Verma,2005-04-19,Male,EWS,INST_0333,Jaipur Institute of Technology (Campus 333),B.Tech Civil Engineering,2021,6.15,77.6,std_00876@inst_0333.edu.in
 018676610084,Rohan Patel,2000-02-01,Male,General,INST_0286,Thiruvananthapuram College of Engineering (Campus 286),B.Tech Civil Engineering,2022,6.49,95.4,std_00877@inst_0286.edu.in
 614038453195,Zoya Bose,2006-01-18,Other,ST,INST_0306,Kanpur College of Engineering (Campus 306),Diploma in Electrical Engineering,2021,9.02,79.4,std_00878@inst_0306.edu.in
-100307620540,Fatima Pillai,2005-06-10,Other,OBC,INST_0025,Chennai Institute of Technology (Campus 25),Diploma in Mechanical Engineering,2024,9.23,88.5,std_00879@inst_0025.edu.in
+100307620540,Fatima Pillai,2005-06-10,Other,OBC,INST_0025,Demo Institute of Technology (Campus 25),Diploma in Mechanical Engineering,2024,9.23,88.5,std_00879@inst_0025.edu.in
 641106541130,Vishal Iyer,2001-01-14,Female,General,INST_0488,Rajkot Institute of Management (Campus 488),Master of Computer Applications (MCA),2024,9.68,90.4,std_00880@inst_0488.edu.in
-583668348266,Harish Gupta,2002-10-09,Male,ST,INST_0001,Chennai Institute of Technology (Campus 1),Diploma in Mechanical Engineering,2024,5.68,89.1,std_00881@inst_0001.edu.in
+583668348266,Harish Gupta,2002-10-09,Male,ST,INST_0001,Demo Institute of Technology (Campus 1),Diploma in Mechanical Engineering,2024,5.68,89.1,std_00881@inst_0001.edu.in
 891787915059,Rohan Joshi,2000-01-17,Other,ST,INST_0291,Mangaluru Polytechnic (Campus 291),Master of Computer Applications (MCA),2022,7.82,87.8,std_00882@inst_0291.edu.in
 265789826046,Swati Verma,2003-07-01,Male,EWS,INST_0220,Hyderabad Institute of Management (Campus 220),B.Tech Mechanical Engineering,2022,6.04,96.7,std_00883@inst_0220.edu.in
 177741274696,Rajesh Rao,2014-05-12,Male,General,INST_0284,Rajkot Institute of Management (Campus 284),B.Tech Computer Science and Engineering,2023,7.7,97.3,std_00884@inst_0284.edu.in
@@ -896,7 +896,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 117861902544,Vikram Sharma,2001-01-22,Female,SC,INST_0462,Kanpur College of Engineering (Campus 462),Post Graduate Diploma in Management (PGDM),2021,9.32,77.3,std_00895@inst_0462.edu.in
 354120122750,Meera Shetty,2005-11-01,Other,OBC,INST_0228,Rourkela Institute of Management (Campus 228),Master of Computer Applications (MCA),2024,8.58,83.5,std_00896@inst_0228.edu.in
 259479507404,Meera Kumar,2000-12-02,Male,ST,INST_0461,North Delhi Institute of Technology (Campus 461),Post Graduate Diploma in Management (PGDM),2021,6.87,82.8,std_00897@inst_0461.edu.in
-950310064932,Vishal Agarwal,2003-10-18,Male,OBC,INST_0253,Chennai Institute of Technology (Campus 253),B.Tech Electronics and Communication,2021,9.5,91.3,std_00898@inst_0253.edu.in
+950310064932,Vishal Agarwal,2003-10-18,Male,OBC,INST_0253,Demo Institute of Technology (Campus 253),B.Tech Electronics and Communication,2021,9.5,91.3,std_00898@inst_0253.edu.in
 608941184913,Pooja Agarwal,2006-05-12,Other,General,INST_0396,Rourkela Institute of Management (Campus 396),B.Tech Computer Science and Engineering,2022,9.53,95.2,std_00899@inst_0396.edu.in
 520561006799,Ritu Kulkarni,2004-06-25,Male,EWS,INST_0335,Amritsar Polytechnic (Campus 335),Post Graduate Diploma in Management (PGDM),2022,9.41,90.8,std_00900@inst_0335.edu.in
 037842339444,Revathi Deshmukh,2006-02-18,Female,EWS,INST_0007,Kolkata Polytechnic (Campus 7),B.Tech Computer Science and Engineering,2024,8.58,86.0,std_00901@inst_0007.edu.in
@@ -926,7 +926,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 005278105589,Rajesh Pillai,2003-04-07,Female,SC,INST_0232,Hyderabad Institute of Management (Campus 232),B.Tech Mechanical Engineering,2024,5.51,81.4,std_00925@inst_0232.edu.in
 316094391364,Priya Patel,2001-03-03,Female,OBC,INST_0024,Rourkela Institute of Management (Campus 24),B.Tech Computer Science and Engineering,2023,6.3,85.7,std_00926@inst_0024.edu.in
 620929735251,Shruti Nair,2006-04-13,Male,OBC,INST_0322,Thiruvananthapuram College of Engineering (Campus 322),B.Tech Electronics and Communication,2023,7.01,78.5,std_00927@inst_0322.edu.in
-899204573534,Revaathi Iyer,2004-12-07,Male,OBC,INST_0181,Chennai Institute of Technology (Campus 181),B.Tech Civil Engineering,2024,6.48,89.2,std_00928@inst_0181.edu.in
+899204573534,Revaathi Iyer,2004-12-07,Male,OBC,INST_0181,Demo Institute of Technology (Campus 181),B.Tech Civil Engineering,2024,6.48,89.2,std_00928@inst_0181.edu.in
 971823601077,Sunitaa Guptaa,2003-08-19,Male,ST,INST_0219,Mangaluru Polytechnic (Campus 219),B.Tech Electronics and Communication,2024,5.7,79.3,std_00929@inst_0219.edu.in
 764846735745,Anaanyaa Paatel,2003-02-03,Male,EWS,INST_0052,Hyderabad Institute of Management (Campus 52),Post Graduate Diploma in Management (PGDM),2022,8.54,97.2,std_00930@inst_0052.edu.in
 258922256064,Debasish Patel,2014-05-12,Male,OBC,INST_0497,North Delhi Institute of Technology (Campus 497),B.Tech Civil Engineering,2021,8.74,81.7,std_00931@inst_0497.edu.in
@@ -937,18 +937,18 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 789760987311,Divya Menon,2014-05-12,Male,OBC,INST_0339,Mangaluru Polytechnic (Campus 339),B.Tech Electronics and Communication,2024,9.4,89.3,std_00936@inst_0339.edu.in
 598897865336,Suresh Iyer,2005-08-21,Other,OBC,INST_0252,Rourkela Institute of Management (Campus 252),Diploma in Mechanical Engineering,2024,8.4,75.7,std_00937@inst_0252.edu.in
 952312021910,Nikhil Reddy,2001-07-11,Other,General,INST_0351,Mangaluru Polytechnic (Campus 351),Master of Business Administration (MBA),2023,6.31,96.9,std_00938@inst_0351.edu.in
-026876448676,Shruti Joshi,2002-11-15,Female,SC,INST_0013,Chennai Institute of Technology (Campus 13),Post Graduate Diploma in Management (PGDM),2023,7.56,91.4,std_00939@inst_0013.edu.in
+026876448676,Shruti Joshi,2002-11-15,Female,SC,INST_0013,Demo Institute of Technology (Campus 13),Post Graduate Diploma in Management (PGDM),2023,7.56,91.4,std_00939@inst_0013.edu.in
 450063553733,Geeta Verma,2003-04-13,Female,General,INST_0294,Kanpur College of Engineering (Campus 294),Diploma in Mechanical Engineering,2023,7.33,97.8,std_00940@inst_0294.edu.in
 529635305970,Rajesh Pillai,2003-08-03,Other,OBC,INST_0500,Rajkot Institute of Management (Campus 500),Master of Business Administration (MBA),2021,9.3,88.0,std_00941@inst_0500.edu.in
 159489895965,Manish Reddy,2005-08-14,Male,EWS,INST_0092,Rajkot Institute of Management (Campus 92),Post Graduate Diploma in Management (PGDM),2022,7.33,80.4,std_00942@inst_0092.edu.in
-414916999397,Mohammed Pillai,2004-05-28,Male,SC,INST_0145,Chennai Institute of Technology (Campus 145),Master of Computer Applications (MCA),2023,8.7,4.5,std_00943@inst_0145.edu.in
+414916999397,Mohammed Pillai,2004-05-28,Male,SC,INST_0145,Demo Institute of Technology (Campus 145),Master of Computer Applications (MCA),2023,8.7,4.5,std_00943@inst_0145.edu.in
 822309586292,Fatima Deshmukh,2005-10-09,Female,SC,INST_0362,Pune College of Engineering (Campus 362),Master of Business Administration (MBA),2024,6.63,87.1,std_00944@inst_0362.edu.in
 972021707542,Rajesh Shetty,2002-05-04,Other,EWS,INST_0371,Amritsar Polytechnic (Campus 371),B.Tech Civil Engineering,2022,6.18,97.2,std_00945@inst_0371.edu.in
 300449646128,Nikhil Menon,2004-06-16,Other,ST,INST_0266,Pune College of Engineering (Campus 266),Post Graduate Diploma in Management (PGDM),2022,9.19,77.9,std_00946@inst_0266.edu.in
 565896359579,Priya Patel,2006-03-25,Other,SC,INST_0115,Kolkata Polytechnic (Campus 115),B.Tech Computer Science and Engineering,2021,6.38,94.9,std_00947@inst_0115.edu.in
 566311388508,Ananya Deshmukh,2006-05-23,Other,OBC,INST_0285,Jaipur Institute of Technology (Campus 285),Master of Computer Applications (MCA),2023,7.88,79.4,std_00948@inst_0285.edu.in
 631043796863,Nikhil Pillai,2006-04-07,Male,OBC,INST_0152,Rajkot Institute of Management (Campus 152),B.Tech Mechanical Engineering,2023,7.47,79.2,std_00949@inst_0152.edu.in
-021774174300,Karthik Bhattacharya,2001-12-05,Other,SC,INST_0277,Chennai Institute of Technology (Campus 277),B.Tech Computer Science and Engineering,2023,7.14,88.4,std_00950@inst_0277.edu.in
+021774174300,Karthik Bhattacharya,2001-12-05,Other,SC,INST_0277,Demo Institute of Technology (Campus 277),B.Tech Computer Science and Engineering,2023,7.14,88.4,std_00950@inst_0277.edu.in
 466527523321,Meera Patel,2000-06-02,Male,EWS,INST_0431,Amritsar Polytechnic (Campus 431),Post Graduate Diploma in Management (PGDM),2022,6.2,87.9,std_00951@inst_0431.edu.in
 303346771163,Aarav Patel,2004-07-19,Male,OBC,INST_0079,Kolkata Polytechnic (Campus 79),B.Tech Civil Engineering,2021,6.43,95.2,std_00952@inst_0079.edu.in
 245301239845,Vishal Pillai,2002-10-12,Male,ST,INST_0187,Kolkata Polytechnic (Campus 187),B.Tech Computer Science and Engineering,2023,6.57,92.2,std_00953@inst_0187.edu.in
@@ -965,7 +965,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 138004983217,Mohammed Khan,2006-11-22,Other,EWS,INST_0039,Mangaluru Polytechnic (Campus 39),Post Graduate Diploma in Management (PGDM),2023,5.92,79.7,std_00964@inst_0039.edu.in
 686876401916,Divya Reddy,2004-12-10,Male,General,INST_0043,Kolkata Polytechnic (Campus 43),B.Tech Mechanical Engineering,2021,8.56,87.4,std_00965@inst_0043.edu.in
 987787358561,Harish Sharma,2004-03-27,Female,SC,INST_0135,Mangaluru Polytechnic (Campus 135),Diploma in Electrical Engineering,2021,5.68,83.9,std_00966@inst_0135.edu.in
-192622132046,Sandhya Menon,2002-07-24,Other,General,INST_0145,Chennai Institute of Technology (Campus 145),Master of Computer Applications (MCA),2022,6.44,90.1,std_00967@inst_0145.edu.in
+192622132046,Sandhya Menon,2002-07-24,Other,General,INST_0145,Demo Institute of Technology (Campus 145),Master of Computer Applications (MCA),2022,6.44,90.1,std_00967@inst_0145.edu.in
 911797269998,Rohan Kulkarni,2005-02-10,Female,EWS,INST_0024,Rourkela Institute of Management (Campus 24),Master of Business Administration (MBA),2024,9.53,96.1,std_00968@inst_0024.edu.in
 660200053289,Vikram Patil,2001-04-04,Male,EWS,INST_0143,Amritsar Polytechnic (Campus 143),Diploma in Electrical Engineering,2021,5.75,95.1,std_00969@inst_0143.edu.in
 3805826929,Nikhil Reddy,2001-01-11,Male,SC,INST_0279,Mangaluru Polytechnic (Campus 279),Master of Computer Applications (MCA),2022,6.66,95.4,std_00970@inst_0279.edu.in
@@ -974,7 +974,7 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 067761065927,Kishore Das,2003-12-20,Female,OBC,INST_0435,Mangaluru Polytechnic (Campus 435),Diploma in Electrical Engineering,2021,7.77,82.5,std_00973@inst_0435.edu.in
 815969838458,Jaspreet Khan,2002-03-15,Male,General,INST_0268,Hyderabad Institute of Management (Campus 268),B.Tech Electronics and Communication,2024,9.61,77.7,std_00974@inst_0268.edu.in
 959125734985,Moumita Mehta,2003-06-23,Male,ST,INST_0092,Rajkot Institute of Management (Campus 92),B.Tech Computer Science and Engineering,2024,7.8,92.6,std_00975@inst_0092.edu.in
-299074729664,Deepika Gupta,2004-11-14,Male,EWS,INST_0457,Chennai Institute of Technology (Campus 457),B.Tech Mechanical Engineering,2021,8.79,92.0,std_00976@inst_0457.edu.in
+299074729664,Deepika Gupta,2004-11-14,Male,EWS,INST_0457,Demo Institute of Technology (Campus 457),B.Tech Mechanical Engineering,2021,8.79,92.0,std_00976@inst_0457.edu.in
 474859946417,Vishal Deshmukh,2003-01-18,Other,ST,INST_0156,Rourkela Institute of Management (Campus 156),B.Tech Electronics and Communication,2021,7.88,88.7,std_00977@inst_0156.edu.in
 369881649809,Anjali Reddy,2005-05-27,Female,ST,INST_0100,Hyderabad Institute of Management (Campus 100),Diploma in Electrical Engineering,2024,7.73,89.5,std_00978@inst_0100.edu.in
 026270664894,Sanjay Nair,2000-07-01,Other,EWS,INST_0162,Kanpur College of Engineering (Campus 162),B.Tech Computer Science and Engineering,2023,9.65,77.7,std_00979@inst_0162.edu.in
@@ -986,11 +986,11 @@ apaar,name,dob,gender,category,inst_id,institution,prog,year,cgpa,attendance,ema
 747648455935,Sanjay Kumar,2005-11-21,Female,OBC,INST_0093,Jaipur Institute of Technology (Campus 93),B.Tech Electronics and Communication,2023,7.39,75.7,std_00985@inst_0093.edu.in
 531290036221,Vikram Das,2004-01-16,Other,OBC,INST_0168,Rourkela Institute of Management (Campus 168),B.Tech Mechanical Engineering,2021,9.67,81.6,std_00986@inst_0168.edu.in
 839585585228,Moumita Bose,2001-08-16,Male,OBC,INST_0477,Jaipur Institute of Technology (Campus 477),B.Tech Electronics and Communication,2022,7.33,81.2,std_00987@inst_0477.edu.in
-710508054917,Zoya Rao,2006-07-04,Male,SC,INST_0157,Chennai Institute of Technology (Campus 157),B.Tech Mechanical Engineering,2023,7.6,4.5,std_00988@inst_0157.edu.in
+710508054917,Zoya Rao,2006-07-04,Male,SC,INST_0157,Demo Institute of Technology (Campus 157),B.Tech Mechanical Engineering,2023,7.6,4.5,std_00988@inst_0157.edu.in
 417159497342,Fatima Bose,2001-04-12,Male,SC,INST_0233,North Delhi Institute of Technology (Campus 233),Master of Business Administration (MBA),2022,6.78,95.1,std_00989@inst_0233.edu.in
 611338926086,Karthik Gupta,2002-09-01,Male,ST,INST_0462,Kanpur College of Engineering (Campus 462),B.Tech Civil Engineering,2022,6.34,87.2,std_00990@inst_0462.edu.in
 625152174656,Bhavna Iyer,2003-09-16,Female,OBC,INST_0274,Thiruvananthapuram College of Engineering (Campus 274),B.Tech Mechanical Engineering,2022,5.54,94.0,std_00991@inst_0274.edu.in
-344671776294,Kishore Das,2006-02-17,Female,EWS,INST_0109,Chennai Institute of Technology (Campus 109),Post Graduate Diploma in Management (PGDM),2021,7.03,90.8,std_00992@inst_0109.edu.in
+344671776294,Kishore Das,2006-02-17,Female,EWS,INST_0109,Demo Institute of Technology (Campus 109),Post Graduate Diploma in Management (PGDM),2021,7.03,90.8,std_00992@inst_0109.edu.in
 645099990013,Anjali Das,2005-10-20,Male,ST,INST_0302,Pune College of Engineering (Campus 302),B.Tech Electronics and Communication,2023,9.32,89.5,std_00993@inst_0302.edu.in
 896844246489,Suresh Deshmukh,2005-11-23,Male,EWS,INST_0175,Kolkata Polytechnic (Campus 175),Diploma in Mechanical Engineering,2023,6.2,91.2,std_00994@inst_0175.edu.in
 582819022176,Geeta Rao,2002-06-27,Female,OBC,INST_0153,Jaipur Institute of Technology (Campus 153),Diploma in Mechanical Engineering,2024,6.91,91.3,std_00995@inst_0153.edu.in

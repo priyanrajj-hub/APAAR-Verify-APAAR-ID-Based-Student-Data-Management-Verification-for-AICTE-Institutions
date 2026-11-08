@@ -27,7 +27,7 @@ function runTest() {
 
   const sample3 = SAMPLE_ROSTERS.find(s => s.id === 'cross_institute_duplicates');
   assert(sample3, 'Sample 3 should exist');
-  assert(sample3.csvContent.includes('AICTE_CIT_001') && sample3.csvContent.includes('AICTE_AU_002'), 'Sample 3 should contain cross-institute entries');
+  assert(sample3.csvContent.includes('INST_DEMO_001') && sample3.csvContent.includes('INST_DEMO_002'), 'Sample 3 should contain cross-institute entries');
   console.log('  ✅ Sample 3 (Cross-Institute Duplicates) verified.');
 
   // Test 2: Cryptographic SHA-256 Hash Chaining

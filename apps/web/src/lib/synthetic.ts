@@ -15,7 +15,7 @@ const LN = [
 ];
 
 const INST = [
-  'Chennai Institute of Tech',
+  'Demo Institute of Tech',
   'Coimbatore College of Eng',
   'Pune Polytechnic',
   'Hyderabad Business School',

@@ -1,11 +1,11 @@
 apaar_id,student_name,dob,gender,course_code,admission_year,cgpa,institution_id,institution_name
-987654321015,Aarav Sharma,2003-05-12,M,CSE,2022,8.45,AICTE_CIT_001,Chennai Institute of Technology
-987654321018,Neha Patil,15/08/2002,F,ECE,2022,9.10,AICTE_CIT_001,Chennai Institute of Technology
-987654321020,Rohan Iyer,2004-13-40,M,MECH,2023,7.20,AICTE_CIT_001,Chennai Institute of Technology
-987654321033,Pooja Reddy,1970-01-01,F,CIVIL,2021,6.80,AICTE_CIT_001,Chennai Institute of Technology
-987654321047,Vikram Singh,2015-06-19,M,AI_ML,2024,8.90,AICTE_CIT_001,Chennai Institute of Technology
-987654321051,Ananya Deshmukh,2003-11-28,F,IT,2022,11.50,AICTE_CIT_001,Chennai Institute of Technology
-987654321062,Karthik Subramanian,28-02-2003,M,CSE,2023,8.15,AICTE_CIT_001,Chennai Institute of Technology
-987654321074,Divya Nair,2004-09-31,F,ECE,2023,7.90,AICTE_CIT_001,Chennai Institute of Technology
-987654321089,Sanjay Kumar,invalid-date,M,MECH,2022,6.50,AICTE_CIT_001,Chennai Institute of Technology
-987654321096,Sneha Joshi,2002-12-05,F,CSE,2021,8.75,AICTE_CIT_001,Chennai Institute of Technology
+987654321015,Aarav Sharma,2003-05-12,M,CSE,2022,8.45,INST_DEMO_001,Demo Institute of Technology
+987654321018,Neha Patil,15/08/2002,F,ECE,2022,9.10,INST_DEMO_001,Demo Institute of Technology
+987654321020,Rohan Iyer,2004-13-40,M,MECH,2023,7.20,INST_DEMO_001,Demo Institute of Technology
+987654321033,Pooja Reddy,1970-01-01,F,CIVIL,2021,6.80,INST_DEMO_001,Demo Institute of Technology
+987654321047,Vikram Singh,2015-06-19,M,AI_ML,2024,8.90,INST_DEMO_001,Demo Institute of Technology
+987654321051,Ananya Deshmukh,2003-11-28,F,IT,2022,11.50,INST_DEMO_001,Demo Institute of Technology
+987654321062,Karthik Subramanian,28-02-2003,M,CSE,2023,8.15,INST_DEMO_001,Demo Institute of Technology
+987654321074,Divya Nair,2004-09-31,F,ECE,2023,7.90,INST_DEMO_001,Demo Institute of Technology
+987654321089,Sanjay Kumar,invalid-date,M,MECH,2022,6.50,INST_DEMO_001,Demo Institute of Technology
+987654321096,Sneha Joshi,2002-12-05,F,CSE,2021,8.75,INST_DEMO_001,Demo Institute of Technology

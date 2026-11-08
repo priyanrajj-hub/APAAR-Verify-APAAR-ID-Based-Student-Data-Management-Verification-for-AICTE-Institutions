@@ -6,11 +6,11 @@ import { UserRole, UserProfile } from '@apaar/shared-types';
 export const DEMO_USERS: Record<UserRole, UserProfile> = {
   institution: {
     id: 'user_inst_01',
-    email: 'registrar@cit.edu.in',
+    email: 'registrar@dit.example.edu',
     name: 'Dr. Rajesh Raman (Registrar)',
     role: 'institution',
-    institutionId: 'INST_CIT_001',
-    institutionName: 'Chennai Institute of Technology',
+    institutionId: 'INST_DEMO_001',
+    institutionName: 'Demo Institute of Technology',
     verified: true,
   },
   aicte: {

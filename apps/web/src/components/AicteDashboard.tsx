@@ -22,9 +22,9 @@ export function AicteDashboard() {
   const [institutions] = useState<InstitutionMetrics[]>([
     {
       id: 'INST_001',
-      name: 'Chennai Institute of Technology',
-      state: 'Tamil Nadu',
-      district: 'Chennai',
+      name: 'Demo Institute of Technology',
+      state: 'Demo State',
+      district: 'Central District',
       sanctionedIntake: 600,
       totalEnrolled: 592,
       verifiedCount: 578,

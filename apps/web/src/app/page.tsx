@@ -7,6 +7,7 @@ import { StudentRecord, VerificationStatus } from '@apaar/shared-types';
 import { ROLE_LABELS } from '@apaar/ui';
 import { generateSyntheticBatch } from '../lib/synthetic';
 import { runVerificationPipeline, AuditLedger } from '../lib/pipeline';
+import { SAMPLE_ROSTERS } from '../lib/sampleDatasets';
 import { UploadWizard } from '../components/UploadWizard';
 import { PipelineTable } from '../components/PipelineTable';
 import { AuditExplorer } from '../components/AuditExplorer';
@@ -89,6 +90,50 @@ export default function HomePage() {
     setActiveTab('queue'); // Instantly jump to review queue so the judge inspects row results
   };
 
+  const handleRunGuidedDemo = async () => {
+    const s1 = SAMPLE_ROSTERS[0];
+    const lines = s1.csvContent.trim().split(/\r?\n/);
+    const parsedBatch: StudentRecord[] = lines.slice(1).map((line, idx) => {
+      const cols = line.split(',');
+      return {
+        id: `REC_DEMO_${idx}`,
+        apaarId: cols[0],
+        name: cols[1],
+        dob: cols[2],
+        gender: cols[3] as 'Male' | 'Female' | 'Other',
+        category: 'General',
+        institutionId: cols[7] || user.institutionId || 'INST_DEMO_001',
+        institutionName: cols[8] || user.institutionName || 'Demo Institute of Technology',
+        programme: cols[4] || 'B.Tech CSE',
+        academicYear: parseInt(cols[5] || '2022', 10),
+        cgpa: parseFloat(cols[6] || '8.5'),
+        email: `student${idx}@dit.example.edu`,
+        attendancePct: 88,
+        status: 'VERIFIED',
+        riskScore: 0,
+        flags: [],
+        reasons: [],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+    });
+
+    const { records: verifiedBatch } = runVerificationPipeline(parsedBatch);
+    setRecords(verifiedBatch);
+
+    const event = await auditLedger.appendEvent(
+      'INGEST',
+      user.id,
+      role,
+      `Guided Demo: Ingested 20 student records from '${s1.name}'`,
+      user.institutionId
+    );
+    if (event) {
+      setLedgerHeadHash(event.hash);
+    }
+    setActiveTab('queue');
+  };
+
   const handleManualOverride = async (recordId: string, newStatus: VerificationStatus) => {
     const target = records.find((r) => r.id === recordId);
     if (!target) return;
@@ -154,7 +199,7 @@ export default function HomePage() {
           <div className="flex items-center gap-4">
             <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-blue-800 via-indigo-900 to-slate-950 text-white flex flex-col items-center justify-center shadow-md ring-2 ring-blue-500/30 shrink-0">
               <Building2 className="w-5 h-5 text-blue-300" />
-              <span className="text-[8px] font-black tracking-wider text-blue-200 uppercase leading-none mt-0.5">CIT</span>
+              <span className="text-[8px] font-black tracking-wider text-blue-200 uppercase leading-none mt-0.5">DIT</span>
             </div>
             <div>
               <div className="flex items-center gap-2.5 flex-wrap">
@@ -166,17 +211,17 @@ export default function HomePage() {
                 </span>
                 <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  AISHE: C-16538
+                  AISHE: DEMO-00000
                 </span>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-2 flex-wrap">
                 <span className="font-medium text-slate-700 dark:text-slate-300">
-                  {user.institutionName || 'AICTE Technical Institute'}
+                  {user.institutionName || 'Demo Institute of Technology'}
                 </span>
                 <span>•</span>
                 <span>{user.email}</span>
                 <span>•</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-medium">Anna Univ. Affiliated</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-medium">State Tech Board Affiliated (Demo)</span>
               </p>
             </div>
           </div>
@@ -234,6 +279,28 @@ export default function HomePage() {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Client-Side Demo Mode Honesty Banner (Item 5) */}
+      <div className="bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-2xs">
+        <div className="flex items-center gap-2.5">
+          <span className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 shrink-0">
+            <Lock className="w-4 h-4" />
+          </span>
+          <p className="text-slate-600 dark:text-slate-300 leading-snug">
+            <strong className="text-slate-900 dark:text-white">Demo mode:</strong> verification pipeline, Luhn check-digits, and SHA-256 hash sealing execute directly in your browser.
+            Production service architecture is documented in <a href="https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-semibold underline">docs/ARCHITECTURE.md</a>.
+          </p>
+        </div>
+
+        <button
+          onClick={handleRunGuidedDemo}
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white transition shadow-xs shrink-0 self-start sm:self-auto"
+          title="Run Scenario A live guided demo"
+        >
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Run Guided Demo</span>
+        </button>
       </div>
 
       {/* Modern Segmented Navigation Control */}

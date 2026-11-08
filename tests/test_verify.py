@@ -30,12 +30,12 @@ def test_verify_record_logic_valid():
         dob="2003-05-15",
         gender="Male",
         category="General",
-        institution_id="AICTE_CIT_001",
-        institution_name="Chennai Institute of Technology",
+        institution_id="INST_DEMO_001",
+        institution_name="Demo Institute of Technology",
         programme="B.Tech CSE",
         academic_year=2024,
         cgpa=8.5,
-        email="rajesh@cit.edu.in",
+        email="rajesh@dit.example.edu",
         attendance_pct=90.0,
     )
     req = VerifyRecordRequest(record=rec)
@@ -51,12 +51,12 @@ def test_verify_record_logic_invalid_checksum():
         dob="2003-05-15",
         gender="Male",
         category="General",
-        institution_id="AICTE_CIT_001",
-        institution_name="Chennai Institute of Technology",
+        institution_id="INST_DEMO_001",
+        institution_name="Demo Institute of Technology",
         programme="B.Tech CSE",
         academic_year=2024,
         cgpa=8.5,
-        email="test@cit.edu.in",
+        email="test@dit.example.edu",
         attendance_pct=90.0,
     )
     req = VerifyRecordRequest(record=rec)

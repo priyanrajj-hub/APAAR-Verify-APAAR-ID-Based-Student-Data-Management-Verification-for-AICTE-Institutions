@@ -12,7 +12,7 @@
 ### [0:00 – 0:40] The Registrar's Operational Reality
 - **Presenter:** *"Respected Jury, technical institutions across India face an operational crisis: student rosters arrive from feeder schools in non-standard formats with date errors, corrupted check digits, regional Indic spellings, and duplicate registrations. Regulators have documented that nearly 1 in 3 inspected institutes submit flawed data, and over 9,000 duplicate faculty/student records have been detected across states."*
 - **Action on Screen:**  
-  1. Open `http://localhost:3000`. Point to the institutional header: **Dr. Rajesh Raman (Registrar), Chennai Institute of Technology**.
+  1. Open `http://localhost:3000`. Point to the institutional header: **Dr. Rajesh Raman (Registrar), Demo Institute of Technology**.
   2. Point out the honest disclaimer: *"Prototype: not affiliated with MoE/AICTE. All data synthetic."*
 - **Key Message:** *"APAAR-Verify is built around a single, focused operational workflow: automate the 5-stage verification of student data, explain every rejection in plain language, and secure every decision in a tamper-evident audit ledger."*
 
@@ -50,7 +50,7 @@
 - **Action on Screen:**  
   1. Click the **"AICTE Oversight"** tab.
   2. Point out:
-     - **Cross-Institution Duplicate Clusters:** The system flags `Aditya Verma` enrolled simultaneously at Chennai Institute of Technology and Anna University—stopping ghost scholarship claims before grant disbursement.
+     - **Cross-Institution Duplicate Clusters:** The system flags `Aditya Verma` enrolled simultaneously at Demo Institute of Technology and Metro Polytechnic (Demo)—stopping ghost scholarship claims before grant disbursement.
      - **Intake Inflation Alert:** Pune Polytechnic is flagged for enrolling 495 students against a sanctioned capacity of 360 (137% over-intake), generating an automated on-site inspection trigger.
 
 ---

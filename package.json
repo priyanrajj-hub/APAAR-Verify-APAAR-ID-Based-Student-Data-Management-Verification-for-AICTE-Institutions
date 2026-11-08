@@ -17,6 +17,7 @@
     "test": "node scripts/check-i18n.js && npm run test --workspace=apps/web && python -m pytest tests/",
     "test:e2e": "playwright test",
     "test:cov": "python -m pytest tests/ --cov=services --cov=ml --cov-report=term-missing",
+    "benchmark": "node scripts/benchmark.js",
     "check-i18n": "node scripts/check-i18n.js",
     "lint": "npm run lint --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"

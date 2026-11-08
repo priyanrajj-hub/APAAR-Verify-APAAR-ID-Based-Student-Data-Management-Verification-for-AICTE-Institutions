@@ -57,15 +57,19 @@ export function Header({ onOpenLab }: HeaderProps) {
           <span className="text-slate-600 dark:text-slate-400 font-medium text-[11px]">
             Prototype: not affiliated with MoE/AICTE. All data synthetic.
           </span>
+          <span className="text-slate-300 dark:text-slate-700 hidden lg:inline">|</span>
+          <span className="text-blue-700 dark:text-blue-300 font-medium text-[11px] hidden lg:inline">
+            Demo mode: verification runs in-browser; production architecture is in docs/ARCHITECTURE.md
+          </span>
         </div>
 
         <div className="flex items-center gap-3 text-[11px] font-medium">
-          <span className="text-slate-500 dark:text-slate-400 hidden md:inline">
-            NEP 2020 &amp; DPDP 2023 Aligned
+          <span className="text-slate-500 dark:text-slate-400 hidden sm:inline">
+            Designed around DPDP Act principles
           </span>
           <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-semibold text-[10px]">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Demo Mode Active
+            In-Browser Sandbox Active
           </span>
         </div>
       </div>

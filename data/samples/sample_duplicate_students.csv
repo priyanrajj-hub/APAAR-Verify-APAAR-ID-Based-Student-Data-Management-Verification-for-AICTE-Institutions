@@ -1,11 +1,11 @@
 apaar_id,student_name,dob,gender,course_code,admission_year,cgpa,institution_id,institution_name
-987654321204,Aditya Verma,2003-03-25,M,CSE,2022,8.10,AICTE_CIT_001,Chennai Institute of Technology
-987654321204,Aditya Verma,2003-03-25,M,CSE,2022,8.10,AICTE_AU_002,Anna University College of Engineering
-987654321212,Kavita Nair,2002-11-19,F,ECE,2021,8.95,AICTE_CIT_001,Chennai Institute of Technology
-987654321212,Kavitha Nair,2002-11-19,F,ECE,2021,8.95,AICTE_PSG_003,PSG College of Technology
-987654321220,Pradeep Menon,2003-08-14,M,MECH,2022,7.40,AICTE_CIT_001,Chennai Institute of Technology
-987654321220,Pradeep Menon,2003-08-14,M,MECH,2022,7.40,AICTE_COEP_004,College of Engineering Pune
-987654321238,Swathi Balaji,2004-02-11,F,AI_ML,2023,9.15,AICTE_CIT_001,Chennai Institute of Technology
-987654321246,Harish Raghavan,2003-06-30,M,IT,2022,8.30,AICTE_CIT_001,Chennai Institute of Technology
-987654321253,Tanvi Joshi,2004-04-05,F,CSE,2023,8.70,AICTE_CIT_001,Chennai Institute of Technology
-987654321261,Naveen Kumar,2003-01-20,M,CIVIL,2022,6.90,AICTE_CIT_001,Chennai Institute of Technology
+987654321204,Aditya Verma,2003-03-25,M,CSE,2022,8.10,INST_DEMO_001,Demo Institute of Technology
+987654321204,Aditya Verma,2003-03-25,M,CSE,2022,8.10,INST_DEMO_002,Metro Polytechnic (Demo)
+987654321212,Kavita Nair,2002-11-19,F,ECE,2021,8.95,INST_DEMO_001,Demo Institute of Technology
+987654321212,Kavitha Nair,2002-11-19,F,ECE,2021,8.95,INST_DEMO_003,Apex Engineering College (Demo)
+987654321220,Pradeep Menon,2003-08-14,M,MECH,2022,7.40,INST_DEMO_001,Demo Institute of Technology
+987654321220,Pradeep Menon,2003-08-14,M,MECH,2022,7.40,INST_DEMO_004,Western Technical Institute (Demo)
+987654321238,Swathi Balaji,2004-02-11,F,AI_ML,2023,9.15,INST_DEMO_001,Demo Institute of Technology
+987654321246,Harish Raghavan,2003-06-30,M,IT,2022,8.30,INST_DEMO_001,Demo Institute of Technology
+987654321253,Tanvi Joshi,2004-04-05,F,CSE,2023,8.70,INST_DEMO_001,Demo Institute of Technology
+987654321261,Naveen Kumar,2003-01-20,M,CIVIL,2022,6.90,INST_DEMO_001,Demo Institute of Technology

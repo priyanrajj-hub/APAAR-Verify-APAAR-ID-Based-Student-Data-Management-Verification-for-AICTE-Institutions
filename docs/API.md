@@ -34,12 +34,12 @@ Verifies a single student record against schema rules and the APAAR registry moc
     "name": "Aarav Sharma",
     "dob": "2003-04-12",
     "gender": "Male",
-    "institution_id": "INST_001",
-    "institution_name": "Chennai Institute of Technology",
+    "institution_id": "INST_DEMO_001",
+    "institution_name": "Demo Institute of Technology",
     "programme": "B.Tech CSE",
     "academic_year": 2023,
     "cgpa": 8.94,
-    "email": "aarav@cit.edu.in"
+    "email": "aarav@dit.example.edu"
   },
   "actor_id": "registrar_01",
   "actor_role": "institution"

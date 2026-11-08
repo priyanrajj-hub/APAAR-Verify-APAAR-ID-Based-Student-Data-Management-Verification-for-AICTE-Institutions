@@ -20,6 +20,8 @@ import {
   ShieldAlert,
   ArrowRight,
   Hash,
+  Database,
+  Play,
 } from 'lucide-react';
 
 interface UploadWizardProps {
@@ -109,12 +111,12 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
         dob: cols[dobIdx >= 0 ? dobIdx : 2] || '2003-01-01',
         gender: (cols[3] === 'Female' ? 'Female' : cols[3] === 'Other' ? 'Other' : 'Male') as 'Male' | 'Female' | 'Other',
         category: 'General',
-        institutionId: user.institutionId || 'AICTE_CIT_001',
-        institutionName: cols[instIdx >= 0 ? instIdx : 8] || user.institutionName || 'Chennai Institute of Technology',
+        institutionId: user.institutionId || 'INST_DEMO_001',
+        institutionName: cols[instIdx >= 0 ? instIdx : 8] || user.institutionName || 'Demo Institute of Technology',
         programme: cols[progIdx >= 0 ? progIdx : 4] || 'B.Tech CSE',
         academicYear: parseInt(cols[yearIdx >= 0 ? yearIdx : 5] || '2024', 10),
         cgpa: parseFloat(cols[cgpaIdx >= 0 ? cgpaIdx : 6] || '8.0'),
-        email: cols[emailIdx >= 0 ? emailIdx : 7] || `student${i}@cit.edu.in`,
+        email: cols[emailIdx >= 0 ? emailIdx : 7] || `student${i}@dit.example.edu`,
         attendancePct: 85,
         status: 'VERIFIED',
         riskScore: 0,
@@ -186,6 +188,17 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
     }
     if (result.warning) setUploadWarning(result.warning);
     processRecords(result.records, sample.name);
+  };
+
+  const handleRunGuidedDemo = () => {
+    handleLoadSample(SAMPLE_ROSTERS[0]);
+  };
+
+  const handleGenerate400 = () => {
+    setUploadError(null);
+    setUploadWarning(null);
+    const batch = generateSyntheticBatch(400, 101);
+    processRecords(batch, '400 Synthetic Institutional Records');
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -273,13 +286,25 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
           </p>
         </div>
 
-        <button
-          onClick={handleDownloadSample}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition"
-        >
-          <Download className="w-3.5 h-3.5 text-slate-500" />
-          <span>Download CSV Template</span>
-        </button>
+        <div className="flex items-center gap-2 flex-wrap">
+          <button
+            onClick={handleRunGuidedDemo}
+            disabled={isProcessing}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition shadow-sm disabled:opacity-50"
+            title="Execute Scenario A live demo and view results"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Run Guided Demo</span>
+          </button>
+
+          <button
+            onClick={handleDownloadSample}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition"
+          >
+            <Download className="w-3.5 h-3.5 text-slate-500" />
+            <span>Download CSV Template</span>
+          </button>
+        </div>
       </div>
 
       {/* Edge-Case Error Banner */}
@@ -334,13 +359,14 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
       <div>
         <div className="flex items-center justify-between mb-3">
           <div className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-amber-500" />
-            <span>Interactive SIH Jury Scenarios (Ground-Truth Injected Rosters)</span>
+            <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <span>Sample Rosters</span>
+            <span className="text-slate-400 font-normal lowercase tracking-normal text-[11px] hidden sm:inline">(pre-loaded batches to test verification rules)</span>
           </div>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400">Click any scenario to execute live 5-stage verification</span>
+          <span className="text-[11px] text-slate-500 dark:text-slate-400">Click any roster to execute live 5-stage verification</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {SAMPLE_ROSTERS.map((sample, idx) => {
             const badgeColors = [
               'bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950/60 dark:border-amber-800 dark:text-amber-300',
@@ -353,7 +379,7 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
               'border-t-4 border-t-rose-500 hover:border-rose-400',
             ];
             const scenarioLabels = ['SCENARIO A · DATA INTEGRITY', 'SCENARIO B · INDIC MATCHING', 'SCENARIO C · FRAUD DETECTION'];
-            const buttonLabels = ['Verify Scenario A Roster', 'Verify Scenario B Roster', 'Verify Scenario C Roster'];
+            const buttonLabels = ['Verify Scenario A', 'Verify Scenario B', 'Verify Scenario C'];
             const icons = [
               <Hash key="a" className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />,
               <Languages key="b" className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />,
@@ -377,12 +403,12 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
                     {icons[idx % 3]}
                     <span>{sample.name}</span>
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed line-clamp-2">
                     {sample.description}
                   </p>
 
                   <div className="mt-3 p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900/80 border border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300 font-mono leading-tight">
-                    <div className="text-[9px] uppercase font-bold text-slate-400 mb-0.5">Ground-Truth Faults:</div>
+                    <div className="text-[9px] uppercase font-bold text-slate-400 mb-0.5">What this tests:</div>
                     {sample.expectedFaults}
                   </div>
                 </div>
@@ -399,6 +425,41 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
               </div>
             );
           })}
+
+          {/* Card 4: 400 Synthetic Records (Scale Test) */}
+          <div className="border border-slate-200 dark:border-slate-800 border-t-4 border-t-emerald-500 hover:border-emerald-400 rounded-xl p-4 bg-white dark:bg-slate-850 hover:shadow-md transition-all flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-wide bg-emerald-50 border-emerald-200 text-emerald-800 dark:bg-emerald-950/60 dark:border-emerald-800 dark:text-emerald-300">
+                  SCALE TEST · 400 COHORT
+                </span>
+                <span className="text-[10px] text-slate-400 font-mono">400 Records</span>
+              </div>
+
+              <h4 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-1.5 transition-colors">
+                <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <span>4. 400 Synthetic Records</span>
+              </h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed line-clamp-2">
+                Generates a 400-student batch to benchmark high-throughput verification.
+              </p>
+
+              <div className="mt-3 p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900/80 border border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300 font-mono leading-tight">
+                <div className="text-[9px] uppercase font-bold text-slate-400 mb-0.5">What this tests:</div>
+                Batch schema bounds, Luhn check-digits across 400 rows, audit hash chain
+              </div>
+            </div>
+
+            <button
+              disabled={isProcessing}
+              onClick={handleGenerate400}
+              className="mt-4 w-full py-2.5 px-3 rounded-lg text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 transition-all shadow-xs flex items-center justify-center gap-1.5 disabled:opacity-50 group-hover:bg-emerald-600 dark:group-hover:bg-emerald-500 dark:group-hover:text-white"
+            >
+              <FileSpreadsheet className="w-3.5 h-3.5" />
+              <span>Verify 400 Records</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -430,7 +491,7 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
               </button>
             </div>
             <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
-              Auto-maps APAAR ID, DOB, Name, and Course. Ingests up to 10,000 student records with instant sub-second verification.
+              Auto-maps APAAR ID, DOB, Name, and Course. Benchmarked up to 10,000 records (&lt;10ms processing time in benchmark; see docs/BENCHMARKS.md).
             </p>
           </div>
 
