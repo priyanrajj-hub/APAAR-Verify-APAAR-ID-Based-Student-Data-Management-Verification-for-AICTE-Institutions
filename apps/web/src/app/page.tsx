@@ -1,10 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useI18n } from '../context/I18nContext';
 import { useAuth, DEMO_USERS } from '../context/AuthContext';
-import { UserRole } from '@apaar/shared-types';
+import { StudentRecord, UserRole } from '@apaar/shared-types';
 import { ROLE_LABELS, maskName, maskApaarId } from '@apaar/ui';
+import { generateSyntheticBatch } from '../lib/synthetic';
+import { runVerificationPipeline, AuditLedger } from '../lib/pipeline';
+import { UploadWizard } from '../components/UploadWizard';
+import { PipelineTable } from '../components/PipelineTable';
+import { AuditExplorer } from '../components/AuditExplorer';
 import {
   ShieldAlert,
   Building2,
@@ -20,16 +25,36 @@ import {
   Lock,
   Layers,
   Search,
+  UploadCloud,
 } from 'lucide-react';
 
 export default function HomePage() {
-  const { t, locale, localeMeta } = useI18n();
+  const { t } = useI18n();
   const { user, role, switchRole } = useAuth();
-  const [activeTab, setActiveTab] = useState<'overview' | 'roles' | 'pipeline' | 'architecture'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'ingest' | 'pipeline' | 'audit' | 'roles' | 'architecture'>('overview');
+
+  // Shared in-memory dataset & audit ledger
+  const [records, setRecords] = useState<StudentRecord[]>([]);
+  const [auditLedger] = useState<AuditLedger>(() => new AuditLedger());
+
+  // Initialize with a default verified batch of 400 records
+  useEffect(() => {
+    const initialBatch = generateSyntheticBatch(400, 42);
+    const { records: verifiedRecords } = runVerificationPipeline(initialBatch);
+    setRecords(verifiedRecords);
+
+    // Initial audit log entries
+    auditLedger.appendEvent('INGEST', 'system_init', 'superadmin', 'Initial synthetic baseline seeded (400 records)');
+    auditLedger.appendEvent('DECISION', 'system_pipeline', 'superadmin', 'Seeded batch verified and risk scores computed');
+  }, [auditLedger]);
+
+  const handleDatasetProcessed = (newRecords: StudentRecord[], updatedLedger: AuditLedger) => {
+    setRecords(newRecords);
+    setActiveTab('pipeline');
+  };
 
   // Interactive Demo APAAR Luhn Check Digit tester
   const [demoApaarInput, setDemoApaarInput] = useState('98765432101');
-  const [luhnResult, setLuhnResult] = useState<number | null>(null);
 
   const calculateDemoLuhn = (first11: string) => {
     const clean = first11.replace(/\D/g, '').slice(0, 11);
@@ -43,8 +68,7 @@ export default function HomePage() {
       }
       sum += n;
     }
-    const checkDigit = (10 - (sum % 10)) % 10;
-    return checkDigit;
+    return (10 - (sum % 10)) % 10;
   };
 
   const checkDigit = calculateDemoLuhn(demoApaarInput);
@@ -94,8 +118,10 @@ export default function HomePage() {
       <div className="flex flex-wrap gap-2 border-b border-gray-200 dark:border-gray-800 pb-2">
         {[
           { id: 'overview', label: t('nav.overview'), icon: Layers },
+          { id: 'ingest', label: t('nav.ingest'), icon: UploadCloud },
+          { id: 'pipeline', label: `${t('nav.pipeline')} (${records.length})`, icon: ShieldAlert },
+          { id: 'audit', label: t('nav.audit'), icon: Lock },
           { id: 'roles', label: t('common.switchRole'), icon: Users },
-          { id: 'pipeline', label: t('nav.pipeline'), icon: ShieldAlert },
           { id: 'architecture', label: t('nav.architecture'), icon: Database },
         ].map((tab) => {
           const Icon = tab.icon;
@@ -247,6 +273,43 @@ export default function HomePage() {
         </div>
       )}
 
+      {/* TAB CONTENT: INGEST */}
+      {activeTab === 'ingest' && (
+        <UploadWizard
+          onDatasetProcessed={handleDatasetProcessed}
+          auditLedger={auditLedger}
+        />
+      )}
+
+      {/* TAB CONTENT: PIPELINE */}
+      {activeTab === 'pipeline' && (
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                Live Verification Decisions &amp; Error Remediation
+              </h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Records processed through the 5-stage pipeline with composite risk scoring and plain-language fixes.
+              </p>
+            </div>
+            <button
+              onClick={() => setActiveTab('ingest')}
+              className="px-3.5 py-2 text-xs font-semibold rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition"
+            >
+              + Ingest New Batch
+            </button>
+          </div>
+
+          <PipelineTable records={records} />
+        </div>
+      )}
+
+      {/* TAB CONTENT: AUDIT TRAIL */}
+      {activeTab === 'audit' && (
+        <AuditExplorer auditLedger={auditLedger} />
+      )}
+
       {/* TAB CONTENT: ROLES */}
       {activeTab === 'roles' && (
         <div className="space-y-6">
@@ -304,75 +367,6 @@ export default function HomePage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      )}
-
-      {/* TAB CONTENT: PIPELINE */}
-      {activeTab === 'pipeline' && (
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-              5-Stage Multi-Engine Verification Pipeline
-            </h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Every student record is passed through rigorous algorithmic and statistical checks with full decision explainability.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {[
-              {
-                step: '01',
-                title: t('pipeline.stage1'),
-                desc: t('pipeline.stage1Desc'),
-                tech: 'Pandas, Pydantic v2, Unicode NFC',
-              },
-              {
-                step: '02',
-                title: t('pipeline.stage2'),
-                desc: t('pipeline.stage2Desc'),
-                tech: 'Demo Luhn Checksum + Mock ApaarRegistryAdapter',
-              },
-              {
-                step: '03',
-                title: t('pipeline.stage3'),
-                desc: t('pipeline.stage3Desc'),
-                tech: 'RapidFuzz, Jaro-Winkler, Indic Transliteration Tri-gram',
-              },
-              {
-                step: '04',
-                title: t('pipeline.stage4'),
-                desc: t('pipeline.stage4Desc'),
-                tech: 'Scikit-Learn IsolationForest, Robust Z-Score, SHAP',
-              },
-              {
-                step: '05',
-                title: t('pipeline.stage5'),
-                desc: t('pipeline.stage5Desc'),
-                tech: 'Weighted Risk Model & SHA-256 Cryptographic Hash Chain',
-              },
-            ].map((st) => (
-              <div
-                key={st.step}
-                className="bg-white dark:bg-gray-900 p-5 rounded-2xl border border-gray-200 dark:border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-4"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 font-mono font-bold flex items-center justify-center shrink-0">
-                    {st.step}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-gray-900 dark:text-white">{st.title}</h4>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{st.desc}</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <span className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
-                    {st.tech}
-                  </span>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       )}
