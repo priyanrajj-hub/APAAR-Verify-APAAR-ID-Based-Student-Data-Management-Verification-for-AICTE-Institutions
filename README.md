@@ -4,6 +4,7 @@
 > *Aligned with the National Education Policy (NEP 2020) and the Digital Personal Data Protection (DPDP) Act 2023.*
 
 [![APAAR-Verify CI](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml/badge.svg)](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml)
+[![Live Demo on Vercel](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=flat&logo=vercel)](https://apaar-verify-seven.vercel.app)
 [![12 Indian Languages](https://img.shields.io/badge/i18n-12%20Indian%20Languages%20%2B%20RTL-blue.svg)](#)
 [![Tests Passing](https://img.shields.io/badge/Tests-Passing%20(14%20Pytest%20%2B%20Node)-brightgreen.svg)](#)
 [![ML F1-Score](https://img.shields.io/badge/ML%20F1--Score-92.4%25%20(Synthetic)-orange.svg)](docs/ML_REPORT.md)

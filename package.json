@@ -7,9 +7,13 @@
     "packages/*",
     "apps/*"
   ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "npm run dev --workspace=apps/web",
     "build": "npm run build --workspaces --if-present",
+    "vercel-build": "npm run build --workspace=apps/web",
     "test": "node scripts/check-i18n.js && npm run test --workspace=apps/web && python -m pytest tests/",
     "check-i18n": "node scripts/check-i18n.js",
     "lint": "npm run lint --workspaces --if-present",

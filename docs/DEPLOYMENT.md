@@ -6,23 +6,28 @@ This guide covers deployment instructions for the **Vercel Frontend (Demo Mode)*
 
 ## 1. Vercel Frontend Deployment (Zero-Backend SIH Evaluator Mode)
 
+🚀 **Live Production URL:** [https://apaar-verify-seven.vercel.app](https://apaar-verify-seven.vercel.app)
+
 The Next.js 15 App Router frontend is engineered with an in-browser execution engine (ADR-002). Even if backend microservices are offline or undergoing cold starts, Vercel evaluators can test the complete end-to-end user journey:
 
-### Steps:
-1. Push this repository to GitHub:
-   ```bash
-   git push origin main
-   ```
-2. Navigate to [vercel.com/new](https://vercel.com/new) and import the repository:
-   - **Framework Preset:** Next.js
-   - **Root Directory:** `apps/web`
-3. Set the following Environment Variables in the Vercel Project Settings:
-   ```env
-   NEXT_PUBLIC_ENABLE_DEMO_MODE=true
-   NEXT_PUBLIC_APP_NAME=APAAR-Verify
-   NEXT_OUTPUT=standalone
-   ```
-4. Click **Deploy**. The site will build and deploy in ~45 seconds.
+### Zero-Config Monorepo Setup:
+The repository includes root and package-level `vercel.json` configurations:
+- **Root Directory:** `.` (Monorepo root)
+- **Framework Preset:** Next.js
+- **Build Command:** `npm run build --workspace=apps/web`
+- **Output Directory:** `apps/web/.next`
+- **Install Command:** `npm ci`
+- **Node.js Version:** `22.x`
+
+### Deploying via Vercel Dashboard:
+1. Navigate to [vercel.com/new](https://vercel.com/new) and import `priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions`.
+2. All settings (`framework`, `buildCommand`, `outputDirectory`, `installCommand`) are automatically detected via `vercel.json`.
+3. Click **Deploy**. The build completes in ~45 seconds.
+
+### Deploying via Vercel CLI:
+```bash
+npx vercel --prod --yes
+```
 5. All 12 languages, Luhn check calculations, bulk upload parsing, entity resolution graphs, AICTE surveillance maps, student consent issuance, verifier certificate generation, and cryptographic hash-chain validations function out of the box in the browser.
 
 ---
