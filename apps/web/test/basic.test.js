@@ -68,11 +68,26 @@ function testMasking() {
   console.log('✅ PII Masking utility tests passed.');
 }
 
+function testGroundTruthArtifacts() {
+  console.log('🧪 Verifying Phase 2 synthetic datasets & ground truth...');
+  const csvFile = path.resolve(__dirname, '../../../data/samples/sample_students.csv');
+  const gtFile = path.resolve(__dirname, '../../../data/samples/ground_truth_labels.json');
+
+  assert(fs.existsSync(csvFile), 'sample_students.csv must exist');
+  assert(fs.existsSync(gtFile), 'ground_truth_labels.json must exist');
+
+  const gtData = JSON.parse(fs.readFileSync(gtFile, 'utf8'));
+  assert(gtData.metadata.total_records >= 100, 'Must have at least 100 records');
+  assert(Object.keys(gtData.labels).length === gtData.metadata.total_records);
+  console.log(`✅ Verified synthetic ground-truth dataset (${gtData.metadata.total_records} records).`);
+}
+
 function runAll() {
   try {
     testLocales();
     testLuhnAlgorithm();
     testMasking();
+    testGroundTruthArtifacts();
     console.log('\n🎉 ALL UNIT TESTS PASSED SUCCESSFULLY!');
   } catch (err) {
     console.error('❌ Test failed:', err);
