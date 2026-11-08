@@ -28,53 +28,42 @@ In technical institutions across India, student data sits in disparate, non-stan
 
 ```mermaid
 flowchart TD
-    subgraph Client["Next.js 15 Web Client (Vercel Ready - Browser Engine)"]
-        UI["Accessible UI & Design System"]
-        I18N["12-Locale i18n Engine (with RTL)"]
-        AUTH["Role Claims & Demo Persona Switcher"]
-        FALLBACK["In-Browser Engine (WebCrypto SHA-256 + Luhn)"]
+    subgraph Client["Next.js 15 Web Client (Browser Engine - Standalone on Vercel)"]
+        UI["Accessible Table UI (GIGW 3.0 / WCAG 2.2 AA)"]
+        ENGINE["In-Browser Engine (WebCrypto SHA-256 + Luhn Check)"]
+        I18N["12-Locale i18n Engine (with RTL for Urdu)"]
+        REVIEW["Review Queue with Plain-Language Remediation"]
     end
 
-    subgraph Gateway["API Gateway (FastAPI / Port 8000)"]
-        PROXY["Reverse Proxy & Rate Limiter"]
-        JWT["Custom Claims & Audit Logger"]
+    subgraph Services["Live Python Microservices (FastAPI / Pytest Verified)"]
+        VERIFY["verify-svc (Port 8002): Checksum & SHA-256 Audit Ledger"]
+        MATCH["match-svc (Port 8003): Indic Transliteration Deduplication"]
+        ANOMALY["anomaly-svc (Port 8004): Sanctioned Capacity & Outlier ML"]
+        RAG["rag-svc (Port 8005): Multilingual Policy Assistant"]
     end
 
-    subgraph Services["Microservices Mesh (Python 3.12)"]
-        INGEST["ingest-svc: CSV/XLSX Parser & Normalizer (8001)"]
-        VERIFY["verify-svc: Schema Rules & Checksum Engine (8002)"]
-        MATCH["match-svc: Indic Transliteration Deduplication (8003)"]
-        ANOMALY["anomaly-svc: IsolationForest & Z-Score ML (8004)"]
-        RAG["rag-svc: Multilingual Policy Assistant (8005)"]
-        AUDIT["audit-svc: Cryptographic Hash-Chain Ledger (8006)"]
-        NOTIFY["notify-svc: Surveillance Alert Feed (8007)"]
+    subgraph Data["Data & Persistence"]
+        AUDIT["Append-Only SHA-256 Hash Chain Ledger"]
+        DATASET["Synthetic Ground-Truth Evaluation Datasets"]
     end
 
-    subgraph Data["Data & Infrastructure"]
-        FS["Firebase Firestore / Emulators"]
-        REDIS["Redis Streams Job Queue"]
-        QDRANT["Qdrant Vector Database"]
-    end
-
-    Client -->|HTTP / REST| Gateway
-    Gateway --> Services
+    Client -.->|Direct Browser Mode (Vercel)| ENGINE
+    Client -->|Local REST API Calls| Services
     Services --> Data
 ```
 
 ### Service Execution & Implementation Status
-To ensure transparency regarding what runs locally vs. in containers vs. in the browser:
+Honest classification of components across execution environments:
 
-| Service / Component | Implementation Location | Execution Mode | Status |
-|---|---|---|---|
-| **Web Client Engine (`apps/web`)** | `apps/web/src/lib/` | **Browser-Side / Vercel** | **Fully Functional:** Self-contained client engine; runs Stages 1–8 in-browser (WebCrypto SHA-256 hash chains, Luhn check, trigram duplicate detection, TF-IDF RAG) with zero backend dependency for instant Vercel evaluation. |
-| **Verification Service (`verify-svc`)** | `services/verify/main.py` | **Python 3.12 / FastAPI (Port 8002)** | **Live Service:** Schema validation, Luhn check-digit verification, and SHA-256 hash-chain append endpoint. Tested with pytest. |
-| **Matching & Entity Resolution (`match-svc`)** | `services/match/main.py` | **Python 3.12 / FastAPI (Port 8003)** | **Live Service:** Phonetic blocking, cross-script Indic transliteration normalization, and duplicate cluster resolution. Tested with pytest. |
-| **Anomaly Detection (`anomaly-svc`)** | `services/anomaly/main.py` | **Python 3.12 / FastAPI (Port 8004)** | **Live Service:** Statistical outlier scoring and sanctioned intake ratio analysis ($>120\%$ capacity). Tested with pytest. |
-| **Policy Assistant (`rag-svc`)** | `services/rag/main.py` | **Python 3.12 / FastAPI (Port 8005)** | **Live Service:** Multilingual semantic retrieval over official AICTE/NEP policy corpus with citations and prompt-injection guardrails. Tested with pytest. |
-| **API Gateway (`api-gateway`)** | Docker / Compose | **Reverse Proxy / Routing** | Configured in `docker-compose.yml` and Kubernetes to route incoming traffic to services. |
-| **Ingestion Worker (`ingest-svc`)** | Docker / Compose | **Async Job Worker** | Streaming multi-part upload handler definition for high-volume background queueing via Redis. |
-| **Audit Service (`audit-svc`)** | `services/verify/main.py` | **Integrated Microservice** | Implemented directly inside `verify-svc` (and mirrored client-side) to provide atomic append-only hash chains. |
-| **Notification Service (`notify-svc`)** | `apps/web/src/components/` | **Simulated In-App Feed** | In-app regulatory alert feed highlighting high-risk and flagged institutions. |
+| Service / Component | Port | Execution Mode | Classification | Status & Capability |
+|---|---|---|---|---|
+| **Web Client Engine (`apps/web`)** | `3000` | Browser / Vercel | **Implemented (Browser-Only)** | Runs complete Stages 1–5 in-browser (WebCrypto SHA-256 hash chains, Luhn check, Indic transliteration, trigram deduplication) with zero backend dependency for instant Vercel evaluation. |
+| **Verification & Audit (`verify-svc`)** | `8002` | Python 3.12 / FastAPI | **Implemented (Live Service)** | Schema validation, Luhn check-digit verification, and cryptographic SHA-256 audit-chain append endpoint. Verified with pytest. |
+| **Matching & Transliteration (`match-svc`)** | `8003` | Python 3.12 / FastAPI | **Implemented (Live Service)** | Phonetic blocking, cross-script Indic transliteration normalization, and duplicate cluster resolution. Verified with pytest. |
+| **Anomaly Detection (`anomaly-svc`)** | `8004` | Python 3.12 / FastAPI | **Implemented (Live Service)** | Statistical outlier scoring and sanctioned intake ratio analysis ($>120\%$ capacity). Verified with pytest. |
+| **Policy Assistant (`rag-svc`)** | `8005` | Python 3.12 / FastAPI | **Implemented (Live Service)** | Multilingual semantic retrieval over official AICTE/NEP policy corpus with citations and prompt-injection guardrails. Verified with pytest. |
+| **API Gateway (`api-gateway`)** | `8000` | Docker Compose / Nginx | **Specification / Container** | Configured in `docker-compose.yml` and Kubernetes ingress manifests for production cluster routing. |
+| **Ingestion Worker (`ingest-svc`)** | — | Docker / Background | **Specification / Queue** | Async streaming worker definition for high-volume background queueing via Redis Streams. |
 
 ---
 

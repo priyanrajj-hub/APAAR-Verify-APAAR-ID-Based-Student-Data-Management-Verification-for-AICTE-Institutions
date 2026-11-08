@@ -42,17 +42,18 @@ flowchart TD
 
 ---
 
-## Microservices Breakdown
-| Service | Primary Responsibility | Port | Key Technologies |
-|---|---|---|---|
-| `api-gateway` | Routing, authentication, rate limiting, request tracing | 8000 | FastAPI, httpx, PyJWT |
-| `ingest-svc` | File upload handling, chunking, streaming CSV/XLSX normalization | 8001 | Pandas, OpenPyXL, Pydantic v2 |
-| `verify-svc` | Schema rules, Luhn check-digit, Mock government registry adapters | 8002 | Pydantic v2, Great Expectations pattern |
-| `match-svc` | Phonetic, trigram, Indic transliteration duplicate detection | 8003 | RapidFuzz, Jellyfish, Indic-Transliteration |
-| `anomaly-svc` | Statistical z-score and Isolation Forest outlier detection | 8004 | Scikit-Learn, LightGBM, NumPy |
-| `rag-svc` | Multilingual policy Q&A with dense/sparse retrieval and citations | 8005 | Qdrant, FastEmbed / SentenceTransformers |
-| `audit-svc` | Append-only SHA-256 hash-chain verification & tamper detection | 8006 | Cryptography, hashlib |
-| `notify-svc` | In-app alerts, email/SMS simulation, anomaly threshold alerts | 8007 | Jinja2, asyncio |
+## Microservices & Execution Classification
+| Service / Component | Port | Execution Mode | Classification | Implementation Status & Details |
+|---|---|---|---|---|
+| `web-engine` (`apps/web`) | 3000 | Browser / Vercel | **Implemented (Browser-Only)** | Self-contained client-side engine running verification, Luhn checksums, and WebCrypto SHA-256 hash chains with zero backend required. |
+| `verify-svc` | 8002 | Python 3.12 / FastAPI | **Implemented (Live Service)** | Schema validation, Luhn check-digit verification, and cryptographic hash-chain append endpoint. Verified with pytest. |
+| `match-svc` | 8003 | Python 3.12 / FastAPI | **Implemented (Live Service)** | Phonetic blocking, cross-script Indic transliteration normalization, and duplicate cluster resolution. Verified with pytest. |
+| `anomaly-svc` | 8004 | Python 3.12 / FastAPI | **Implemented (Live Service)** | Statistical outlier scoring and sanctioned intake ratio analysis (>120% capacity). Verified with pytest. |
+| `rag-svc` | 8005 | Python 3.12 / FastAPI | **Implemented (Live Service)** | Multilingual semantic retrieval over official AICTE/NEP policy corpus with citations and prompt-injection guardrails. Verified with pytest. |
+| `audit-svc` | — | Integrated | **Implemented (Integrated)** | Cryptographic hash-chain ledger implemented directly inside `verify-svc` (8002) and mirrored in `apps/web/src/lib/pipeline.ts`. |
+| `notify-svc` | — | Simulated | **Implemented (Browser-Side)** | Regulatory alert feed displaying flagged institutions and intake inflation warnings. |
+| `api-gateway` | 8000 | Reverse Proxy | **Specification / Container** | Reverse proxy routing and rate limiting defined in Docker Compose and Kubernetes ingress manifests. |
+| `ingest-svc` | — | Job Worker | **Specification / Queue** | High-volume streaming upload worker specification for asynchronous Redis Streams queueing. |
 
 ---
 

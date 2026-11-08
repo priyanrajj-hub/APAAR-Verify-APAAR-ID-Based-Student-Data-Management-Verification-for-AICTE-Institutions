@@ -8,10 +8,8 @@ import {
   ShieldCheck,
   ShieldAlert,
   Lock,
-  RefreshCw,
   AlertOctagon,
   CheckCircle2,
-  Copy,
 } from 'lucide-react';
 
 interface AuditExplorerProps {
@@ -30,35 +28,33 @@ export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
 
   const handleVerify = async () => {
     setIsVerifying(true);
-    await new Promise((r) => setTimeout(r, 150));
+    await new Promise((r) => setTimeout(r, 120));
     const res = await auditLedger.verifyIntegrity();
     setVerificationResult(res);
     setIsVerifying(false);
   };
 
   const handleTamper = async () => {
-    // Deliberately tamper with the details of block 1 or 2
     if (events.length > 1) {
-      auditLedger.tamperEvent(1, events[1].details + ' [TAMPERED_MALICIOUS_INJECTION]');
+      auditLedger.tamperEvent(1, events[1].details + ' [TAMPERED_PAYLOAD]');
     } else if (events.length > 0) {
-      auditLedger.tamperEvent(0, events[0].details + ' [TAMPERED_MALICIOUS_INJECTION]');
+      auditLedger.tamperEvent(0, events[0].details + ' [TAMPERED_PAYLOAD]');
     }
     setEvents(auditLedger.getEvents());
-    // Auto re-verify to show live failure
     const res = await auditLedger.verifyIntegrity();
     setVerificationResult(res);
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 shadow-sm space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
         <div>
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <Lock className="w-5 h-5 text-indigo-600" />
-            {t('audit.title')}
+          <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <Lock className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+            Cryptographic Audit Ledger (SHA-256 Hash Chain)
           </h3>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            {t('audit.description')}
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            Tamper-evident verification ledger. Every roster ingestion, validation error, and decision is cryptographically sealed in an append-only hash chain.
           </p>
         </div>
 
@@ -66,19 +62,19 @@ export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
           <button
             onClick={handleVerify}
             disabled={isVerifying || events.length === 0}
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition disabled:opacity-40"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white transition disabled:opacity-40"
           >
-            <ShieldCheck className="w-4 h-4" />
-            {t('audit.verifyChain')}
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>Verify Chain Integrity</span>
           </button>
 
           <button
             onClick={handleTamper}
             disabled={events.length === 0}
-            className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition disabled:opacity-40"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition disabled:opacity-40"
           >
-            <AlertOctagon className="w-4 h-4" />
-            {t('audit.tamperDemo')}
+            <AlertOctagon className="w-3.5 h-3.5" />
+            <span>Simulate Tamper Attack</span>
           </button>
         </div>
       </div>
@@ -86,79 +82,72 @@ export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
       {/* Verification Result Banner */}
       {verificationResult && (
         <div
-          className={`p-4 rounded-xl border flex items-center gap-3 ${
+          className={`p-3.5 rounded border flex items-center gap-3 text-xs ${
             verificationResult.valid
-              ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
-              : 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300'
+              ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
+              : 'bg-rose-50 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800 text-rose-800 dark:text-rose-300'
           }`}
         >
           {verificationResult.valid ? (
-            <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-600" />
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
           ) : (
-            <ShieldAlert className="w-5 h-5 shrink-0 text-rose-600" />
+            <ShieldAlert className="w-5 h-5 text-rose-600 shrink-0" />
           )}
-          <div className="text-xs">
+          <div>
             <div className="font-bold">
-              {verificationResult.valid ? t('audit.validChain') : t('common.tamperDetected')}
+              {verificationResult.valid
+                ? 'All Block Hashes Verified (Chain Intact)'
+                : 'Cryptographic Integrity Breach Detected'}
             </div>
-            {!verificationResult.valid && (
-              <div className="mt-0.5 opacity-90">
-                {verificationResult.reason} (Discovered at event #{verificationResult.brokenAtIndex})
-              </div>
-            )}
+            <div className="text-[11px] mt-0.5 opacity-90">
+              {verificationResult.valid
+                ? `Successfully recalculated SHA-256 digests across all ${events.length} blocks. Zero tampering found.`
+                : `Block #${(verificationResult.brokenAtIndex ?? 0) + 1} hash mismatch! Computed digest diverges from stored previous_hash.`}
+            </div>
           </div>
         </div>
       )}
 
-      {/* Hash Chain Table */}
-      <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
-            <thead>
-              <tr className="bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 font-semibold">
-                <th className="py-3 px-4"># Index</th>
-                <th className="py-3 px-4">{t('common.timestamp')}</th>
-                <th className="py-3 px-4">Action</th>
-                <th className="py-3 px-4">Actor</th>
-                <th className="py-3 px-4">Details</th>
-                <th className="py-3 px-4">Previous Block Hash</th>
-                <th className="py-3 px-4">Current Block SHA-256</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-800 font-mono">
-              {events.length === 0 ? (
-                <tr>
-                  <td colSpan={7} className="py-8 text-center text-gray-400 font-sans">
-                    No pipeline actions recorded in audit ledger yet. Ingest or generate records above.
-                  </td>
-                </tr>
-              ) : (
-                events.map((e) => (
-                  <tr
-                    key={e.index}
-                    className="hover:bg-gray-50/80 dark:hover:bg-gray-800/40 transition"
-                  >
-                    <td className="py-3 px-4 font-bold text-blue-600">#{e.index}</td>
-                    <td className="py-3 px-4 text-gray-500 font-sans">{e.timestamp.slice(11, 19)}</td>
-                    <td className="py-3 px-4 font-bold text-gray-800 dark:text-gray-200">{e.action}</td>
-                    <td className="py-3 px-4 font-sans text-gray-600 dark:text-gray-400">
-                      {e.actorRole} ({e.actorId})
-                    </td>
-                    <td className="py-3 px-4 font-sans text-gray-700 dark:text-gray-300 max-w-[220px] truncate" title={e.details}>
-                      {e.details}
-                    </td>
-                    <td className="py-3 px-4 text-gray-400 text-[10px]">
-                      {e.prevHash.substring(0, 16)}…
-                    </td>
-                    <td className="py-3 px-4 text-emerald-600 dark:text-emerald-400 font-bold text-[10px]">
-                      {e.hash.substring(0, 16)}…
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
+      {/* Hash Chain Blocks */}
+      <div className="space-y-3">
+        {events.length === 0 ? (
+          <div className="py-8 text-center text-xs text-slate-400">
+            No audit events recorded yet. Ingest a roster to generate chain blocks.
+          </div>
+        ) : (
+          events.map((evt, idx) => (
+            <div
+              key={evt.index}
+              className="border border-slate-200 dark:border-slate-800 rounded p-3 bg-slate-50 dark:bg-slate-850 space-y-2 text-xs"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono font-bold text-slate-500">#{idx + 1}</span>
+                  <span className="font-semibold uppercase tracking-wider text-[10px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
+                    {evt.action}
+                  </span>
+                  <span className="text-slate-500 text-[11px]">by {evt.actorId} ({evt.actorRole})</span>
+                </div>
+                <div className="font-mono text-[11px] text-slate-400">
+                  {new Date(evt.timestamp).toLocaleTimeString()}
+                </div>
+              </div>
+
+              <div className="text-slate-700 dark:text-slate-300 font-medium text-[11px]">
+                {evt.details}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px] font-mono pt-1 border-t border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400">
+                <div className="truncate">
+                  <span className="font-bold text-slate-400">PREV:</span> {evt.prevHash}
+                </div>
+                <div className="truncate text-right md:text-left">
+                  <span className="font-bold text-slate-400">HASH:</span> {evt.hash}
+                </div>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

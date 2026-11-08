@@ -1,47 +1,80 @@
 # APAAR-Verify 3-Minute Live Demonstration Script
 
-**Event:** Smart India Hackathon 2026 (Idea ID 225558)  
-**Target Duration:** Exactly 3 Minutes (180 Seconds)  
-**Evaluator Personas:** Technical Jury, MoE / AICTE Officials, Industry Experts
+> **Focus:** 100% Focused Hero Flow (Registrar Ingestion $\rightarrow$ Plain-Language Remediation $\rightarrow$ Central AICTE Oversight $\rightarrow$ Cryptographic Audit)  
+> **Target Duration:** Exactly 180 Seconds (3 Minutes)  
+> **Evaluator Audience:** Smart India Hackathon Technical Jury & Ministry of Education Officials  
+> **Local URL:** `http://localhost:3000`
 
 ---
 
-### [0:00 - 0:30] Introduction & The Problem in Numbers
-- **Presenter:** "Respected Jury members, in India's technical education ecosystem, over 26 crore APAAR IDs have been issued under NEP 2020. However, data between technical institutions remains siloed and vulnerable. In surprise government inspections, 89 out of 311 institutes were found to have submitted fabricated data for AICTE approval, and over 9,000 duplicate faculty and student records were detected across 8 states.
-- **Action on Screen:** *Show Overview tab. Point to the verified stat cards: 26.35 Cr APAARs, 1 in 3 false data rate, and 9,060 duplicate entries.*
-- **Key Message:** "We built APAAR-Verify: a production-shaped, privacy-preserving platform that ties every student record to their 12-digit APAAR ID with AI-driven entity resolution and cryptographic hash chaining."
+## 1. Timing & Presentation Walkthrough
+
+### [0:00 – 0:40] The Registrar's Operational Reality
+- **Presenter:** *"Respected Jury, technical institutions across India face an operational crisis: student rosters arrive from feeder schools in non-standard formats with date errors, corrupted check digits, regional Indic spellings, and duplicate registrations. Regulators have documented that nearly 1 in 3 inspected institutes submit flawed data, and over 9,000 duplicate faculty/student records have been detected across states."*
+- **Action on Screen:**  
+  1. Open `http://localhost:3000`. Point to the institutional header: **Dr. Rajesh Raman (Registrar), Chennai Institute of Technology**.
+  2. Point out the honest disclaimer: *"Prototype: not affiliated with MoE/AICTE. All data synthetic."*
+- **Key Message:** *"APAAR-Verify is built around a single, focused operational workflow: automate the 5-stage verification of student data, explain every rejection in plain language, and secure every decision in a tamper-evident audit ledger."*
 
 ---
 
-### [0:30 - 1:15] Bulk Ingestion & 5-Stage Verification Pipeline
-- **Presenter:** "Let's demonstrate institutional data onboarding. An institution registrar uploads thousands of enrolment rows via CSV or Excel."
-- **Action on Screen:** *Switch to 'Data Ingestion' tab. Click 'Generate & Run 400 Records'. Show the animated progress bar running through Normalization, Schema Rules, Luhn Checksum, Deduplication, and Scoring.*
-- **Presenter:** "Instantly, 400 records are analyzed through our 5-stage pipeline. In the Results Table, every single decision is transparently explained. Look at row #3: it caught a check-digit mutation and calculated the correct 12th digit. In row #12, an underage student was flagged. The registrar can download a plain-language error remediation report with a single click."
-- **Action on Screen:** *Filter by 'Rejected Only'. Point to the suggested fix: 'Recalculate check digit'. Toggle view from 'Institution' to 'AICTE (Masked)' to demonstrate dynamic PII masking.*
+### [0:40 – 1:40] Bulk Ingest of Messy Rosters & Plain-Language Remediation
+- **Presenter:** *"Let's test our engine against real-world dirty data. We have pre-loaded three messy rosters containing actual ground-truth edge cases."*
+- **Action on Screen:**  
+  1. Under **Upload & Verify**, click **"1. Messy Dates & Invalid Checksums"**.
+  2. Watch the live 5-stage progress indicator:
+     - Stage 1: Unicode Normalization.
+     - Stage 2 & 3: Schema rules and 12-digit Luhn check-digit verification.
+     - Stage 4: Entity resolution and cross-script Indic transliteration.
+     - Stage 5: Risk scoring and audit chain logging.
+  3. The app automatically jumps into the **Review Queue**.
+- **Presenter:** *"Notice how our Review Queue is dense, accessible, and provides actionable remediation for every single row:"*
+  - **Row #2 (Neha Patil):** *"Date format `15/08/2002` was automatically standardized to ISO-8601 `2002-08-15`."*
+  - **Row #3 (Rohan Iyer):** *"Flagged for invalid calendar values (`2004-13-40`)."*
+  - **Row #4 (Pooja Reddy):** *"Flagged: age outside technical education bounds (16–35 years). Suggested Fix: Verify against 10th marksheet."*
+  - **Row #8 (Divya Nair):** *"Luhn check digit failed: expected `5`, got `4`. Actionable Fix: Correct last digit to 5."*
+- **Action on Screen:**  
+  1. Click **"Export Error Report"** to show the downloadable CSV spreadsheet that institutions can immediately return to students.
+  2. Click **"Override"** on a borderline record to demonstrate registrar discretionary override with audit accountability.
 
 ---
 
-### [1:15 - 1:50] AI Entity Resolution & AICTE Surveillance Dashboard
-- **Presenter:** "Beyond simple format checks, how do we catch sophisticated fraud? Let's switch to 'Entity Resolution & ML'."
-- **Action on Screen:** *Click 'Entity Resolution & ML' tab. Highlight the 92.4% F1-score and Confusion Matrix.*
-- **Presenter:** "Our model achieves 100% precision with zero false positives. Notice our graph-based cluster viewer: it automatically resolves cross-script Indic transliterations, linking 'கார்த்திக் Raman' in Tamil script with 'Karthik Raman' in Latin script born on the exact same date across different universities."
-- **Action on Screen:** *Click 'AICTE Dashboard' tab.*
-- **Presenter:** "AICTE officers get a national surveillance radar. Look at Pune Polytechnic: their enrolment is at 137% of sanctioned capacity, automatically triggering an on-site regulatory inspection alert before approval renewal."
+### [1:40 – 2:20] Indic Transliteration & Central AICTE Surveillance
+- **Presenter:** *"Next, what happens when rosters mix regional Indic scripts and phonetic variations? Let's verify Roster #2."*
+- **Action on Screen:**  
+  1. Click **Upload & Verify** $\rightarrow$ Click **"2. Multi-Script Indic & Transliteration"**.
+  2. In the Review Queue, show:
+     - **`राजेश शर्मा`** (Devanagari): Normalized and transliterated to `Rajesh Sharma` with 94% phonetic confidence.
+     - **`கார்த்திக் சுந்தரம்`** (Tamil): Mapped to `Karthik Sundaram`.
+- **Presenter:** *"Now let's switch to the AICTE Central Oversight view to show regulatory surveillance."*
+- **Action on Screen:**  
+  1. Click the **"AICTE Oversight"** tab.
+  2. Point out:
+     - **Cross-Institution Duplicate Clusters:** The system flags `Aditya Verma` enrolled simultaneously at Chennai Institute of Technology and Anna University—stopping ghost scholarship claims before grant disbursement.
+     - **Intake Inflation Alert:** Pune Polytechnic is flagged for enrolling 495 students against a sanctioned capacity of 360 (137% over-intake), generating an automated on-site inspection trigger.
 
 ---
 
-### [1:50 - 2:30] DPDP Consent Ledger & Public Verifier Portal
-- **Presenter:** "Under the DPDP Act 2023, privacy by design is paramount. Let's switch personas to a student: Aarav Sharma."
-- **Action on Screen:** *Use top-right Quick Persona Switcher to select 'Student'. Open 'Consent Ledger' tab.*
-- **Presenter:** "Students hold sovereign control over their records. Aarav can generate a time-bound, cryptographically signed token for TCS Campus Hiring, selecting only Name and CGPA while withholding his DOB."
-- **Action on Screen:** *Switch to 'Public Verifier' tab. Submit APAAR `987654321018` with token `APAAR-TOKEN-TCS-78921`.*
-- **Presenter:** "The employer immediately receives an official, digitally signed verification certificate with a verifiable QR code, seeing only the consented fields."
+### [2:20 – 3:00] Cryptographic Audit Trail & Known Limitations
+- **Presenter:** *"Finally, every verification event is cryptographically sealed in an append-only SHA-256 hash chain."*
+- **Action on Screen:**  
+  1. Click **"Audit Log"**.
+  2. Click **"Verify Chain Integrity"** $\rightarrow$ show the green verification banner: *"All Block Hashes Verified (Chain Intact)"*.
+  3. Click **"Simulate Tamper Attack"** $\rightarrow$ show the immediate red security alert detecting the cryptographic mismatch at Block #2.
+- **Presenter:** *"To conclude, we are completely transparent about our engineering boundaries:"*
+  1. **Demo Checksum:** The official MoE/NeGD check digit algorithm is proprietary; we implement a documented 12-digit Luhn scheme.
+  2. **Synthetic Data Only:** Zero citizen PII is collected or exposed, adhering to the DPDP Act 2023.
+  3. **Pluggable Adapters:** All government APIs sit behind mock adapter interfaces (`ApaarRegistryAdapter`, `DigiLockerAdapter`) ready for live API integration.
+- **Presenter:** *"APAAR-Verify delivers an honest, high-performance, and verifiable student data infrastructure for India's technical education. Thank you!"*
 
 ---
 
-### [2:30 - 3:00] Cryptographic Hash Chain & Multilingual Voice Assistant
-- **Presenter:** "Every verification step is permanently anchored in an append-only SHA-256 hash chain."
-- **Action on Screen:** *Click 'Audit Chain' tab. Click 'Simulate Malicious Tampering'.*
-- **Presenter:** "If a rogue actor maliciously tampers with a record in the database, our cryptographic audit validator instantly detects the break in the chain. Finally, our NEP 2020 Policy Assistant answers queries in all 12 Indian languages with voice input and read-aloud support."
-- **Action on Screen:** *Click 'Policy Assistant' tab. Click 'अपार चेक अंक कैसे काम करता है?' or sample chip. Point to the verified citations.*
-- **Conclusion:** "APAAR-Verify is ready for nationwide deployment—one command to run locally, fully containerized on Kubernetes, and live on Vercel with zero downtime. Thank you!"
+## 2. Documented Known Limitations & Roadmap
+
+| Feature / Boundary | Current Prototype Implementation | Production Implementation Requirement |
+|---|---|---|
+| **APAAR Check-Digit** | 12 digits (11 payload + 12th Luhn check digit). | Official NeGD/MoE proprietary check-digit algorithm under MoE API partnership. |
+| **Identity Registry** | `MockApaarRegistryAdapter` running against synthetic ground truth. | Direct API integration with the central APAAR registry on Academic Bank of Credits (ABC). |
+| **Aadhaar Authentication** | Simulated consent token exchange behind `AadhaarAuthAdapter`. | MeitY/UIDAI KUA/AUA certified gateway integration under the notified AICTE framework. |
+| **Audit Ledger** | Client-side & microservice append-only SHA-256 cryptographic hash chain. | Hyperledger Fabric or National Blockchain Framework (NBF) node. |
+| **Data Scope** | 1,000 synthetic technical education student profiles. | Scaled to nationwide state technical boards (BTE) and affiliating universities. |

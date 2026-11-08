@@ -8,20 +8,28 @@ import { UserRole } from '@apaar/shared-types';
 import { ROLE_LABELS } from '@apaar/ui';
 import {
   Globe,
-  UserCheck,
   Moon,
   Sun,
   ShieldCheck,
   ChevronDown,
   Info,
   Check,
+  FlaskConical,
+  MessageSquare,
+  KeyRound,
+  QrCode,
+  ExternalLink,
 } from 'lucide-react';
 
-export function Header() {
+interface HeaderProps {
+  onOpenLab?: (tool: 'assistant' | 'consent' | 'verifier') => void;
+}
+
+export function Header({ onOpenLab }: HeaderProps) {
   const { locale, setLocale, localeMeta, t } = useI18n();
   const { user, role, switchRole } = useAuth();
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const [roleMenuOpen, setRoleMenuOpen] = useState(false);
+  const [demoMenuOpen, setDemoMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
   const toggleTheme = () => {
@@ -34,71 +42,69 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-gray-200 dark:border-gray-800 shadow-sm">
-      <div className="tricolour-bar" />
+    <header className="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+      {/* Tricolour Accent Line */}
+      <div className="h-1 w-full bg-gradient-to-r from-orange-500 via-white to-emerald-600 dark:from-orange-600 dark:via-slate-800 dark:to-emerald-700" />
 
-      {/* Top Ministry / SIH announcement bar */}
-      <div className="bg-slate-100 dark:bg-gray-800/60 px-4 py-1.5 text-xs text-slate-600 dark:text-gray-300 flex flex-wrap items-center justify-between border-b border-slate-200 dark:border-gray-800">
+      {/* Institutional Honest Disclaimer Bar */}
+      <div className="bg-slate-100 dark:bg-slate-800/80 px-4 py-1.5 text-xs text-slate-700 dark:text-slate-300 flex flex-wrap items-center justify-between border-b border-slate-200 dark:border-slate-700">
         <div className="flex items-center gap-2">
-          <span className="font-semibold text-orange-600 dark:text-orange-400">
-            {t('app.sihBadge')}
+          <span className="font-semibold text-slate-900 dark:text-white">
+            Smart India Hackathon 2026 · Idea ID 225558
           </span>
-          <span className="hidden sm:inline text-slate-400">|</span>
-          <span className="hidden sm:inline">
-            Ministry of Education &amp; AICTE Platform
+          <span className="text-slate-400">|</span>
+          <span className="text-slate-600 dark:text-slate-400 font-medium">
+            Prototype: not affiliated with MoE/AICTE. All data synthetic.
           </span>
         </div>
 
         <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-medium">
           <Info className="w-3.5 h-3.5" />
-          <span>{t('app.demoMode')}</span>
+          <span>Demo Mode Active</span>
         </div>
       </div>
 
       {/* Main Header Nav */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
         {/* Brand */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 text-white flex items-center justify-center shadow-md">
-            <ShieldCheck className="w-6 h-6" />
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center justify-center font-bold text-sm">
+            <ShieldCheck className="w-5 h-5 text-emerald-400 dark:text-emerald-600" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {t('app.title')}
-              </h1>
-              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
-                NEP 2020
+              <span className="text-base font-bold tracking-tight text-slate-900 dark:text-white">
+                APAAR-Verify
+              </span>
+              <span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
+                SIH Prototype
               </span>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 hidden md:block">
-              {t('app.tagline')}
-            </p>
           </div>
         </div>
 
-        {/* Action Controls */}
-        <div className="flex items-center gap-2.5">
+        {/* Header Right Actions */}
+        <div className="flex items-center gap-2">
           {/* Language Selector (12 Indian languages) */}
           <div className="relative">
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition"
               aria-label="Select Language"
             >
-              <Globe className="w-3.5 h-3.5 text-gray-600 dark:text-gray-300" />
+              <Globe className="w-3.5 h-3.5 text-slate-500" />
               <span className="font-semibold">{localeMeta.nativeName}</span>
-              <span className="text-gray-400 text-[10px]">({localeMeta.code.toUpperCase()})</span>
-              <ChevronDown className="w-3 h-3 text-gray-400" />
+              <span className="text-slate-400 text-[10px]">({localeMeta.code.toUpperCase()})</span>
+              <ChevronDown className="w-3 h-3 text-slate-400" />
             </button>
 
             {langMenuOpen && (
               <div
-                className="absolute right-0 mt-2 w-56 rounded-xl bg-white dark:bg-gray-800 shadow-2xl border border-gray-200 dark:border-gray-700 py-2 z-50 max-h-80 overflow-y-auto"
+                className="absolute right-0 mt-1 w-56 rounded-md bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 py-1.5 z-50 max-h-80 overflow-y-auto"
                 onMouseLeave={() => setLangMenuOpen(false)}
               >
-                <div className="px-3 py-1 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
-                  Select Language (12 Locales)
+                <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                  Supported Languages (12)
                 </div>
                 {(Object.keys(LOCALES) as SupportedLocale[]).map((loc) => {
                   const item = LOCALES[loc];
@@ -110,19 +116,19 @@ export function Header() {
                         setLocale(loc);
                         setLangMenuOpen(false);
                       }}
-                      className={`w-full px-3 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50 dark:hover:bg-gray-700/60 transition ${
+                      className={`w-full px-3 py-1.5 text-left text-xs flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-700 transition ${
                         isSelected
-                          ? 'font-bold text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-gray-700/40'
-                          : 'text-gray-700 dark:text-gray-200'
+                          ? 'font-bold text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-700/50'
+                          : 'text-slate-700 dark:text-slate-300'
                       }`}
                     >
                       <div className="flex flex-col">
-                        <span className="text-sm">{item.nativeName}</span>
-                        <span className="text-[10px] text-gray-400">
+                        <span>{item.nativeName}</span>
+                        <span className="text-[10px] text-slate-400">
                           {item.name} {item.dir === 'rtl' ? '(RTL)' : ''}
                         </span>
                       </div>
-                      {isSelected && <Check className="w-4 h-4 text-blue-600" />}
+                      {isSelected && <Check className="w-3.5 h-3.5 text-slate-900 dark:text-white" />}
                     </button>
                   );
                 })}
@@ -130,25 +136,26 @@ export function Header() {
             )}
           </div>
 
-          {/* Quick Persona / Role Switcher for SIH Evaluators */}
+          {/* Labs & Demo Switcher Menu (Single Unified Demo Dropdown) */}
           <div className="relative">
             <button
-              onClick={() => setRoleMenuOpen(!roleMenuOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 transition"
-              aria-label="Switch User Role"
+              onClick={() => setDemoMenuOpen(!demoMenuOpen)}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white transition"
+              aria-label="Open Labs and Demo Tools"
             >
-              <UserCheck className="w-3.5 h-3.5" />
-              <span className="max-w-[130px] truncate">{ROLE_LABELS[role].label}</span>
-              <ChevronDown className="w-3 h-3 text-indigo-400" />
+              <FlaskConical className="w-3.5 h-3.5" />
+              <span>Labs &amp; Persona</span>
+              <ChevronDown className="w-3 h-3 opacity-70" />
             </button>
 
-            {roleMenuOpen && (
+            {demoMenuOpen && (
               <div
-                className="absolute right-0 mt-2 w-72 rounded-xl bg-white dark:bg-gray-800 shadow-2xl border border-gray-200 dark:border-gray-700 py-2 z-50"
-                onMouseLeave={() => setRoleMenuOpen(false)}
+                className="absolute right-0 mt-1 w-72 rounded-md bg-white dark:bg-slate-800 shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50 text-slate-800 dark:text-slate-100"
+                onMouseLeave={() => setDemoMenuOpen(false)}
               >
-                <div className="px-3 py-1 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
-                  Switch Active Persona
+                {/* Active Persona Switcher */}
+                <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                  Active Demo Persona
                 </div>
                 {(Object.keys(DEMO_USERS) as UserRole[]).map((r) => {
                   const profile = DEMO_USERS[r];
@@ -158,30 +165,81 @@ export function Header() {
                       key={r}
                       onClick={() => {
                         switchRole(r);
-                        setRoleMenuOpen(false);
+                        setDemoMenuOpen(false);
                       }}
-                      className={`w-full px-3 py-2 text-left text-xs flex items-center justify-between hover:bg-indigo-50 dark:hover:bg-gray-700/60 transition ${
+                      className={`w-full px-3 py-1.5 text-left text-xs flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-700 transition ${
                         isSelected
-                          ? 'font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50/50 dark:bg-gray-700/40'
-                          : 'text-gray-700 dark:text-gray-200'
+                          ? 'font-bold text-emerald-700 dark:text-emerald-400 bg-slate-50 dark:bg-slate-700/50'
+                          : 'text-slate-700 dark:text-slate-300'
                       }`}
                     >
-                      <div className="flex flex-col">
-                        <span className="font-semibold">{ROLE_LABELS[r].label}</span>
-                        <span className="text-[10px] text-gray-400">{profile.name}</span>
+                      <div>
+                        <div className="font-medium">{ROLE_LABELS[r].label}</div>
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400">
+                          {profile.name} · {profile.institutionName || 'Central'}
+                        </div>
                       </div>
-                      {isSelected && <Check className="w-4 h-4 text-indigo-600" />}
+                      {isSelected && <Check className="w-4 h-4 text-emerald-600" />}
                     </button>
                   );
                 })}
+
+                <div className="my-2 border-t border-slate-200 dark:border-slate-700" />
+
+                {/* Secondary Labs Modules */}
+                <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                  Labs Modules
+                </div>
+
+                <button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('apaar_open_lab', { detail: 'assistant' }));
+                    }
+                    if (onOpenLab) onOpenLab('assistant');
+                    setDemoMenuOpen(false);
+                  }}
+                  className="w-full px-3 py-1.5 text-left text-xs flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 text-slate-500" />
+                  <span>Multilingual Policy Assistant (RAG)</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('apaar_open_lab', { detail: 'consent' }));
+                    }
+                    if (onOpenLab) onOpenLab('consent');
+                    setDemoMenuOpen(false);
+                  }}
+                  className="w-full px-3 py-1.5 text-left text-xs flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition"
+                >
+                  <KeyRound className="w-3.5 h-3.5 text-slate-500" />
+                  <span>DPDP Student Consent Ledger</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('apaar_open_lab', { detail: 'verifier' }));
+                    }
+                    if (onOpenLab) onOpenLab('verifier');
+                    setDemoMenuOpen(false);
+                  }}
+                  className="w-full px-3 py-1.5 text-left text-xs flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition"
+                >
+                  <QrCode className="w-3.5 h-3.5 text-slate-500" />
+                  <span>Public Verifier Portal &amp; QR</span>
+                </button>
               </div>
             )}
           </div>
 
-          {/* Dark / Light Toggle */}
+          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="p-1.5 rounded border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
