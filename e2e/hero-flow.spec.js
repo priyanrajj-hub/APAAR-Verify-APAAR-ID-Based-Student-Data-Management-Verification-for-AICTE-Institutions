@@ -23,8 +23,8 @@ test.describe('APAAR-Verify SIH Hero Flow Browser E2E Tests', () => {
   test('2. One-click messy sample roster ingestion populates Review Queue with plain-language fixes', async ({ page }) => {
     await page.goto('/');
 
-    // Click "Verify This Roster" on Sample 1 (Messy Dates & Checksums)
-    const sample1Btn = page.locator('button:has-text("Verify This Roster")').first();
+    // Click "Verify Scenario A Roster" on Sample 1 (Messy Dates & Checksums)
+    const sample1Btn = page.locator('button:has-text("Verify Scenario A Roster")').first();
     await expect(sample1Btn).toBeVisible();
     await sample1Btn.click();
 
@@ -73,6 +73,27 @@ test.describe('APAAR-Verify SIH Hero Flow Browser E2E Tests', () => {
     // Verify HTML dir is set to 'rtl'
     const dir = await page.evaluate(() => document.documentElement.dir);
     expect(dir).toBe('rtl');
+  });
+
+  test('5. Student verification dossier modal inspects 5-stage audit breakdown', async ({ page }) => {
+    await page.goto('/');
+
+    // Switch to Review Queue
+    await page.locator('button:has-text("Review Queue")').click();
+
+    // Click "Inspect" button on the first student record
+    const inspectBtn = page.locator('button:has-text("Inspect")').first();
+    await expect(inspectBtn).toBeVisible();
+    await inspectBtn.click();
+
+    // Verify modal appears with 5-stage audit breakdown
+    await expect(page.locator('text=Automated 5-Stage Verification Audit Breakdown')).toBeVisible();
+    await expect(page.locator('text=Stage 1: Ingestion & Unicode Hygiene')).toBeVisible();
+    await expect(page.locator('text=Stage 3: 12-Digit Luhn Checksum Algorithm')).toBeVisible();
+
+    // Close modal
+    await page.locator('button:has-text("Close Dossier")').click();
+    await expect(page.locator('text=Automated 5-Stage Verification Audit Breakdown')).toHaveCount(0);
   });
 
 });

@@ -16,6 +16,10 @@ import {
   XCircle,
   FileText,
   Sparkles,
+  Languages,
+  ShieldAlert,
+  ArrowRight,
+  Hash,
 } from 'lucide-react';
 
 interface UploadWizardProps {
@@ -328,44 +332,78 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
 
       {/* 1-Click Realistic Messy Sample Test Banners */}
       <div>
-        <div className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          <span>Quick Evaluation Rosters (Pre-loaded with Ground-Truth Edge Cases)</span>
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>Interactive SIH Jury Scenarios (Ground-Truth Injected Rosters)</span>
+          </div>
+          <span className="text-[11px] text-slate-500 dark:text-slate-400">Click any scenario to execute live 5-stage verification</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {SAMPLE_ROSTERS.map((sample) => (
-            <div
-              key={sample.id}
-              className="border border-slate-200 dark:border-slate-800 rounded-lg p-3.5 bg-slate-50 dark:bg-slate-850 hover:border-slate-400 dark:hover:border-slate-600 transition flex flex-col justify-between"
-            >
-              <div>
-                <div className="font-semibold text-xs text-slate-900 dark:text-white">
-                  {sample.name}
-                </div>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                  {sample.description}
-                </p>
-                <div className="mt-2 text-[10px] font-mono bg-white dark:bg-slate-900 px-2 py-1 rounded border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400">
-                  {sample.expectedFaults}
-                </div>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          {SAMPLE_ROSTERS.map((sample, idx) => {
+            const badgeColors = [
+              'bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950/60 dark:border-amber-800 dark:text-amber-300',
+              'bg-indigo-50 border-indigo-200 text-indigo-800 dark:bg-indigo-950/60 dark:border-indigo-800 dark:text-indigo-300',
+              'bg-rose-50 border-rose-200 text-rose-800 dark:bg-rose-950/60 dark:border-rose-800 dark:text-rose-300',
+            ];
+            const borderColors = [
+              'border-t-4 border-t-amber-500 hover:border-amber-400',
+              'border-t-4 border-t-indigo-500 hover:border-indigo-400',
+              'border-t-4 border-t-rose-500 hover:border-rose-400',
+            ];
+            const scenarioLabels = ['SCENARIO A · DATA INTEGRITY', 'SCENARIO B · INDIC MATCHING', 'SCENARIO C · FRAUD DETECTION'];
+            const buttonLabels = ['Verify Scenario A Roster', 'Verify Scenario B Roster', 'Verify Scenario C Roster'];
+            const icons = [
+              <Hash key="a" className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />,
+              <Languages key="b" className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />,
+              <ShieldAlert key="c" className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />,
+            ];
 
-              <button
-                disabled={isProcessing}
-                onClick={() => handleLoadSample(sample)}
-                className="mt-3 w-full py-1.5 px-3 rounded text-xs font-medium bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white transition flex items-center justify-center gap-1.5 disabled:opacity-50"
+            return (
+              <div
+                key={sample.id}
+                className={`border border-slate-200 dark:border-slate-800 ${borderColors[idx % 3]} rounded-xl p-4 bg-white dark:bg-slate-850 hover:shadow-md transition-all flex flex-col justify-between group`}
               >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Verify This Roster</span>
-              </button>
-            </div>
-          ))}
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-wide ${badgeColors[idx % 3]}`}>
+                      {scenarioLabels[idx % 3]}
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-mono">20 Records</span>
+                  </div>
+
+                  <h4 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-1.5 transition-colors">
+                    {icons[idx % 3]}
+                    <span>{sample.name}</span>
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                    {sample.description}
+                  </p>
+
+                  <div className="mt-3 p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900/80 border border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300 font-mono leading-tight">
+                    <div className="text-[9px] uppercase font-bold text-slate-400 mb-0.5">Ground-Truth Faults:</div>
+                    {sample.expectedFaults}
+                  </div>
+                </div>
+
+                <button
+                  disabled={isProcessing}
+                  onClick={() => handleLoadSample(sample)}
+                  className="mt-4 w-full py-2.5 px-3 rounded-lg text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 transition-all shadow-xs flex items-center justify-center gap-1.5 disabled:opacity-50 group-hover:bg-blue-600 dark:group-hover:bg-blue-500 dark:group-hover:text-white"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>{buttonLabels[idx % 3]}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
 
       {/* Drag & Drop Upload Zone */}
-      <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-8 text-center hover:bg-slate-50 dark:hover:bg-slate-850/50 transition">
+      <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-8 text-center bg-slate-50/50 dark:bg-slate-850/40 hover:bg-blue-50/30 dark:hover:bg-blue-950/20 hover:border-blue-400 dark:hover:border-blue-600 transition-all">
         <input
           ref={fileInputRef}
           type="file"
@@ -375,23 +413,38 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
           id="roster-file-upload"
         />
 
-        <div className="flex flex-col items-center justify-center space-y-2">
-          <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
-            <UploadCloud className="w-5 h-5" />
+        <div className="flex flex-col items-center justify-center space-y-3">
+          <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-400 flex items-center justify-center shadow-xs">
+            <UploadCloud className="w-6 h-6" />
           </div>
 
-          <div className="text-sm font-semibold text-slate-800 dark:text-slate-200">
-            Drag and drop custom roster, or{' '}
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="text-slate-900 dark:text-white underline font-bold"
-            >
-              browse file
-            </button>
+          <div>
+            <div className="text-sm font-bold text-slate-800 dark:text-slate-200">
+              Drag &amp; drop institutional roster CSV, or{' '}
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="text-blue-600 dark:text-blue-400 underline font-bold hover:text-blue-800 dark:hover:text-blue-300"
+              >
+                browse local file
+              </button>
+            </div>
+            <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+              Auto-maps APAAR ID, DOB, Name, and Course. Ingests up to 10,000 student records with instant sub-second verification.
+            </p>
           </div>
-          <p className="text-xs text-slate-400">
-            Supports CSV and UTF-8 encoded text up to 10,000 rows. Auto-maps APAAR ID, DOB, Name, and CGPA.
-          </p>
+
+          <div className="flex items-center gap-2 pt-1">
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+              CSV Format
+            </span>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+              UTF-8 Encoding
+            </span>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+              Max 25MB
+            </span>
+          </div>
         </div>
       </div>
 

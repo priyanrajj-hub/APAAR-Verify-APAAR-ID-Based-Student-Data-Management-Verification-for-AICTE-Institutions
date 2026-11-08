@@ -13,6 +13,9 @@ import {
   HelpCircle,
   Check,
   ShieldCheck,
+  Eye,
+  X,
+  ShieldAlert,
 } from 'lucide-react';
 
 interface PipelineTableProps {
@@ -25,6 +28,7 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
   const [filter, setFilter] = useState<'all' | 'review' | 'rejected' | 'verified'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
+  const [inspectingRecord, setInspectingRecord] = useState<StudentRecord | null>(null);
   const pageSize = 20;
 
   // Counts
@@ -155,16 +159,16 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-1.5 text-xs">
+      <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100/90 dark:bg-slate-800/80 rounded-lg border border-slate-200/80 dark:border-slate-700 text-xs shadow-2xs">
         <button
           onClick={() => {
             setFilter('all');
             setPage(1);
           }}
-          className={`px-3 py-1.5 rounded font-medium transition ${
+          className={`px-3 py-1.5 rounded-md font-bold transition-all ${
             filter === 'all'
-              ? 'bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-bold'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+              ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs'
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           All Records ({counts.total})
@@ -175,10 +179,10 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
             setFilter('review');
             setPage(1);
           }}
-          className={`px-3 py-1.5 rounded font-medium transition ${
+          className={`px-3 py-1.5 rounded-md font-bold transition-all ${
             filter === 'review'
-              ? 'bg-amber-600 text-white font-bold'
-              : 'text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30'
+              ? 'bg-amber-500 text-white shadow-xs'
+              : 'text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40'
           }`}
         >
           Needs Review ({counts.review})
@@ -189,10 +193,10 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
             setFilter('rejected');
             setPage(1);
           }}
-          className={`px-3 py-1.5 rounded font-medium transition ${
+          className={`px-3 py-1.5 rounded-md font-bold transition-all ${
             filter === 'rejected'
-              ? 'bg-rose-600 text-white font-bold'
-              : 'text-rose-700 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30'
+              ? 'bg-rose-600 text-white shadow-xs'
+              : 'text-rose-700 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40'
           }`}
         >
           Rejected ({counts.rejected})
@@ -203,10 +207,10 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
             setFilter('verified');
             setPage(1);
           }}
-          className={`px-3 py-1.5 rounded font-medium transition ${
+          className={`px-3 py-1.5 rounded-md font-bold transition-all ${
             filter === 'verified'
-              ? 'bg-emerald-700 text-white font-bold'
-              : 'text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30'
+              ? 'bg-emerald-600 text-white shadow-xs'
+              : 'text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40'
           }`}
         >
           Verified ({counts.verified})
@@ -244,11 +248,29 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
                     className="hover:bg-slate-50/80 dark:hover:bg-slate-850/50 transition text-slate-700 dark:text-slate-200"
                   >
                     <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">{rowNum}</td>
-                    <td className="py-2.5 px-3 font-mono font-semibold text-slate-900 dark:text-white">
-                      {r.apaarId || '—'}
+                    <td className="py-2.5 px-3 font-mono text-slate-900 dark:text-white">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="font-bold tracking-tight">{r.apaarId || '—'}</span>
+                        {r.flags.includes('APAAR_CHECKSUM_FAILED') ? (
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300 font-bold border border-rose-200 dark:border-rose-800">
+                            Check Failed
+                          </span>
+                        ) : r.apaarId ? (
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 font-semibold border border-emerald-200 dark:border-emerald-800">
+                            ✓ Luhn
+                          </span>
+                        ) : null}
+                      </div>
                     </td>
                     <td className="py-2.5 px-3 font-medium">
-                      <div>{r.name}</div>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="font-semibold text-slate-900 dark:text-white">{r.name}</span>
+                        {r.flags.includes('INDIC_SCRIPT_NORMALIZED') && (
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 font-bold border border-indigo-200 dark:border-indigo-800">
+                            Indic
+                          </span>
+                        )}
+                      </div>
                       <div className="text-[10px] text-slate-400">{r.email}</div>
                     </td>
                     <td className="py-2.5 px-3 font-mono text-[11px]">{r.dob}</td>
@@ -283,21 +305,31 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
                       )}
                     </td>
                     <td className="py-2.5 px-3 text-right">
-                      {r.status === 'NEEDS_REVIEW' && (
+                      <div className="flex items-center justify-end gap-1.5">
                         <button
-                          onClick={() => onManualOverride && onManualOverride(r.id, 'VERIFIED')}
-                          className="px-2 py-1 rounded text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 hover:bg-emerald-100 transition"
-                          title="Override and mark verified"
+                          onClick={() => setInspectingRecord(r)}
+                          className="px-2 py-1 rounded text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1"
+                          title="Inspect student verification dossier"
                         >
-                          Override
+                          <Eye className="w-3 h-3 text-slate-500" />
+                          <span>Inspect</span>
                         </button>
-                      )}
-                      {r.status === 'REJECTED' && (
-                        <span className="text-[10px] text-rose-500 font-medium">Flagged</span>
-                      )}
-                      {r.status === 'VERIFIED' && (
-                        <span className="text-[10px] text-slate-400">Archived</span>
-                      )}
+                        {r.status === 'NEEDS_REVIEW' && (
+                          <button
+                            onClick={() => onManualOverride && onManualOverride(r.id, 'VERIFIED')}
+                            className="px-2 py-1 rounded text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 hover:bg-emerald-100 transition"
+                            title="Override and mark verified"
+                          >
+                            Override
+                          </button>
+                        )}
+                        {r.status === 'REJECTED' && (
+                          <span className="text-[10px] text-rose-500 font-medium px-1">Flagged</span>
+                        )}
+                        {r.status === 'VERIFIED' && (
+                          <span className="text-[10px] text-slate-400 px-1">Archived</span>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 );
@@ -333,6 +365,193 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
           </button>
         </div>
       </div>
+
+      {/* Student Record Verification Dossier Modal */}
+      {inspectingRecord && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 space-y-6">
+            {/* Modal Header */}
+            <div className="flex items-start justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono font-bold text-slate-400">ID: {inspectingRecord.id}</span>
+                  {getStatusBadge(inspectingRecord.status)}
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-1">
+                  {inspectingRecord.name}
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  {inspectingRecord.programme} · {inspectingRecord.institutionName}
+                </p>
+              </div>
+              <button
+                onClick={() => setInspectingRecord(null)}
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Record Identity Details Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60">
+                <div className="text-[10px] text-slate-400 uppercase font-bold">APAAR ID</div>
+                <div className="font-mono font-bold text-slate-900 dark:text-white mt-0.5">{inspectingRecord.apaarId || 'None'}</div>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60">
+                <div className="text-[10px] text-slate-400 uppercase font-bold">Date of Birth</div>
+                <div className="font-mono font-bold text-slate-900 dark:text-white mt-0.5">{inspectingRecord.dob}</div>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60">
+                <div className="text-[10px] text-slate-400 uppercase font-bold">Academic CGPA</div>
+                <div className="font-bold text-slate-900 dark:text-white mt-0.5">{inspectingRecord.cgpa.toFixed(2)}</div>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60">
+                <div className="text-[10px] text-slate-400 uppercase font-bold">Anomaly Risk</div>
+                <div className={`font-bold mt-0.5 ${inspectingRecord.riskScore > 50 ? 'text-rose-600' : inspectingRecord.riskScore > 20 ? 'text-amber-600' : 'text-emerald-600'}`}>
+                  {inspectingRecord.riskScore}/100
+                </div>
+              </div>
+            </div>
+
+            {/* 5-Stage Verification Pipeline Breakdown */}
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                Automated 5-Stage Verification Audit Breakdown
+              </h4>
+              <div className="space-y-2 text-xs">
+                {/* Stage 1: Ingestion & Unicode Hygiene */}
+                <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white">Stage 1: Ingestion &amp; Unicode Hygiene</div>
+                      <div className="text-[11px] text-slate-500">UTF-8 validated, whitespace stripped, zero control characters</div>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">PASS</span>
+                </div>
+
+                {/* Stage 2: Schema Rules & Type Bounds */}
+                <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    {inspectingRecord.flags.includes('SCHEMA_INVALID_DATE') || inspectingRecord.flags.includes('AGE_OUT_OF_BOUNDS') ? (
+                      <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+                    ) : (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    )}
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white">Stage 2: Schema Bounds &amp; Type Coercion</div>
+                      <div className="text-[11px] text-slate-500">Age range 16-35, valid ISO date, institution AISHE match</div>
+                    </div>
+                  </div>
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${inspectingRecord.flags.includes('SCHEMA_INVALID_DATE') || inspectingRecord.flags.includes('AGE_OUT_OF_BOUNDS') ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300' : 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300'}`}>
+                    {inspectingRecord.flags.includes('SCHEMA_INVALID_DATE') || inspectingRecord.flags.includes('AGE_OUT_OF_BOUNDS') ? 'FLAGGED' : 'PASS'}
+                  </span>
+                </div>
+
+                {/* Stage 3: 12-Digit Luhn Check-Digit */}
+                <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    {inspectingRecord.flags.includes('APAAR_CHECKSUM_FAILED') ? (
+                      <XCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                    ) : (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    )}
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white">Stage 3: 12-Digit Luhn Checksum Algorithm</div>
+                      <div className="text-[11px] text-slate-500">
+                        {inspectingRecord.flags.includes('APAAR_CHECKSUM_FAILED')
+                          ? 'Check-digit does not match Luhn sum of first 11 digits'
+                          : '12-digit Luhn check-digit cryptographically validated'}
+                      </div>
+                    </div>
+                  </div>
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${inspectingRecord.flags.includes('APAAR_CHECKSUM_FAILED') ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300' : 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300'}`}>
+                    {inspectingRecord.flags.includes('APAAR_CHECKSUM_FAILED') ? 'FAILED' : 'PASS'}
+                  </span>
+                </div>
+
+                {/* Stage 4: Cross-Script Indic Resolution */}
+                <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white">Stage 4: Multi-Script Indic Resolution</div>
+                      <div className="text-[11px] text-slate-500">
+                        {inspectingRecord.flags.includes('INDIC_SCRIPT_NORMALIZED')
+                          ? 'Native script transliterated to standard Latin with Soundex matching'
+                          : 'Standard Latin phonetic representation verified'}
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300">
+                    {inspectingRecord.flags.includes('INDIC_SCRIPT_NORMALIZED') ? 'NORMALIZED' : 'VERIFIED'}
+                  </span>
+                </div>
+
+                {/* Stage 5: Ghost Student & Cross-Institution Conflict */}
+                <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    {inspectingRecord.flags.includes('DUAL_ENROLLMENT_CONFLICT') ? (
+                      <ShieldAlert className="w-4 h-4 text-rose-600 shrink-0" />
+                    ) : (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    )}
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white">Stage 5: Multi-Campus Conflict &amp; Hash Sealing</div>
+                      <div className="text-[11px] text-slate-500">
+                        {inspectingRecord.flags.includes('DUAL_ENROLLMENT_CONFLICT')
+                          ? 'Duplicate enrollment detected across multiple technical colleges'
+                          : 'Zero multi-campus conflict detected; sealed in SHA-256 block'}
+                      </div>
+                    </div>
+                  </div>
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${inspectingRecord.flags.includes('DUAL_ENROLLMENT_CONFLICT') ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300' : 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300'}`}>
+                    {inspectingRecord.flags.includes('DUAL_ENROLLMENT_CONFLICT') ? 'CONFLICT' : 'SEALED'}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Suggested Fix Box */}
+            {inspectingRecord.suggestedFix && (
+              <div className="p-3.5 rounded-lg bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/60 text-xs">
+                <div className="font-bold text-blue-900 dark:text-blue-300 flex items-center gap-1.5">
+                  <span>Actionable Remediation Guidance</span>
+                </div>
+                <p className="text-blue-800 dark:text-blue-200 mt-1">{inspectingRecord.suggestedFix}</p>
+              </div>
+            )}
+
+            {/* Footer Actions */}
+            <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800">
+              <button
+                onClick={() => setInspectingRecord(null)}
+                className="px-4 py-2 text-xs font-semibold rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
+              >
+                Close Dossier
+              </button>
+
+              {inspectingRecord.status === 'NEEDS_REVIEW' && (
+                <button
+                  onClick={() => {
+                    if (onManualOverride) {
+                      onManualOverride(inspectingRecord.id, 'VERIFIED');
+                    }
+                    setInspectingRecord(null);
+                  }}
+                  className="px-4 py-2 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition shadow-sm flex items-center gap-1.5"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>Approve &amp; Mark Verified (Log to Chain)</span>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

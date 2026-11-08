@@ -10,6 +10,9 @@ import {
   Lock,
   AlertOctagon,
   CheckCircle2,
+  Copy,
+  Check,
+  Link as LinkIcon,
 } from 'lucide-react';
 
 interface AuditExplorerProps {
@@ -19,12 +22,21 @@ interface AuditExplorerProps {
 export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
   const { t } = useI18n();
   const [events, setEvents] = useState<AuditEvent[]>(auditLedger.getEvents());
+  const [copiedHash, setCopiedHash] = useState<string | null>(null);
   const [verificationResult, setVerificationResult] = useState<{
     valid: boolean;
     brokenAtIndex?: number;
     reason?: string;
   } | null>(null);
   const [isVerifying, setIsVerifying] = useState(false);
+  const [isTampered, setIsTampered] = useState(false);
+  const [savedOriginalDetails, setSavedOriginalDetails] = useState<{ idx: number; details: string } | null>(null);
+
+  const handleCopy = (hash: string) => {
+    navigator.clipboard.writeText(hash);
+    setCopiedHash(hash);
+    setTimeout(() => setCopiedHash(null), 2000);
+  };
 
   React.useEffect(() => {
     setEvents(auditLedger.getEvents());
@@ -40,14 +52,27 @@ export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
   };
 
   const handleTamper = async () => {
-    if (events.length > 1) {
-      auditLedger.tamperEvent(1, events[1].details + ' [TAMPERED_PAYLOAD]');
-    } else if (events.length > 0) {
-      auditLedger.tamperEvent(0, events[0].details + ' [TAMPERED_PAYLOAD]');
+    const currentEvents = auditLedger.getEvents();
+    const targetIdx = currentEvents.length > 1 ? 1 : 0;
+    if (currentEvents.length > 0) {
+      setSavedOriginalDetails({ idx: targetIdx, details: currentEvents[targetIdx].details });
+      auditLedger.tamperEvent(targetIdx, currentEvents[targetIdx].details + ' [TAMPERED_PAYLOAD]');
+      setIsTampered(true);
+      setEvents(auditLedger.getEvents());
+      const res = await auditLedger.verifyIntegrity();
+      setVerificationResult(res);
     }
-    setEvents(auditLedger.getEvents());
-    const res = await auditLedger.verifyIntegrity();
-    setVerificationResult(res);
+  };
+
+  const handleRestore = async () => {
+    if (savedOriginalDetails) {
+      auditLedger.tamperEvent(savedOriginalDetails.idx, savedOriginalDetails.details);
+      setIsTampered(false);
+      setSavedOriginalDetails(null);
+      setEvents(auditLedger.getEvents());
+      const res = await auditLedger.verifyIntegrity();
+      setVerificationResult(res);
+    }
   };
 
   return (
@@ -81,6 +106,16 @@ export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
             <AlertOctagon className="w-3.5 h-3.5" />
             <span>Simulate Tamper Attack</span>
           </button>
+
+          {isTampered && (
+            <button
+              onClick={handleRestore}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded bg-emerald-600 hover:bg-emerald-700 text-white transition shadow-xs"
+            >
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              <span>Restore Chain</span>
+            </button>
+          )}
         </div>
       </div>
 
@@ -114,43 +149,78 @@ export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
       )}
 
       {/* Hash Chain Blocks */}
-      <div className="space-y-3">
+      <div className="space-y-2">
         {events.length === 0 ? (
           <div className="py-8 text-center text-xs text-slate-400">
             No audit events recorded yet. Ingest a roster to generate chain blocks.
           </div>
         ) : (
           events.map((evt, idx) => (
-            <div
-              key={evt.index}
-              className="border border-slate-200 dark:border-slate-800 rounded p-3 bg-slate-50 dark:bg-slate-850 space-y-2 text-xs"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono font-bold text-slate-500">#{idx + 1}</span>
-                  <span className="font-semibold uppercase tracking-wider text-[10px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
-                    {evt.action}
-                  </span>
-                  <span className="text-slate-500 text-[11px]">by {evt.actorId} ({evt.actorRole})</span>
+            <React.Fragment key={evt.index}>
+              <div
+                className={`border rounded-xl p-4 space-y-2.5 text-xs transition-all ${
+                  isTampered && (verificationResult?.brokenAtIndex === idx || (!verificationResult?.valid && idx >= 1))
+                    ? 'border-rose-300 dark:border-rose-900/60 bg-rose-50/40 dark:bg-rose-950/20 shadow-xs'
+                    : 'border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-850'
+                }`}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono font-bold text-slate-500 bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+                      Block #{idx + 1}
+                    </span>
+                    <span className="font-bold uppercase tracking-wider text-[10px] px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 border border-blue-200/80 dark:border-blue-900">
+                      {evt.action}
+                    </span>
+                    <span className="text-slate-500 text-[11px]">
+                      by <strong className="text-slate-700 dark:text-slate-300">{evt.actorId}</strong> ({evt.actorRole})
+                    </span>
+                  </div>
+                  <div className="font-mono text-[11px] text-slate-400">
+                    {new Date(evt.timestamp).toLocaleTimeString()}
+                  </div>
                 </div>
-                <div className="font-mono text-[11px] text-slate-400">
-                  {new Date(evt.timestamp).toLocaleTimeString()}
+
+                <div className="text-slate-800 dark:text-slate-200 font-medium text-xs leading-relaxed bg-white dark:bg-slate-900 p-2.5 rounded-lg border border-slate-100 dark:border-slate-800">
+                  {evt.details}
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px] font-mono pt-1 text-slate-500 dark:text-slate-400">
+                  <div className="truncate flex items-center gap-1.5">
+                    <span className="font-bold text-slate-400">PREV:</span>
+                    <span className="truncate">{evt.prevHash}</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-1.5 md:justify-end">
+                    <div className="truncate flex items-center gap-1.5">
+                      <span className="font-bold text-slate-400">HASH:</span>
+                      <span className="truncate text-slate-700 dark:text-slate-300 font-bold">{evt.hash}</span>
+                    </div>
+                    <button
+                      onClick={() => handleCopy(evt.hash)}
+                      className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 shrink-0 p-1"
+                      title="Copy SHA-256 hash"
+                      aria-label="Copy hash"
+                    >
+                      {copiedHash === evt.hash ? (
+                        <Check className="w-3 h-3 text-emerald-600" />
+                      ) : (
+                        <Copy className="w-3 h-3" />
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <div className="text-slate-700 dark:text-slate-300 font-medium text-[11px]">
-                {evt.details}
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px] font-mono pt-1 border-t border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400">
-                <div className="truncate">
-                  <span className="font-bold text-slate-400">PREV:</span> {evt.prevHash}
+              {idx < events.length - 1 && (
+                <div className="flex items-center justify-center -my-1 py-1">
+                  <div className="flex flex-col items-center">
+                    <div className="w-0.5 h-3 bg-slate-300 dark:bg-slate-700" />
+                    <LinkIcon className="w-3 h-3 text-slate-400 my-0.5" />
+                    <div className="w-0.5 h-3 bg-slate-300 dark:bg-slate-700" />
+                  </div>
                 </div>
-                <div className="truncate text-right md:text-left">
-                  <span className="font-bold text-slate-400">HASH:</span> {evt.hash}
-                </div>
-              </div>
-            </div>
+              )}
+            </React.Fragment>
           ))
         )}
       </div>
