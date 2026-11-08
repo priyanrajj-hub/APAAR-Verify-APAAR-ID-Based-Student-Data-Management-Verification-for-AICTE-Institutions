@@ -8,7 +8,7 @@
     "start": "next start -p 3000",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "node test/basic.test.js && node test/hero-flow.test.js"
+    "test": "node test/basic.test.js && node test/hero-flow.test.js && node test/edge-cases.test.js && node test/a11y-rtl.test.js"
   },
   "dependencies": {
     "@apaar/i18n": "*",

@@ -36,28 +36,67 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
     review: number;
     rejected: number;
   } | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [uploadWarning, setUploadWarning] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const parseCsvText = (csvText: string, sourceName: string) => {
-    const lines = csvText.trim().split(/\r?\n/);
-    if (lines.length < 2) return [];
+  const parseCsvText = (csvText: string, sourceName: string): { records: StudentRecord[]; error?: string; warning?: string } => {
+    if (!csvText || csvText.trim().length === 0) {
+      return { records: [], error: `File '${sourceName}' is completely empty (0 bytes). Please upload a valid CSV roster with student records.` };
+    }
 
-    const headers = lines[0].split(',').map((h) => h.trim().toLowerCase());
+    // Binary / Corrupted non-text check
+    if (csvText.includes('\0')) {
+      return { records: [], error: `Binary data detected in '${sourceName}'. The file appears to be a compiled binary, executable, or image rather than a valid CSV text document.` };
+    }
+
+    let controlChars = 0;
+    const sampleLength = Math.min(csvText.length, 1000);
+    for (let i = 0; i < sampleLength; i++) {
+      const code = csvText.charCodeAt(i);
+      if (code < 32 && code !== 9 && code !== 10 && code !== 13) {
+        controlChars++;
+      }
+    }
+    if (controlChars > 5) {
+      return { records: [], error: `Corrupted text encoding detected in '${sourceName}'. Please ensure the file is saved as standard UTF-8 CSV.` };
+    }
+
+    const lines = csvText.trim().split(/\r?\n/);
+    if (lines.length < 2) {
+      return { records: [], error: `File '${sourceName}' contains only a header row or 0 data rows. At least 1 student record is required.` };
+    }
+
+    const rawHeaders = lines[0].split(',').map((h) => h.trim().replace(/^["']|["']$/g, ''));
+    const headers = rawHeaders.map((h) => h.toLowerCase());
     const apaarIdx = headers.findIndex((h) => h.includes('apaar'));
-    const nameIdx = headers.findIndex((h) => h.includes('name'));
+    const nameIdx = headers.findIndex((h) => h.includes('name') || h.includes('student'));
     const dobIdx = headers.findIndex((h) => h.includes('dob') || h.includes('birth'));
     const instIdx = headers.findIndex((h) => h.includes('inst'));
     const progIdx = headers.findIndex((h) => h.includes('prog') || h.includes('course'));
-    const yearIdx = headers.findIndex((h) => h.includes('year'));
-    const cgpaIdx = headers.findIndex((h) => h.includes('cgpa'));
+    const yearIdx = headers.findIndex((h) => h.includes('year') || h.includes('admission'));
+    const cgpaIdx = headers.findIndex((h) => h.includes('cgpa') || h.includes('gpa') || h.includes('marks'));
     const emailIdx = headers.findIndex((h) => h.includes('email'));
 
+    // Validate essential header presence: APAAR ID column is mandatory
+    if (apaarIdx === -1) {
+      return {
+        records: [],
+        error: `Header schema mismatch in '${sourceName}'. Missing mandatory 'apaar_id' (or 'apaar') column. Detected headers: [${rawHeaders.slice(0, 8).join(', ')}]`,
+      };
+    }
+
     const parsed: StudentRecord[] = [];
+    let malformedCount = 0;
+
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim();
       if (!line) continue;
       const cols = line.split(',').map((c) => c.trim().replace(/^"|"$/g, ''));
-      if (cols.length < 3) continue;
+      if (cols.length < 2) {
+        malformedCount++;
+        continue;
+      }
 
       parsed.push({
         id: `REC_${Date.now()}_${i}`,
@@ -82,10 +121,16 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
       });
     }
 
-    return parsed;
+    let warning: string | undefined;
+    if (malformedCount > 0) {
+      warning = `Parsed ${parsed.length} student records. Skipped ${malformedCount} unparseable or blank rows.`;
+    }
+
+    return { records: parsed, warning };
   };
 
   const processRecords = async (rawRecords: StudentRecord[], sourceLabel: string) => {
+    setUploadError(null);
     setIsProcessing(true);
     setProgress(20);
     setStageName('Stage 1: Normalizing Unicode and parsing fields...');
@@ -128,22 +173,57 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
   };
 
   const handleLoadSample = (sample: SampleRoster) => {
-    const parsed = parseCsvText(sample.csvContent, sample.name);
-    processRecords(parsed, sample.name);
+    setUploadError(null);
+    setUploadWarning(null);
+    const result = parseCsvText(sample.csvContent, sample.name);
+    if (result.error) {
+      setUploadError(result.error);
+      return;
+    }
+    if (result.warning) setUploadWarning(result.warning);
+    processRecords(result.records, sample.name);
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    setUploadError(null);
+    setUploadWarning(null);
+
+    // Empty file check
+    if (file.size === 0) {
+      setUploadError(`Upload failed: '${file.name}' is completely empty (0 bytes). Please upload a valid CSV roster.`);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
+    if (file.size > 25 * 1024 * 1024) {
+      setUploadError(`Upload failed: '${file.name}' exceeds the maximum file size limit of 25MB.`);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (event) => {
       const text = event.target?.result as string;
-      if (!text) return;
-      const parsed = parseCsvText(text, file.name);
-      processRecords(parsed, file.name);
+      if (!text || text.trim().length === 0) {
+        setUploadError(`Upload failed: '${file.name}' has no readable text content.`);
+        return;
+      }
+      const result = parseCsvText(text, file.name);
+      if (result.error) {
+        setUploadError(result.error);
+        return;
+      }
+      if (result.warning) setUploadWarning(result.warning);
+      processRecords(result.records, file.name);
+    };
+    reader.onerror = () => {
+      setUploadError(`Failed to read file '${file.name}'. The file may be locked or inaccessible.`);
     };
     reader.readAsText(file);
+    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
   const handleDownloadSample = () => {
@@ -197,6 +277,54 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
           <span>Download CSV Template</span>
         </button>
       </div>
+
+      {/* Edge-Case Error Banner */}
+      {uploadError && (
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="p-4 rounded-lg border border-rose-300 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 flex items-start gap-3 transition"
+        >
+          <XCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <div className="text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300 flex items-center justify-between">
+              <span>File Ingestion Error</span>
+              <button
+                onClick={() => setUploadError(null)}
+                className="text-rose-500 hover:text-rose-800 dark:hover:text-rose-100 font-semibold text-xs ml-2"
+                aria-label="Dismiss error"
+              >
+                ✕ Dismiss
+              </button>
+            </div>
+            <p className="text-sm mt-1 leading-snug">{uploadError}</p>
+            <p className="text-xs text-rose-600 dark:text-rose-400 mt-2">
+              Tip: Download the CSV template above for correct column names, or test with one of the 3 pre-verified sample rosters below.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Warning Banner */}
+      {uploadWarning && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="p-3 rounded-lg border border-amber-300 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 flex items-center justify-between text-xs"
+        >
+          <span className="flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+            <span>{uploadWarning}</span>
+          </span>
+          <button
+            onClick={() => setUploadWarning(null)}
+            className="text-amber-700 dark:text-amber-300 hover:text-amber-900 font-bold ml-2"
+            aria-label="Dismiss warning"
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* 1-Click Realistic Messy Sample Test Banners */}
       <div>

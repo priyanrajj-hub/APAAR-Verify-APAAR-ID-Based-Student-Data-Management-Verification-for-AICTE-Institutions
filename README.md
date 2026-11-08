@@ -5,8 +5,10 @@
 
 [![APAAR-Verify CI](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml/badge.svg)](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml)
 [![Live Demo on Vercel](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=flat&logo=vercel)](https://apaar-verify-seven.vercel.app)
+[![Coverage: 82%](https://img.shields.io/badge/Coverage-82%25%20(pytest--cov)-success.svg)](docs/TESTING.md)
+[![E2E: Playwright](https://img.shields.io/badge/Playwright-E2E%20Passing-green.svg)](docs/TESTING.md)
+[![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA%20%2F%20GIGW%203.0-blue.svg)](docs/TESTING.md)
 [![12 Indian Languages](https://img.shields.io/badge/i18n-12%20Indian%20Languages%20%2B%20RTL-blue.svg)](#)
-[![Tests Passing](https://img.shields.io/badge/Tests-Passing%20(14%20Pytest%20%2B%20Node)-brightgreen.svg)](#)
 [![ML F1-Score](https://img.shields.io/badge/ML%20F1--Score-92.4%25%20(Synthetic)-orange.svg)](docs/ML_REPORT.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
@@ -64,7 +66,9 @@ Honest classification of components across execution environments:
 | **Anomaly Detection (`anomaly-svc`)** | `8004` | Python 3.12 / FastAPI | **Implemented (Live Service)** | Statistical outlier scoring and sanctioned intake ratio analysis ($>120\%$ capacity). Verified with pytest. |
 | **Policy Assistant (`rag-svc`)** | `8005` | Python 3.12 / FastAPI | **Implemented (Live Service)** | Multilingual semantic retrieval over official AICTE/NEP policy corpus with citations and prompt-injection guardrails. Verified with pytest. |
 | **API Gateway (`api-gateway`)** | `8000` | Docker Compose / Nginx | **Specification / Container** | Configured in `docker-compose.yml` and Kubernetes ingress manifests for production cluster routing. |
-| **Ingestion Worker (`ingest-svc`)** | — | Docker / Background | **Specification / Queue** | Async streaming worker definition for high-volume background queueing via Redis Streams. |
+| **Ingestion Worker (`ingest-svc`)** | `8001` | Docker / Background | **Specification / Queue** | Async streaming worker definition for high-volume background queueing via Redis Streams. |
+| **Audit Service (`audit-svc`)** | `8006` | Python / FastAPI | **Implemented (Embedded in `verify-svc`)** | SHA-256 hash chaining, Merkle tree sealing, and tamper-detection endpoints (served via `verify-svc` on port 8002 / docker port 8006). |
+| **Notification Service (`notify-svc`)** | `8007` | Webhook / Worker | **Specification / Container** | Event-driven notification worker for institutional email alerts and AICTE escalation notices. |
 
 ---
 

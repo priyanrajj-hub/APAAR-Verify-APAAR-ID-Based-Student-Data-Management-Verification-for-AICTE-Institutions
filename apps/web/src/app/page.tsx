@@ -39,12 +39,29 @@ export default function HomePage() {
 
   // Initialize with a realistic baseline roster of 40 records for instant demonstration
   useEffect(() => {
-    const initialBatch = generateSyntheticBatch(40, 42);
-    const { records: verifiedRecords } = runVerificationPipeline(initialBatch);
-    setRecords(verifiedRecords);
+    let cancelled = false;
+    const initBaseline = async () => {
+      const initialBatch = generateSyntheticBatch(40, 42);
+      const { records: verifiedRecords } = runVerificationPipeline(initialBatch);
+      if (cancelled) return;
+      setRecords(verifiedRecords);
 
-    auditLedger.appendEvent('INGEST', 'system_init', 'institution', 'Initial institutional roster baseline loaded (40 records)', user.institutionId);
-    auditLedger.appendEvent('DECISION', 'system_pipeline', 'superadmin', 'Initial 5-stage verification completed and hashed', user.institutionId);
+      await auditLedger.appendEvent(
+        'INGEST',
+        'system_init',
+        'institution',
+        'Initial institutional roster baseline loaded (40 records)',
+        user.institutionId
+      );
+      await auditLedger.appendEvent(
+        'DECISION',
+        'system_pipeline',
+        'superadmin',
+        'Initial 5-stage verification completed and hashed',
+        user.institutionId
+      );
+    };
+    initBaseline();
 
     // Listen for Labs triggers from the Header dropdown
     const handleLabEvent = (e: any) => {
@@ -53,7 +70,10 @@ export default function HomePage() {
       }
     };
     window.addEventListener('apaar_open_lab', handleLabEvent);
-    return () => window.removeEventListener('apaar_open_lab', handleLabEvent);
+    return () => {
+      cancelled = true;
+      window.removeEventListener('apaar_open_lab', handleLabEvent);
+    };
   }, [auditLedger, user.institutionId]);
 
   const handleDatasetProcessed = (newRecords: StudentRecord[], updatedLedger: AuditLedger) => {

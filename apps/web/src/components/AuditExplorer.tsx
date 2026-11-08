@@ -26,9 +26,14 @@ export function AuditExplorer({ auditLedger }: AuditExplorerProps) {
   } | null>(null);
   const [isVerifying, setIsVerifying] = useState(false);
 
+  React.useEffect(() => {
+    setEvents(auditLedger.getEvents());
+  }, [auditLedger]);
+
   const handleVerify = async () => {
     setIsVerifying(true);
-    await new Promise((r) => setTimeout(r, 120));
+    await new Promise((r) => setTimeout(r, 60));
+    setEvents(auditLedger.getEvents());
     const res = await auditLedger.verifyIntegrity();
     setVerificationResult(res);
     setIsVerifying(false);

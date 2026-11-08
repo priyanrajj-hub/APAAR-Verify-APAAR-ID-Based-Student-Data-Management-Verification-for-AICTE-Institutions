@@ -215,17 +215,17 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
 
       {/* Dense Data Table (GIGW 3.0 / WCAG 2.2 AA) */}
       <div className="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded">
-        <table className="w-full text-left text-xs border-collapse">
+        <table className="w-full text-left text-xs border-collapse" aria-label="Student verification review records">
           <thead className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-semibold border-b border-slate-200 dark:border-slate-700 sticky top-0">
             <tr>
-              <th className="py-2.5 px-3">#</th>
-              <th className="py-2.5 px-3">APAAR ID</th>
-              <th className="py-2.5 px-3">Student Name</th>
-              <th className="py-2.5 px-3">DOB</th>
-              <th className="py-2.5 px-3">Institution &amp; Course</th>
-              <th className="py-2.5 px-3">Decision</th>
-              <th className="py-2.5 px-3">Explanation &amp; Suggested Fix</th>
-              <th className="py-2.5 px-3 text-right">Action</th>
+              <th scope="col" className="py-2.5 px-3">#</th>
+              <th scope="col" className="py-2.5 px-3">APAAR ID</th>
+              <th scope="col" className="py-2.5 px-3">Student Name</th>
+              <th scope="col" className="py-2.5 px-3">DOB</th>
+              <th scope="col" className="py-2.5 px-3">Institution &amp; Course</th>
+              <th scope="col" className="py-2.5 px-3">Decision</th>
+              <th scope="col" className="py-2.5 px-3">Explanation &amp; Suggested Fix</th>
+              <th scope="col" className="py-2.5 px-3 text-right">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200 dark:divide-slate-800">

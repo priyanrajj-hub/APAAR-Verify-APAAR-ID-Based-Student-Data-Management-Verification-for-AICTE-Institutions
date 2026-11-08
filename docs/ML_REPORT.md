@@ -69,6 +69,17 @@ The pipeline was benchmarked using `ml/evaluation/evaluate.py` with seed $42$ on
 
 *Note:* Naive exact matching and plain Levenshtein distance fail to detect invalid Luhn check-digits, age/CGPA rule violations, and regional Indic script transliterations, yielding 0% recall on the composite fraud suite. The multi-stage pipeline provides a +91.09% F1 lift.
 
+### Per-Fault Detection Breakdown (Test Split, Seed 42)
+| Injected Fault Type | Total Injected | Detected | Detection Rate (%) | Primary Pipeline Detection Stage |
+|---|:---:|:---:|:---:|---|
+| `BAD_CHECKSUM` | 10 | 10 | 100.0% | Stage 3: Luhn Check-Digit Validator |
+| `MALFORMED_APAAR` | 7 | 7 | 100.0% | Stage 2: Schema Regex (12 digits) |
+| `AGE_OUT_OF_BOUNDS` | 8 | 8 | 100.0% | Stage 2: Technical Education Age Bounds ($16 \le \text{Age} \le 35$) |
+| `CGPA_ANOMALY` | 8 | 8 | 100.0% | Stage 2: Academic Grading Bounds ($[0.0, 10.0]$) |
+| `EXACT_DUPLICATE_APAAR` | 9 | 9 | 100.0% | Stage 4: Hash Table Primary Key Collisions |
+| `FUZZY_NAME_VARIANT` | 8 | 6 | 75.0% | Stage 4: Jaro-Winkler + Trigram Blocking |
+| `GHOST_ENROLMENT` | 4 | 2 | 50.0% | Stage 5: IsolationForest Outlier Scoring |
+
 ### Noise Level Robustness Analysis
 | Noise / Corruption Level | Precision | Recall | F1-Score |
 |---|---|---|---|
