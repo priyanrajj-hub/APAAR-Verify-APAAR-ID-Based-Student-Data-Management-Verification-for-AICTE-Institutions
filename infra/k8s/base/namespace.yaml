@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: apaar-verify
+  labels:
+    app.kubernetes.io/name: apaar-verify
+    app.kubernetes.io/part-of: apaar-verify-platform
