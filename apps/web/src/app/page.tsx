@@ -11,6 +11,9 @@ import { UploadWizard } from '../components/UploadWizard';
 import { PipelineTable } from '../components/PipelineTable';
 import { AuditExplorer } from '../components/AuditExplorer';
 import { EntityResolutionView } from '../components/EntityResolutionView';
+import { AicteDashboard } from '../components/AicteDashboard';
+import { StudentConsentView } from '../components/StudentConsentView';
+import { PublicVerifierView } from '../components/PublicVerifierView';
 import {
   ShieldAlert,
   Building2,
@@ -28,12 +31,17 @@ import {
   Search,
   UploadCloud,
   GitMerge,
+  BarChart3,
+  Key,
+  QrCode,
 } from 'lucide-react';
 
 export default function HomePage() {
   const { t } = useI18n();
   const { user, role, switchRole } = useAuth();
-  const [activeTab, setActiveTab] = useState<'overview' | 'ingest' | 'pipeline' | 'duplicates' | 'audit' | 'roles' | 'architecture'>('overview');
+  const [activeTab, setActiveTab] = useState<
+    'overview' | 'ingest' | 'pipeline' | 'duplicates' | 'aicte' | 'consent' | 'verifier' | 'audit' | 'roles' | 'architecture'
+  >('overview');
 
   // Shared in-memory dataset & audit ledger
   const [records, setRecords] = useState<StudentRecord[]>([]);
@@ -123,6 +131,9 @@ export default function HomePage() {
           { id: 'ingest', label: t('nav.ingest'), icon: UploadCloud },
           { id: 'pipeline', label: `${t('nav.pipeline')} (${records.length})`, icon: ShieldAlert },
           { id: 'duplicates', label: 'Entity Resolution & ML', icon: GitMerge },
+          { id: 'aicte', label: t('nav.dashboard'), icon: BarChart3 },
+          { id: 'consent', label: t('nav.consent'), icon: Key },
+          { id: 'verifier', label: t('nav.verifier'), icon: QrCode },
           { id: 'audit', label: t('nav.audit'), icon: Lock },
           { id: 'roles', label: t('common.switchRole'), icon: Users },
           { id: 'architecture', label: t('nav.architecture'), icon: Database },
@@ -310,6 +321,15 @@ export default function HomePage() {
 
       {/* TAB CONTENT: ENTITY RESOLUTION & ML RADAR */}
       {activeTab === 'duplicates' && <EntityResolutionView />}
+
+      {/* TAB CONTENT: AICTE NATIONAL DASHBOARD */}
+      {activeTab === 'aicte' && <AicteDashboard />}
+
+      {/* TAB CONTENT: DPDP STUDENT CONSENT LEDGER */}
+      {activeTab === 'consent' && <StudentConsentView />}
+
+      {/* TAB CONTENT: PUBLIC VERIFIER PORTAL */}
+      {activeTab === 'verifier' && <PublicVerifierView />}
 
       {/* TAB CONTENT: AUDIT TRAIL */}
       {activeTab === 'audit' && (
