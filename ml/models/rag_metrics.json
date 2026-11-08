@@ -1,0 +1,13 @@
+{
+  "total_questions": 60,
+  "languages": {
+    "en": 20,
+    "hi": 15,
+    "ta": 15,
+    "te": 10
+  },
+  "hit_rate_top1": 96.67,
+  "hit_rate_top3": 96.67,
+  "faithfulness_score": 97.4,
+  "guardrail_defense_rate": 100.0
+}

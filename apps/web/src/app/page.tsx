@@ -14,6 +14,7 @@ import { EntityResolutionView } from '../components/EntityResolutionView';
 import { AicteDashboard } from '../components/AicteDashboard';
 import { StudentConsentView } from '../components/StudentConsentView';
 import { PublicVerifierView } from '../components/PublicVerifierView';
+import { PolicyAssistantView } from '../components/PolicyAssistantView';
 import {
   ShieldAlert,
   Building2,
@@ -34,13 +35,14 @@ import {
   BarChart3,
   Key,
   QrCode,
+  MessageSquare,
 } from 'lucide-react';
 
 export default function HomePage() {
   const { t } = useI18n();
   const { user, role, switchRole } = useAuth();
   const [activeTab, setActiveTab] = useState<
-    'overview' | 'ingest' | 'pipeline' | 'duplicates' | 'aicte' | 'consent' | 'verifier' | 'audit' | 'roles' | 'architecture'
+    'overview' | 'ingest' | 'pipeline' | 'duplicates' | 'aicte' | 'consent' | 'verifier' | 'audit' | 'assistant' | 'roles' | 'architecture'
   >('overview');
 
   // Shared in-memory dataset & audit ledger
@@ -134,6 +136,7 @@ export default function HomePage() {
           { id: 'aicte', label: t('nav.dashboard'), icon: BarChart3 },
           { id: 'consent', label: t('nav.consent'), icon: Key },
           { id: 'verifier', label: t('nav.verifier'), icon: QrCode },
+          { id: 'assistant', label: t('nav.assistant'), icon: MessageSquare },
           { id: 'audit', label: t('nav.audit'), icon: Lock },
           { id: 'roles', label: t('common.switchRole'), icon: Users },
           { id: 'architecture', label: t('nav.architecture'), icon: Database },
@@ -330,6 +333,9 @@ export default function HomePage() {
 
       {/* TAB CONTENT: PUBLIC VERIFIER PORTAL */}
       {activeTab === 'verifier' && <PublicVerifierView />}
+
+      {/* TAB CONTENT: MULTILINGUAL POLICY ASSISTANT */}
+      {activeTab === 'assistant' && <PolicyAssistantView />}
 
       {/* TAB CONTENT: AUDIT TRAIL */}
       {activeTab === 'audit' && (
