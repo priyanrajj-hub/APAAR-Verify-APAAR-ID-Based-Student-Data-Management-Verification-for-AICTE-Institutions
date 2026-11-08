@@ -25,6 +25,7 @@ pip-delete-this-directory.txt
 coverage/
 *.lcov
 .nyc_output
+*.tsbuildinfo
 
 # Environment variables
 .env

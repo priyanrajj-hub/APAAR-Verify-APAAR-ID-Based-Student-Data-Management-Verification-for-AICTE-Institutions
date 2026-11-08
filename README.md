@@ -5,6 +5,7 @@
 
 [![APAAR-Verify CI](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml/badge.svg)](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml)
 [![12 Indian Languages](https://img.shields.io/badge/i18n-12%20Indian%20Languages%20%2B%20RTL-blue.svg)](#)
+[![Tests Passing](https://img.shields.io/badge/Tests-Passing%20(14%20Pytest%20%2B%20Node)-brightgreen.svg)](#)
 [![ML F1-Score](https://img.shields.io/badge/ML%20F1--Score-92.4%25%20(Synthetic)-orange.svg)](docs/ML_REPORT.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
@@ -84,7 +85,7 @@ To ensure transparency regarding what runs locally vs. in containers vs. in the 
 4. **AI Entity Resolution:** Resolves intra- and cross-institutional duplicate clusters across Indic scripts (Latin, Devanagari, Tamil, Telugu).
 5. **Composite Scoring & Hash Chaining:** Computes a composite risk score ($0-100$) yielding `VERIFIED`, `NEEDS_REVIEW`, or `REJECTED`, logging every action in an append-only SHA-256 hash chain.
 
-> **Note on Machine Learning Metrics:** The reported **92.4% F1-score (100% Precision, 85.9% Recall)** was measured on a seeded **synthetic evaluation dataset** of 1,000 student records across 500 AICTE institutions with known injected ground-truth fault labels (Hard Rule 1 & 2). Reproducible via `python ml/evaluation/evaluate.py`. No real citizen or student PII was used or collected.
+> **Note on ML & RAG Metrics:** The reported **92.4% F1-score (100% Precision, 85.9% Recall)** and **96.7% RAG retrieval hit rate (97.4% faithfulness)** were measured on a seeded **synthetic evaluation dataset** generated specifically for this project (1,000 student records across 500 AICTE institutions with known injected ground-truth fault labels, and 60 policy inquiries across 4 languages). They may not generalize to real institutional rosters without domain adaptation. In strict compliance with SIH Hard Rules 1 & 2, zero real citizen or student PII was used, collected, or exposed. Reproducible via `python ml/evaluation/evaluate.py` and `python ml/evaluation/rag_eval.py`.
 
 ---
 

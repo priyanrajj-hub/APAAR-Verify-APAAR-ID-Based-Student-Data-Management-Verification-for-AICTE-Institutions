@@ -20,17 +20,37 @@ jobs:
           node-version: 22
           cache: 'npm'
 
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
       - name: Install Monorepo Dependencies
         run: npm ci
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest fastapi uvicorn scikit-learn rapidfuzz pandas openpyxl
 
       - name: Verify 12-Locale i18n Key Parity
         run: node scripts/check-i18n.js
 
       - name: TypeScript Type Check
-        run: npm run typecheck --if-present
+        run: npm run typecheck
 
-      - name: Unit Tests
+      - name: Code Linting
+        run: npm run lint
+
+      - name: Run Test Suite (Node & Pytest)
         run: npm test
+
+      - name: Run ML Evaluation Benchmark
+        run: python ml/evaluation/evaluate.py
+
+      - name: Run Multilingual RAG Benchmark
+        run: python ml/evaluation/rag_eval.py
 
       - name: Build Web Application
         run: npm run build --workspace=apps/web
