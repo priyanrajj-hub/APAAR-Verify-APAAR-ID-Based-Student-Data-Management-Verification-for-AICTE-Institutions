@@ -3,10 +3,9 @@
 > **One Nation, One Student ID Verification & AICTE Institutional Governance Platform**  
 > *Aligned with the National Education Policy (NEP 2020) and the Digital Personal Data Protection (DPDP) Act 2023.*
 
-[![CI Validation](https://img.shields.io/badge/CI-Passing-brightgreen.svg)](#)
+[![APAAR-Verify CI](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml/badge.svg)](https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/actions/workflows/ci.yml)
 [![12 Indian Languages](https://img.shields.io/badge/i18n-12%20Indian%20Languages%20%2B%20RTL-blue.svg)](#)
-[![Test Coverage](https://img.shields.io/badge/Tests-100%25%20Passing-success.svg)](#)
-[![F1-Score](https://img.shields.io/badge/ML%20F1--Score-92.4%25-orange.svg)](#)
+[![ML F1-Score](https://img.shields.io/badge/ML%20F1--Score-92.4%25%20(Synthetic)-orange.svg)](docs/ML_REPORT.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
 ---
@@ -24,11 +23,11 @@ In technical institutions across India, student data sits in disparate, non-stan
 
 ---
 
-## 2. System Architecture
+## 2. System Architecture & Service Status
 
 ```mermaid
 flowchart TD
-    subgraph Client["Next.js 15 Web Client (Vercel Ready)"]
+    subgraph Client["Next.js 15 Web Client (Vercel Ready - Browser Engine)"]
         UI["Accessible UI & Design System"]
         I18N["12-Locale i18n Engine (with RTL)"]
         AUTH["Role Claims & Demo Persona Switcher"]
@@ -61,14 +60,31 @@ flowchart TD
     Services --> Data
 ```
 
+### Service Execution & Implementation Status
+To ensure transparency regarding what runs locally vs. in containers vs. in the browser:
+
+| Service / Component | Implementation Location | Execution Mode | Status |
+|---|---|---|---|
+| **Web Client Engine (`apps/web`)** | `apps/web/src/lib/` | **Browser-Side / Vercel** | **Fully Functional:** Self-contained client engine; runs Stages 1–8 in-browser (WebCrypto SHA-256 hash chains, Luhn check, trigram duplicate detection, TF-IDF RAG) with zero backend dependency for instant Vercel evaluation. |
+| **Verification Service (`verify-svc`)** | `services/verify/main.py` | **Python 3.12 / FastAPI (Port 8002)** | **Live Service:** Schema validation, Luhn check-digit verification, and SHA-256 hash-chain append endpoint. Tested with pytest. |
+| **Matching & Entity Resolution (`match-svc`)** | `services/match/main.py` | **Python 3.12 / FastAPI (Port 8003)** | **Live Service:** Phonetic blocking, cross-script Indic transliteration normalization, and duplicate cluster resolution. Tested with pytest. |
+| **Anomaly Detection (`anomaly-svc`)** | `services/anomaly/main.py` | **Python 3.12 / FastAPI (Port 8004)** | **Live Service:** Statistical outlier scoring and sanctioned intake ratio analysis ($>120\%$ capacity). Tested with pytest. |
+| **Policy Assistant (`rag-svc`)** | `services/rag/main.py` | **Python 3.12 / FastAPI (Port 8005)** | **Live Service:** Multilingual semantic retrieval over official AICTE/NEP policy corpus with citations and prompt-injection guardrails. Tested with pytest. |
+| **API Gateway (`api-gateway`)** | Docker / Compose | **Reverse Proxy / Routing** | Configured in `docker-compose.yml` and Kubernetes to route incoming traffic to services. |
+| **Ingestion Worker (`ingest-svc`)** | Docker / Compose | **Async Job Worker** | Streaming multi-part upload handler definition for high-volume background queueing via Redis. |
+| **Audit Service (`audit-svc`)** | `services/verify/main.py` | **Integrated Microservice** | Implemented directly inside `verify-svc` (and mirrored client-side) to provide atomic append-only hash chains. |
+| **Notification Service (`notify-svc`)** | `apps/web/src/components/` | **Simulated In-App Feed** | In-app regulatory alert feed highlighting high-risk and flagged institutions. |
+
 ---
 
 ## 3. Five-Stage Verification Pipeline
 1. **Ingest & Normalize:** Parses CSV and XLSX rosters, auto-maps columns, applies Unicode NFC normalization, and standardizes ISO-8601 dates.
 2. **Schema & Great Expectations Rules:** Validates mandatory fields, technical education age bounds ($16 \le \text{Age} \le 35$), and grading scale ($\text{CGPA} \in [0.0, 10.0]$).
 3. **APAAR Checksum & Mock Registry:** Validates 12-digit format and computes the 12th digit using the demo Luhn algorithm, cross-referencing `MockApaarRegistryAdapter`.
-4. **AI Entity Resolution:** Resolves intra- and cross-institutional duplicate clusters across Indic scripts (Latin, Devanagari, Tamil, Telugu) with **100% Precision and 92.4% F1-score**.
+4. **AI Entity Resolution:** Resolves intra- and cross-institutional duplicate clusters across Indic scripts (Latin, Devanagari, Tamil, Telugu).
 5. **Composite Scoring & Hash Chaining:** Computes a composite risk score ($0-100$) yielding `VERIFIED`, `NEEDS_REVIEW`, or `REJECTED`, logging every action in an append-only SHA-256 hash chain.
+
+> **Note on Machine Learning Metrics:** The reported **92.4% F1-score (100% Precision, 85.9% Recall)** was measured on a seeded **synthetic evaluation dataset** of 1,000 student records across 500 AICTE institutions with known injected ground-truth fault labels (Hard Rule 1 & 2). Reproducible via `python ml/evaluation/evaluate.py`. No real citizen or student PII was used or collected.
 
 ---
 
@@ -120,7 +136,7 @@ npm test
 
 ### Run ML Evaluation Benchmark:
 ```bash
-# Reproduces ML Precision, Recall, F1, and Confusion Matrix
+# Reproduces ML Precision, Recall, F1, and Confusion Matrix on synthetic data
 make ml-eval
 # Or directly:
 python ml/evaluation/evaluate.py
@@ -162,3 +178,4 @@ docker compose up --build
 - [`docs/API.md`](docs/API.md) - Complete microservices REST API specification.
 - [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) - Vercel, Docker, Kind Kubernetes, and Google Cloud Run guide.
 - [`docs/DECISIONS.md`](docs/DECISIONS.md) - Architectural Decision Records (ADRs).
+- [`LICENSE`](LICENSE) - MIT Open Source License.
