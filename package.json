@@ -1,0 +1,21 @@
+{
+  "name": "apaar-verify-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "APAAR-Verify: APAAR ID-Based Student Data Management & Verification for AICTE Institutions (SIH 2026, Idea ID 225558)",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspaces --if-present",
+    "test": "node scripts/check-i18n.js && npm run test --workspace=apps/web",
+    "check-i18n": "node scripts/check-i18n.js",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

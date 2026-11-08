@@ -1,0 +1,39 @@
+name: APAAR-Verify CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Monorepo Dependencies
+        run: npm ci
+
+      - name: Verify 12-Locale i18n Key Parity
+        run: node scripts/check-i18n.js
+
+      - name: TypeScript Type Check
+        run: npm run typecheck --if-present
+
+      - name: Unit Tests
+        run: npm test
+
+      - name: Build Web Application
+        run: npm run build --workspace=apps/web
+        env:
+          NEXT_PUBLIC_API_URL: ''
+          NEXT_OUTPUT: 'standalone'

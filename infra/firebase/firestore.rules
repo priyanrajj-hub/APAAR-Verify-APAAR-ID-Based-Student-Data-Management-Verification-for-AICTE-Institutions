@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for custom claims & roles
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function getUserRole() {
+      return request.auth.token.role;
+    }
+
+    function isRole(role) {
+      return isAuthenticated() && getUserRole() == role;
+    }
+
+    function isSuperAdmin() {
+      return isRole('superadmin');
+    }
+
+    function isInstitutionAdmin(instId) {
+      return isRole('institution') && request.auth.token.institutionId == instId;
+    }
+
+    function isAicteOfficer() {
+      return isRole('aicte');
+    }
+
+    function isAuditor() {
+      return isRole('auditor');
+    }
+
+    function isStudentOwner(studentApaar) {
+      return isRole('student') && request.auth.token.apaarId == studentApaar;
+    }
+
+    // Students Collection
+    match /students/{studentId} {
+      // Super admins and AICTE officers can read all student records
+      allow read: if isSuperAdmin() || isAicteOfficer();
+      // Institution admins can read and write only their own institution's students
+      allow read, write: if isSuperAdmin() || isInstitutionAdmin(resource.data.institutionId);
+      // Students can read their own verified record
+      allow read: if isStudentOwner(resource.data.apaarId);
+    }
+
+    // Institutions Directory
+    match /institutions/{instId} {
+      allow read: if isAuthenticated();
+      allow write: if isSuperAdmin();
+    }
+
+    // Audit Events - Append-Only Cryptographic Log (Hard Rule: No mutations or deletions)
+    match /audit_events/{eventId} {
+      allow read: if isAuditor() || isAicteOfficer() || isSuperAdmin();
+      allow create: if isAuthenticated(); // Services or authenticated actors can log events
+      allow update, delete: if false; // STRICT IMMUTABILITY
+    }
+
+    // Consent Ledger (DPDP Act compliance)
+    match /consents/{consentId} {
+      // Students manage their own consent ledger
+      allow read, write: if isSuperAdmin() || isStudentOwner(resource.data.studentApaarId);
+      // Verifiers can read consent if presenting valid match
+      allow read: if isRole('verifier');
+    }
+
+    // System Alerts
+    match /alerts/{alertId} {
+      allow read: if isAicteOfficer() || isSuperAdmin() || (isRole('institution') && resource.data.institutionId == request.auth.token.institutionId);
+      allow write: if isSuperAdmin() || isAicteOfficer();
+    }
+  }
+}

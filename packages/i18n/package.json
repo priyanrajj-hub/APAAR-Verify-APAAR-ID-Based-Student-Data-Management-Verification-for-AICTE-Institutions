@@ -1,0 +1,23 @@
+{
+  "name": "@apaar/i18n",
+  "version": "1.0.0",
+  "description": "12-locale internationalization dictionary and utilities for APAAR-Verify",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./locales/*": "./locales/*"
+  },
+  "scripts": {
+    "test": "node ../../scripts/check-i18n.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
