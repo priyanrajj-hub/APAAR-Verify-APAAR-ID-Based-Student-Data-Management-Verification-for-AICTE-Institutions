@@ -75,18 +75,18 @@ export function Header({ onOpenLab }: HeaderProps) {
       </div>
 
       {/* Main Header Nav */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand */}
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-700 to-indigo-900 text-white flex items-center justify-center shadow-sm ring-1 ring-blue-600/20">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" />
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-blue-700 to-indigo-900 text-white flex items-center justify-center shadow-sm ring-1 ring-blue-600/20 shrink-0">
+            <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="text-lg font-black tracking-tight text-slate-900 dark:text-white font-sans">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white font-sans whitespace-nowrap">
                 APAAR<span className="text-blue-600 dark:text-blue-400">-Verify</span>
               </span>
-              <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 tracking-wide">
+              <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 tracking-wide hidden md:inline">
                 SIH Prototype
               </span>
             </div>
@@ -97,18 +97,20 @@ export function Header({ onOpenLab }: HeaderProps) {
         </div>
 
         {/* Header Right Actions */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           {/* Language Selector (12 Indian languages) */}
           <div className="relative">
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 transition shadow-2xs"
+              className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-medium rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 transition shadow-2xs"
               aria-label="Select Language"
             >
-              <Globe className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-              <span className="font-semibold">{localeMeta.nativeName}</span>
-              <span className="text-slate-400 text-[10px]">({localeMeta.code.toUpperCase()})</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <Globe className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+              <span className="font-semibold hidden sm:inline">{localeMeta.nativeName}</span>
+              <span className="font-bold sm:font-normal text-slate-700 dark:text-slate-300 sm:text-slate-400 text-[11px] sm:text-[10px]">
+                <span className="hidden sm:inline">(</span>{localeMeta.code.toUpperCase()}<span className="hidden sm:inline">)</span>
+              </span>
+              <ChevronDown className="w-3 h-3 text-slate-400 shrink-0" />
             </button>
 
             {langMenuOpen && (
@@ -153,12 +155,12 @@ export function Header({ onOpenLab }: HeaderProps) {
           <div className="relative">
             <button
               onClick={() => setDemoMenuOpen(!demoMenuOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 transition shadow-2xs"
+              className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-semibold rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 transition shadow-2xs"
               aria-label="Open Labs and Demo Tools"
             >
-              <FlaskConical className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-              <span>Labs &amp; Persona</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <FlaskConical className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
+              <span className="hidden sm:inline">Labs &amp; Persona</span>
+              <ChevronDown className="w-3 h-3 text-slate-400 shrink-0" />
             </button>
 
             {demoMenuOpen && (
