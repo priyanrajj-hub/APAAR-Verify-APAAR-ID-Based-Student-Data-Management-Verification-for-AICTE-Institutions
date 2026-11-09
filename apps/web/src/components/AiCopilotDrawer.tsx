@@ -98,9 +98,11 @@ export function AiCopilotDrawer({ isOpen, onClose, contextRecord }: AiCopilotDra
   };
 
   const quickPrompts = [
+    'Explain the project',
+    'How does the 5-stage pipeline work?',
+    'How does the 12-digit APAAR Luhn check work?',
+    'How does Indic transliteration work?',
     'Why is student consent mandatory under DPDP Act 2023?',
-    'How does the 12-digit APAAR Luhn check-digit work?',
-    'What are the penalties for false data in AICTE approvals?',
     'How is dual-enrollment scholarship fraud prevented?',
   ];
 

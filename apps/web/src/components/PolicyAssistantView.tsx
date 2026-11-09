@@ -99,6 +99,7 @@ export function PolicyAssistantView() {
   };
 
   const sampleQuestions = [
+    'Explain the APAAR-Verify project',
     t('assistant.sampleQuestion1'),
     t('assistant.sampleQuestion2'),
     t('assistant.sampleQuestion3'),

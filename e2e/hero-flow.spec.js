@@ -161,6 +161,12 @@ test.describe('APAAR-Verify SIH Hero Flow Browser E2E Tests', () => {
 
     // Close Copilot drawer
     await page.locator('button[aria-label="Close Copilot"]').click();
+
+    // Test direct "Explain the project" prompt in Copilot
+    await page.locator('button[aria-label="Open AI Policy Copilot"]').click();
+    await page.locator('button:has-text("Explain the project")').first().click();
+    await expect(page.locator('text=APAAR-Verify Project Overview')).toBeVisible({ timeout: 10000 });
+    await page.locator('button[aria-label="Close Copilot"]').click();
   });
 
 });
