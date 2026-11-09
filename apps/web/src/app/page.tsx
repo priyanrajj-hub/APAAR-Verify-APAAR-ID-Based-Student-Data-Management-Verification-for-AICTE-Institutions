@@ -15,6 +15,8 @@ import { AicteDashboard } from '../components/AicteDashboard';
 import { StudentConsentView } from '../components/StudentConsentView';
 import { PublicVerifierView } from '../components/PublicVerifierView';
 import { PolicyAssistantView } from '../components/PolicyAssistantView';
+import { AiWorkspaceView } from '../components/AiWorkspaceView';
+import { AiCopilotDrawer } from '../components/AiCopilotDrawer';
 import {
   UploadCloud,
   CheckCircle2,
@@ -26,13 +28,16 @@ import {
   ArrowLeft,
   ShieldCheck,
   Sparkles,
+  Bot,
 } from 'lucide-react';
 
 export default function HomePage() {
   const { t } = useI18n();
   const { user, role } = useAuth();
-  const [activeTab, setActiveTab] = useState<'upload' | 'queue' | 'audit' | 'oversight'>('upload');
+  const [activeTab, setActiveTab] = useState<'upload' | 'queue' | 'ai' | 'audit' | 'oversight'>('upload');
   const [labModule, setLabModule] = useState<'assistant' | 'consent' | 'verifier' | null>(null);
+  const [copilotOpen, setCopilotOpen] = useState(false);
+  const [copilotRecord, setCopilotRecord] = useState<StudentRecord | null>(null);
 
   // In-memory student dataset & append-only audit ledger
   const [records, setRecords] = useState<StudentRecord[]>([]);
@@ -334,6 +339,22 @@ export default function HomePage() {
           )}
         </button>
 
+        {/* Tab 3: AI Copilot & Indic Lab */}
+        <button
+          onClick={() => setActiveTab('ai')}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+            activeTab === 'ai'
+              ? 'bg-white dark:bg-slate-900 text-indigo-700 dark:text-indigo-300 shadow-sm ring-1 ring-slate-200/80 dark:ring-slate-700'
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/40 dark:hover:bg-slate-750'
+          }`}
+        >
+          <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+          <span>AI Copilot &amp; Indic Lab</span>
+          <span className="ml-1 text-[9px] uppercase font-extrabold px-1.5 py-0.2 rounded bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300">
+            RAG
+          </span>
+        </button>
+
         <button
           onClick={() => setActiveTab('audit')}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
@@ -380,18 +401,51 @@ export default function HomePage() {
         <PipelineTable
           records={records}
           onManualOverride={handleManualOverride}
+          onAiExplain={(rec) => {
+            setCopilotRecord(rec);
+            setCopilotOpen(true);
+          }}
         />
       )}
 
-      {/* TAB CONTENT 3: AUDIT LOG */}
+      {/* TAB CONTENT 3: AI WORKSPACE */}
+      {activeTab === 'ai' && (
+        <AiWorkspaceView />
+      )}
+
+      {/* TAB CONTENT 4: AUDIT LOG */}
       {activeTab === 'audit' && (
         <AuditExplorer auditLedger={auditLedger} />
       )}
 
-      {/* TAB CONTENT 4: AICTE OVERSIGHT */}
+      {/* TAB CONTENT 5: AICTE OVERSIGHT */}
       {activeTab === 'oversight' && (
         <AicteDashboard />
       )}
+
+      {/* Persistent Floating AI Copilot Trigger */}
+      <button
+        onClick={() => {
+          setCopilotRecord(null);
+          setCopilotOpen(true);
+        }}
+        className="fixed bottom-5 right-5 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 text-white font-bold text-xs shadow-xl ring-2 ring-blue-400/40 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all group"
+        aria-label="Open AI Policy Copilot"
+      >
+        <Sparkles className="w-4 h-4 text-emerald-300 group-hover:rotate-12 transition-transform" />
+        <span>Ask AI Copilot</span>
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+      </button>
+
+      {/* Floating AI Copilot Slide-Over Drawer */}
+      <AiCopilotDrawer
+        isOpen={copilotOpen}
+        onClose={() => {
+          setCopilotOpen(false);
+          setCopilotRecord(null);
+        }}
+        contextRecord={copilotRecord}
+      />
     </div>
   );
 }

@@ -131,4 +131,36 @@ test.describe('APAAR-Verify SIH Hero Flow Browser E2E Tests', () => {
     await expect(page.locator('text=Evaluated 400 records')).toBeVisible({ timeout: 10000 });
   });
 
+  test('8. AI Copilot tab and row-level AI Explain drawer function seamlessly', async ({ page }) => {
+    await page.goto('/');
+
+    // Verify AI Copilot & Indic Lab tab exists and click it
+    const aiTab = page.locator('button:has-text("AI Copilot & Indic Lab")');
+    await expect(aiTab).toBeVisible();
+    await aiTab.click();
+
+    // Verify AI Intelligence Suite loads with Policy Assistant (RAG)
+    await expect(page.locator('text=AICTE & NEP 2020 Cognitive Intelligence Suite')).toBeVisible();
+    await expect(page.locator('button:has-text("Policy Assistant (RAG)")')).toBeVisible();
+    await expect(page.locator('button:has-text("Indic Entity Resolution")')).toBeVisible();
+
+    // Click Live Algorithm Lab sub-tab
+    await page.locator('button:has-text("Live Algorithm Lab")').click();
+    await expect(page.locator('text=12-Digit Luhn Check-Digit Calculator')).toBeVisible();
+    await expect(page.locator('text=Indic Cross-Script Transliteration & Similarity')).toBeVisible();
+
+    // Switch to Review Queue and test row-level AI Explain
+    await page.locator('button:has-text("Review Queue")').click();
+    const aiExplainBtn = page.locator('button:has-text("AI Explain")').first();
+    await expect(aiExplainBtn).toBeVisible();
+    await aiExplainBtn.click();
+
+    // Verify slide-over Copilot drawer opens with analysis
+    await expect(page.locator('text=AI Policy Copilot')).toBeVisible();
+    await expect(page.locator('text=Grounded Citation:')).toBeVisible({ timeout: 10000 });
+
+    // Close Copilot drawer
+    await page.locator('button[aria-label="Close Copilot"]').click();
+  });
+
 });

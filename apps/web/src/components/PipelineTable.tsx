@@ -16,20 +16,33 @@ import {
   Eye,
   X,
   ShieldAlert,
+  Copy,
+  Sparkles,
 } from 'lucide-react';
 
 interface PipelineTableProps {
   records: StudentRecord[];
   onManualOverride?: (recordId: string, newStatus: VerificationStatus) => void;
+  onAiExplain?: (record: StudentRecord) => void;
 }
 
-export function PipelineTable({ records, onManualOverride }: PipelineTableProps) {
+export function PipelineTable({ records, onManualOverride, onAiExplain }: PipelineTableProps) {
   const { t } = useI18n();
   const [filter, setFilter] = useState<'all' | 'review' | 'rejected' | 'verified'>('all');
+  const [selectedErrorFilter, setSelectedErrorFilter] = useState<string | null>(null);
+  const [copiedApaar, setCopiedApaar] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
   const [inspectingRecord, setInspectingRecord] = useState<StudentRecord | null>(null);
   const pageSize = 20;
+
+  const handleCopyApaar = (apaar: string) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(apaar);
+      setCopiedApaar(apaar);
+      setTimeout(() => setCopiedApaar(null), 2000);
+    }
+  };
 
   // Counts
   const counts = records.reduce(
@@ -48,6 +61,19 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
     if (filter === 'review' && r.status !== 'NEEDS_REVIEW') return false;
     if (filter === 'rejected' && r.status !== 'REJECTED') return false;
     if (filter === 'verified' && r.status !== 'VERIFIED') return false;
+
+    if (selectedErrorFilter) {
+      const matchesError = r.reasons.some((reason) => {
+        const low = reason.toLowerCase();
+        if (selectedErrorFilter === 'Luhn Check-Digit Mismatch') return low.includes('luhn') || low.includes('check digit');
+        if (selectedErrorFilter === 'Non-standard Date Format') return low.includes('date') || low.includes('format');
+        if (selectedErrorFilter === 'Age Range Out of Bounds') return low.includes('age');
+        if (selectedErrorFilter === 'Multi-Campus Duplicate Conflict') return low.includes('duplicate') || low.includes('multiple');
+        if (selectedErrorFilter === 'Indic Script Transliterated') return low.includes('indic') || low.includes('transliterat');
+        return reason === selectedErrorFilter;
+      });
+      if (!matchesError) return false;
+    }
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -226,23 +252,50 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
           </div>
         </div>
 
-        {/* Top 3 Error Types */}
+        {/* Top 3 Error Types (Interactive Filters) */}
         {sortedErrorTypes.length > 0 && (
           <div className="pt-2.5 border-t border-blue-100 dark:border-blue-900/50 flex flex-wrap items-center gap-2 text-xs">
             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-              Top Error Types:
+              Top Error Types (Click to filter):
             </span>
-            {sortedErrorTypes.map(([type, count]) => (
-              <span
-                key={type}
-                className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 flex items-center gap-1.5 shadow-2xs"
+            {sortedErrorTypes.map(([type, count]) => {
+              const isSelected = selectedErrorFilter === type;
+              return (
+                <button
+                  key={type}
+                  onClick={() => {
+                    setSelectedErrorFilter(isSelected ? null : type);
+                    setPage(1);
+                  }}
+                  className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border flex items-center gap-1.5 shadow-2xs transition cursor-pointer ${
+                    isSelected
+                      ? 'bg-blue-600 text-white border-blue-600 ring-2 ring-blue-300 dark:ring-blue-800'
+                      : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-blue-400'
+                  }`}
+                  title={isSelected ? 'Click to clear filter' : `Filter table by ${type}`}
+                >
+                  <span>{type}</span>
+                  <span
+                    className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
+                      isSelected
+                        ? 'bg-white text-blue-700'
+                        : 'bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300'
+                    }`}
+                  >
+                    {count}
+                  </span>
+                  {isSelected && <X className="w-3 h-3 ml-0.5" />}
+                </button>
+              );
+            })}
+            {selectedErrorFilter && (
+              <button
+                onClick={() => setSelectedErrorFilter(null)}
+                className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline font-bold ml-1"
               >
-                <span>{type}</span>
-                <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-bold">
-                  {count}
-                </span>
-              </span>
-            ))}
+                Clear Error Filter
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -340,6 +393,20 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
                     <td className="py-2.5 px-3 font-mono text-slate-900 dark:text-white">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <span className="font-bold tracking-tight">{r.apaarId || '—'}</span>
+                        {r.apaarId && (
+                          <button
+                            onClick={() => handleCopyApaar(r.apaarId)}
+                            className="p-0.5 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition"
+                            title={copiedApaar === r.apaarId ? 'Copied!' : 'Copy APAAR ID'}
+                            aria-label="Copy APAAR ID"
+                          >
+                            {copiedApaar === r.apaarId ? (
+                              <Check className="w-3 h-3 text-emerald-500" />
+                            ) : (
+                              <Copy className="w-3 h-3" />
+                            )}
+                          </button>
+                        )}
                         {r.flags.includes('APAAR_CHECKSUM_FAILED') ? (
                           <span className="text-[9px] px-1.5 py-0.2 rounded bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300 font-bold border border-rose-200 dark:border-rose-800">
                             Check Failed
@@ -394,7 +461,19 @@ export function PipelineTable({ records, onManualOverride }: PipelineTableProps)
                       )}
                     </td>
                     <td className="py-2.5 px-3 text-right">
-                      <div className="flex items-center justify-end gap-1.5">
+                      <div className="flex items-center justify-end gap-1.5 flex-wrap">
+                        {/* AI Explain Trigger */}
+                        {(r.status !== 'VERIFIED' || r.flags.length > 0) && (
+                          <button
+                            onClick={() => onAiExplain && onAiExplain(r)}
+                            className="px-2 py-1 rounded text-[11px] font-bold bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 transition flex items-center gap-1 shadow-2xs"
+                            title="Ask AI Copilot to explain regulatory findings & recommended remediation"
+                          >
+                            <Sparkles className="w-3 h-3 text-indigo-500" />
+                            <span>AI Explain</span>
+                          </button>
+                        )}
+
                         <button
                           onClick={() => setInspectingRecord(r)}
                           className="px-2 py-1 rounded text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1"
