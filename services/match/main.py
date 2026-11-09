@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
 import difflib
 import unicodedata
-from datetime import datetime
+from datetime import datetime, timezone
 
 app = FastAPI(
     title="APAAR-Verify Entity Resolution & Matching Service",
@@ -70,7 +70,7 @@ class MatchRequest(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "match-svc", "timestamp": datetime.utcnow().isoformat()}
+    return {"status": "ok", "service": "match-svc", "timestamp": datetime.now(timezone.utc).isoformat()}
 
 
 @app.post("/match/resolve")

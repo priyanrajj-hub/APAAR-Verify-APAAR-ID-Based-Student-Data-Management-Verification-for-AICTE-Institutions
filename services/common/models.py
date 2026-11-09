@@ -2,7 +2,7 @@
 Core Pydantic v2 Models for APAAR-Verify Platform
 """
 
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from enum import Enum
 from typing import List, Optional, Dict, Any
 from pydantic import BaseModel, Field, EmailStr, field_validator
@@ -74,8 +74,8 @@ class StudentRecord(StudentRecordBase):
     suggested_fix: Optional[str] = None
     duplicate_cluster_id: Optional[str] = None
     anomaly_score: Optional[float] = None
-    created_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
-    updated_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    updated_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
 class InstitutionProfile(BaseModel):
@@ -92,7 +92,7 @@ class InstitutionProfile(BaseModel):
 
 class AuditEvent(BaseModel):
     index: int
-    timestamp: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     action: str
     actor_id: str
     actor_role: UserRole
@@ -113,4 +113,4 @@ class ConsentRecord(BaseModel):
     expires_at: str
     revoked: bool = False
     access_token: str
-    created_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())

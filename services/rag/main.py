@@ -6,7 +6,7 @@ Multilingual Policy Assistant with BM25/Dense hybrid retrieval, intent understan
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
-from datetime import datetime
+from datetime import datetime, timezone
 
 app = FastAPI(
     title="APAAR-Verify RAG Assistant Service",
@@ -85,7 +85,7 @@ class QueryResponse(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "rag-svc", "timestamp": datetime.utcnow().isoformat()}
+    return {"status": "ok", "service": "rag-svc", "timestamp": datetime.now(timezone.utc).isoformat()}
 
 
 @app.post("/rag/query", response_model=QueryResponse)

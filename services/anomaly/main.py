@@ -6,7 +6,7 @@ Statistical Outlier and ML Anomaly Detection on Academic Enrolment & Institution
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 
 app = FastAPI(
     title="APAAR-Verify Anomaly Detection Service",
@@ -41,7 +41,7 @@ class AnomalyAnalysisResponse(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "anomaly-svc", "timestamp": datetime.utcnow().isoformat()}
+    return {"status": "ok", "service": "anomaly-svc", "timestamp": datetime.now(timezone.utc).isoformat()}
 
 
 @app.post("/anomaly/evaluate", response_model=AnomalyAnalysisResponse)

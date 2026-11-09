@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 import hashlib
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 from services.common.models import (
     StudentRecord,
@@ -43,7 +43,7 @@ def sha256(text: str) -> str:
 
 def append_audit_event(action: str, actor_id: str, actor_role: str, details: str, inst_id: Optional[str] = None) -> Dict[str, Any]:
     prev_hash = audit_chain[-1]["hash"] if audit_chain else "0" * 64
-    timestamp = datetime.utcnow().isoformat()
+    timestamp = datetime.now(timezone.utc).isoformat()
     raw = f"{timestamp}|{action}|{actor_id}|{actor_role}|{details}|{prev_hash}"
     event_hash = sha256(raw)
     
@@ -64,7 +64,7 @@ def append_audit_event(action: str, actor_id: str, actor_role: str, details: str
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "verify-svc", "timestamp": datetime.utcnow().isoformat()}
+    return {"status": "ok", "service": "verify-svc", "timestamp": datetime.now(timezone.utc).isoformat()}
 
 
 class VerifyRecordRequest(BaseModel):
@@ -103,7 +103,7 @@ def verify_record(req: VerifyRecordRequest):
     # 2. Age bounds check
     try:
         birth_year = int(r.dob[:4])
-        age = datetime.utcnow().year - birth_year
+        age = datetime.now(timezone.utc).year - birth_year
         if age < 16 or age > 35:
             flags.append("AGE_OUT_OF_BOUNDS")
             reasons.append(f"Student age ({age}) outside standard higher education range (16-35).")
