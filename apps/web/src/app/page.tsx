@@ -238,10 +238,10 @@ export default function HomePage() {
               onClick={() => setActiveTab('queue')}
               className="text-left p-2.5 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-850 hover:border-blue-300 dark:hover:border-blue-800 hover:bg-blue-50/30 transition group"
             >
-              <div className="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Active Roster</div>
+              <div className="text-slate-400 text-[10px] uppercase font-bold tracking-wider">{t('ui.s_roster')}</div>
               <div className="font-extrabold text-sm text-slate-900 dark:text-white mt-0.5 flex items-center gap-1">
                 <span>{records.length}</span>
-                <span className="text-[10px] text-slate-400 font-normal">records</span>
+                <span className="text-[10px] text-slate-400 font-normal">{t('ui.s_records')}</span>
               </div>
             </button>
 
@@ -250,10 +250,10 @@ export default function HomePage() {
               onClick={() => setActiveTab('queue')}
               className="text-left p-2.5 rounded-lg border border-amber-100 dark:border-amber-900/40 bg-amber-50/50 dark:bg-amber-950/20 hover:border-amber-300 dark:hover:border-amber-700 transition group"
             >
-              <div className="text-amber-700 dark:text-amber-400 text-[10px] uppercase font-bold tracking-wider">Needs Review</div>
+              <div className="text-amber-700 dark:text-amber-400 text-[10px] uppercase font-bold tracking-wider">{t('ui.s_review')}</div>
               <div className="font-extrabold text-sm text-amber-700 dark:text-amber-400 mt-0.5 flex items-center gap-1">
                 <span>{reviewCount}</span>
-                <span className="text-[10px] text-amber-600/80 font-normal">flagged</span>
+                <span className="text-[10px] text-amber-600/80 font-normal">{t('ui.s_flagged')}</span>
               </div>
             </button>
 
@@ -262,10 +262,10 @@ export default function HomePage() {
               onClick={() => setActiveTab('queue')}
               className="text-left p-2.5 rounded-lg border border-rose-100 dark:border-rose-900/40 bg-rose-50/50 dark:bg-rose-950/20 hover:border-rose-300 dark:hover:border-rose-700 transition group"
             >
-              <div className="text-rose-700 dark:text-rose-400 text-[10px] uppercase font-bold tracking-wider">Rejected</div>
+              <div className="text-rose-700 dark:text-rose-400 text-[10px] uppercase font-bold tracking-wider">{t('ui.s_rejected')}</div>
               <div className="font-extrabold text-sm text-rose-700 dark:text-rose-400 mt-0.5 flex items-center gap-1">
                 <span>{rejectedCount}</span>
-                <span className="text-[10px] text-rose-600/80 font-normal">errors</span>
+                <span className="text-[10px] text-rose-600/80 font-normal">{t('ui.s_errors')}</span>
               </div>
             </button>
 
@@ -276,7 +276,7 @@ export default function HomePage() {
             >
               <div className="text-emerald-700 dark:text-emerald-400 text-[10px] uppercase font-bold tracking-wider flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Ledger Head
+                {t('ui.s_ledger')}
               </div>
               <div className="font-mono text-[11px] text-emerald-800 dark:text-emerald-300 font-bold mt-0.5 truncate max-w-[120px]">
                 {shortHeadHash}
@@ -293,8 +293,7 @@ export default function HomePage() {
             <Lock className="w-4 h-4" />
           </span>
           <p className="text-slate-600 dark:text-slate-300 leading-snug">
-            <strong className="text-slate-900 dark:text-white">Demo mode:</strong> verification pipeline, Luhn check-digits, and SHA-256 hash sealing execute directly in your browser.
-            Production service architecture is documented in <a href="https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-semibold underline">docs/ARCHITECTURE.md</a>.
+            <strong className="text-slate-900 dark:text-white">{t('ui.b_demo')}</strong> {t('ui.b_text')} <a href="https://github.com/priyanrajj-hub/APAAR-Verify-APAAR-ID-Based-Student-Data-Management-Verification-for-AICTE-Institutions/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-semibold underline">docs/ARCHITECTURE.md</a>.
           </p>
         </div>
 
@@ -304,7 +303,7 @@ export default function HomePage() {
           title="Run Scenario A live guided demo"
         >
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Run Guided Demo</span>
+          <span>{t('ui.b_run')}</span>
         </button>
       </div>
 
@@ -319,7 +318,7 @@ export default function HomePage() {
           }`}
         >
           <UploadCloud className="w-4 h-4" />
-          <span>Upload &amp; Verify</span>
+          <span>{t('ui.tab_upload')}</span>
         </button>
 
         <button
@@ -331,7 +330,7 @@ export default function HomePage() {
           }`}
         >
           <CheckCircle2 className="w-4 h-4" />
-          <span>Review Queue</span>
+          <span>{t('ui.tab_review')}</span>
           {reviewCount > 0 && (
             <span className="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-bold">
               {reviewCount}
@@ -364,7 +363,7 @@ export default function HomePage() {
           }`}
         >
           <Lock className="w-4 h-4" />
-          <span>Audit Log</span>
+          <span>{t('ui.tab_audit')}</span>
           <span className="ml-1 text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold">
             SHA-256
           </span>
@@ -379,7 +378,7 @@ export default function HomePage() {
           }`}
         >
           <BarChart3 className="w-4 h-4" />
-          <span>AICTE Oversight</span>
+          <span>{t('ui.tab_aicte')}</span>
           {role === 'aicte' && (
             <span className="ml-1 text-[9px] uppercase px-1.5 py-0.2 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300 font-bold">
               Officer

@@ -245,7 +245,10 @@ export function queryAssistant(
 
   // Conversational Intent 2: Project Overview & "Explain the Project"
   if (
+    cleanQ === 'explain' ||
+    cleanQ === 'project' ||
     cleanQ.includes('explain the project') ||
+    cleanQ.includes('explain this project') ||
     cleanQ.includes('explain project') ||
     cleanQ.includes('what is the project') ||
     cleanQ.includes('what is this project') ||
@@ -253,13 +256,25 @@ export function queryAssistant(
     cleanQ.includes('what is this platform') ||
     cleanQ.includes('what is apaar-verify') ||
     cleanQ.includes('what is apaar verify') ||
+    cleanQ.includes('what does this project do') ||
+    cleanQ.includes('what does this website do') ||
+    cleanQ.includes('tell me about the project') ||
+    cleanQ.includes('tell me about this project') ||
+    cleanQ.includes('tell me about this') ||
     cleanQ.includes('about the project') ||
     cleanQ.includes('about project') ||
+    cleanQ.includes('project overview') ||
+    cleanQ.includes('project details') ||
     cleanQ.includes('overview') ||
+    cleanQ.includes('summary') ||
     cleanQ.includes('pitch') ||
+    cleanQ.includes('mission') ||
     cleanQ.includes('sih 2026') ||
     cleanQ.includes('idea id 225558') ||
-    cleanQ.includes('problem statement')
+    cleanQ.includes('problem statement') ||
+    cleanQ.includes('प्रोजेक्ट') ||
+    cleanQ.includes('परियोजना') ||
+    cleanQ.includes('திட்டம்')
   ) {
     const doc = POLICY_CORPUS[0];
     const answer =

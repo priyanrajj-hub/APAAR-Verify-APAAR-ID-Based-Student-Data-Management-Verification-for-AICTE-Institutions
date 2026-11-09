@@ -72,6 +72,8 @@ Honest classification of components across execution environments:
 
 ---
 
+> **Implementation status (verified):** the repository contains the `verify`, `match`, `anomaly`, `rag` and `common` Python services. The `api-gateway`, `ingest`, `audit` and `notify` boxes in the diagram are currently implemented in the browser engine (`apps/web/src/lib`) or are planned, not separate services.
+
 ## 3. Five-Stage Verification Pipeline
 1. **Ingest & Normalize:** Parses CSV and XLSX rosters, auto-maps columns, applies Unicode NFC normalization, and standardizes ISO-8601 dates.
 2. **Schema & Great Expectations Rules:** Validates mandatory fields, technical education age bounds ($16 \le \text{Age} \le 35$), and grading scale ($\text{CGPA} \in [0.0, 10.0]$).

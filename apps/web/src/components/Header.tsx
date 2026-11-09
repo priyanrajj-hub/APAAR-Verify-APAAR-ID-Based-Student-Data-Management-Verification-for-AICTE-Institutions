@@ -55,21 +55,21 @@ export function Header({ onOpenLab }: HeaderProps) {
           </span>
           <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">|</span>
           <span className="text-slate-600 dark:text-slate-400 font-medium text-[11px]">
-            Prototype: not affiliated with MoE/AICTE. All data synthetic.
+            {t('ui.top_proto')}
           </span>
           <span className="text-slate-300 dark:text-slate-700 hidden lg:inline">|</span>
           <span className="text-blue-700 dark:text-blue-300 font-medium text-[11px] hidden lg:inline">
-            Demo mode: verification runs in-browser; production architecture is in docs/ARCHITECTURE.md
+            {t('ui.top_demo')}
           </span>
         </div>
 
         <div className="flex items-center gap-3 text-[11px] font-medium">
           <span className="text-slate-500 dark:text-slate-400 hidden sm:inline">
-            Designed around DPDP Act principles
+            {t('ui.top_dpdp')}
           </span>
           <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-semibold text-[10px]">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            In-Browser Sandbox Active
+            {t('ui.top_sandbox')}
           </span>
         </div>
       </div>
@@ -87,11 +87,11 @@ export function Header({ onOpenLab }: HeaderProps) {
                 APAAR<span className="text-blue-600 dark:text-blue-400">-Verify</span>
               </span>
               <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 tracking-wide hidden md:inline">
-                SIH Prototype
+                {t('ui.badge')}
               </span>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-none hidden sm:block mt-0.5">
-              One Nation, One Student ID Verification &amp; Institutional Governance
+              {t('ui.tagline')}
             </p>
           </div>
         </div>
@@ -159,7 +159,7 @@ export function Header({ onOpenLab }: HeaderProps) {
               aria-label="Open Labs and Demo Tools"
             >
               <FlaskConical className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
-              <span className="hidden sm:inline">Labs &amp; Persona</span>
+              <span className="hidden sm:inline">{t('ui.labs')}</span>
               <ChevronDown className="w-3 h-3 text-slate-400 shrink-0" />
             </button>
 
@@ -191,7 +191,7 @@ export function Header({ onOpenLab }: HeaderProps) {
                       <div>
                         <div className="font-semibold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
                           <span>{ROLE_LABELS[r].label}</span>
-                          {isSelected && <span className="text-[9px] px-1 py-0.2 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Active</span>}
+                          {isSelected && <span className="text-[9px] px-1 py-0.2 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">{t('ui.active')}</span>}
                         </div>
                         <div className="text-[11px] text-slate-500 dark:text-slate-400">
                           {profile.name} · {profile.institutionName || 'Central Regulatory'}
@@ -221,8 +221,8 @@ export function Header({ onOpenLab }: HeaderProps) {
                 >
                   <MessageSquare className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900 dark:text-white">Multilingual Policy Assistant (RAG)</div>
-                    <div className="text-[10px] text-slate-400">Ask official AICTE, NEP 2020 &amp; APAAR regulations in 12 languages</div>
+                    <div className="font-medium text-slate-900 dark:text-white">{t('ui.lab_asst_t')}</div>
+                    <div className="text-[10px] text-slate-400">{t('ui.lab_asst_d')}</div>
                   </div>
                 </button>
 
@@ -238,8 +238,8 @@ export function Header({ onOpenLab }: HeaderProps) {
                 >
                   <KeyRound className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900 dark:text-white">DPDP Student Consent Ledger</div>
-                    <div className="text-[10px] text-slate-400">Revocable student consent tokens under DPDP Act 2023</div>
+                    <div className="font-medium text-slate-900 dark:text-white">{t('ui.lab_cons_t')}</div>
+                    <div className="text-[10px] text-slate-400">{t('ui.lab_cons_d')}</div>
                   </div>
                 </button>
 
@@ -255,8 +255,8 @@ export function Header({ onOpenLab }: HeaderProps) {
                 >
                   <QrCode className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900 dark:text-white">Public Verifier Portal &amp; QR</div>
-                    <div className="text-[10px] text-slate-400">Employer &amp; university zero-knowledge credential verification</div>
+                    <div className="font-medium text-slate-900 dark:text-white">{t('ui.lab_ver_t')}</div>
+                    <div className="text-[10px] text-slate-400">{t('ui.lab_ver_d')}</div>
                   </div>
                 </button>
               </div>

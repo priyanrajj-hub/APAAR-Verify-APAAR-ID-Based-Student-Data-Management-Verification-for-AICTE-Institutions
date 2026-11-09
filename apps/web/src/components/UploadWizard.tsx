@@ -279,10 +279,10 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
         <div>
           <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <UploadCloud className="w-5 h-5 text-slate-700 dark:text-slate-300" />
-            Upload &amp; Verify Student Roster
+            {t('ui.u_title')}
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            Ingest technical institution enrollment CSV/XLSX. Automated 5-stage verification checks schema bounds, Luhn check-digits, and duplicate clusters.
+            {t('ui.u_desc')}
           </p>
         </div>
 
@@ -294,7 +294,7 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
             title="Execute Scenario A live demo and view results"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Run Guided Demo</span>
+            <span>{t('ui.b_run')}</span>
           </button>
 
           <button
@@ -302,7 +302,7 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition"
           >
             <Download className="w-3.5 h-3.5 text-slate-500" />
-            <span>Download CSV Template</span>
+            <span>{t('ui.u_tpl')}</span>
           </button>
         </div>
       </div>
@@ -360,10 +360,10 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
         <div className="flex items-center justify-between mb-3">
           <div className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
             <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span>Sample Rosters</span>
-            <span className="text-slate-400 font-normal lowercase tracking-normal text-[11px] hidden sm:inline">(pre-loaded batches to test verification rules)</span>
+            <span>{t('ui.u_samples')}</span>
+            <span className="text-slate-400 font-normal lowercase tracking-normal text-[11px] hidden sm:inline">{t('ui.u_pre')}</span>
           </div>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400">Click any roster to execute live 5-stage verification</span>
+          <span className="text-[11px] text-slate-500 dark:text-slate-400">{t('ui.u_click')}</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
@@ -481,17 +481,17 @@ export function UploadWizard({ onDatasetProcessed, auditLedger }: UploadWizardPr
 
           <div>
             <div className="text-sm font-bold text-slate-800 dark:text-slate-200">
-              Drag &amp; drop institutional roster CSV, or{' '}
+              {t('ui.u_drop')}{' '}
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 className="text-blue-600 dark:text-blue-400 underline font-bold hover:text-blue-800 dark:hover:text-blue-300"
               >
-                browse local file
+                {t('ui.u_browse')}
               </button>
             </div>
             <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
-              Auto-maps APAAR ID, DOB, Name, and Course. Benchmarked up to 10,000 records (&lt;10ms processing time in benchmark; see docs/BENCHMARKS.md).
+              {t('ui.u_hint')}
             </p>
           </div>
 

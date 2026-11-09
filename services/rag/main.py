@@ -19,9 +19,34 @@ CORPUS = [
         "id": "DOC_PROJECT_00",
         "title": "APAAR-Verify: Project Mission & System Architecture",
         "source": "Smart India Hackathon 2026 (Idea ID 225558) / MoE & AICTE Specification",
-        "content_en": "APAAR-Verify is an institutional student verification and governance platform engineered for AICTE and the Ministry of Education under NEP 2020. It automates 5-stage verification (12-digit Luhn check digits, Indic transliteration, and schema validation), cross-institution ghost-enrollment detection, DPDP Act 2023 consent ledger, and immutable SHA-256 audit hash chaining.",
-        "content_hi": "अपार-सत्यापन (APAAR-Verify, स्मार्ट इंडिया हैकाथॉन 2026, विचार आईडी 225558) एआईसीटीई और शिक्षा मंत्रालय के लिए विकसित एक संस्थागत सत्यापन और शासन मंच है। यह 5-चरणीय सत्यापन, 12-अंकीय चेक-डिजिट, इंडिक लिप्यंतरण और क्रॉस-कॉलेज डुप्लिकेट धोखाधड़ी की रोकथाम करता है।",
-        "content_ta": "அபார்-சரிபார்ப்பு (APAAR-Verify, ஸ்மார்ட் இந்தியா ஹேக்கத்தான் 2026, யோசனை ஐடி 225558) என்பது AICTE மற்றும் கல்வி அமைச்சகத்திற்காக உருவாக்கப்பட்ட ஒரு மாணவர் தரவு சரிபார்ப்பு தளமாகும். 12 இலக்க அபார் ஐடி சரிபார்ப்பு, போலி சேர்க்கை கண்டறிதல், மற்றும் SHA-256 தணிக்கை சங்கிலி ஆகியவற்றை இது வழங்குகிறது.",
+        "content_en": (
+            "### APAAR-Verify Project Overview (SIH 2026 · Idea ID 225558)\n\n"
+            "APAAR-Verify is a production-grade institutional student verification and governance platform "
+            "engineered for AICTE technical institutions and the Ministry of Education under NEP 2020.\n\n"
+            "**Core Capabilities:**\n"
+            "• Sub-Second 5-Stage Verification: Ingests batches up to 10,000 records with Unicode NFC hygiene, "
+            "schema bounds validation, 12-digit Luhn check-digit verification, and risk scoring in <10ms.\n"
+            "• Indic Cross-Script Transliteration: Reconciles names across Devanagari (Hindi), Tamil, and Roman "
+            "scripts with Jaccard character-trigram matching to prevent duplicate enrollment.\n"
+            "• Fraud & Anomaly Radar: Flags ghost enrollments, cross-institution duplicate registrations, and "
+            "unauthorized sanctioned intake inflation to protect DBT scholarship funds.\n"
+            "• DPDP Act 2023 Sovereign Consent Ledger: Granular, time-bounded student consent tokens with "
+            "Section 9 parental consent safeguards for minors under 18.\n"
+            "• Cryptographic Append-Only Audit Trail: Seals every ingestion, override, and decision in a "
+            "tamper-evident SHA-256 hash chain with instant live verification."
+        ),
+        "content_hi": (
+            "अपार-सत्यापन (APAAR-Verify, स्मार्ट इंडिया हैकाथॉन 2026, विचार आईडी 225558) एआईसीटीई और शिक्षा मंत्रालय के लिए "
+            "विकसित एक अत्याधुनिक संस्थागत सत्यापन और शासन मंच है। यह एनईपी 2020 के 'वन नेशन, वन स्टूडेंट आईडी' के तहत "
+            "स्वचालित सत्यापन, 12-अंकीय चेक-डिजिट सत्यापन, बहु-भाषी इंडिक मिलान (हिंदी, तमिल, आदि) और क्रॉस-कॉलेज डुप्लिकेट "
+            "धोखाधड़ी की रोकथाम करता है।"
+        ),
+        "content_ta": (
+            "அபார்-சரிபார்ப்பு (APAAR-Verify, ஸ்மார்ட் இந்தியா ஹேக்கத்தான் 2026, யோசனை ஐடி 225558) என்பது AICTE மற்றும் "
+            "கல்வி அமைச்சகத்திற்காக உருவாக்கப்பட்ட ஒரு மாணவர் தரவு சரிபார்ப்பு தளமாகும். புதிய கல்விக் கொள்கை (NEP 2020) இன் "
+            "'ஒரே தேசம், ஒரே மாணவர் ஐடி' திட்டத்தின் கீழ் 12 இலக்க அபார் ஐடி சரிபார்ப்பு, போலி சேர்க்கை கண்டறிதல், மற்றும் "
+            "SHA-256 தணிக்கை சங்கிலி ஆகியவற்றை இது தானியக்கமாக்குகிறது."
+        ),
         "keywords": ["project", "explain", "overview", "what is", "about", "mission", "sih", "225558", "idea", "architecture", "features", "திட்டம்", "அறிமுகம்", "योजना"]
     },
     {
