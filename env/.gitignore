@@ -15,7 +15,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 venv/
 .venv/
 pip-log.txt
@@ -50,5 +49,3 @@ Thumbs.db
 # Docker & Services
 data/qdrant_data/
 data/redis_data/
-
-.vercel
